@@ -140,7 +140,12 @@ p  { color: var(--text-muted); line-height: 1.7; }
 .nav__link { color: var(--primary); text-decoration: none; font-size: .88rem; font-weight: 500; }
 .nav__link:hover { text-decoration: underline; }
 .nav__link--active { font-weight: 600; }
-@media (max-width: 640px) { .nav__links { display: none; } .nav__link { display: none; } .nav__brand { max-width: 55vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } }
+@media (max-width: 640px) {
+  .nav__links { display: none; }
+  .nav__brand { max-width: 45vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nav__actions .btn--outline { display: none; }
+  .nav__link { font-size: .78rem; white-space: nowrap; }
+}
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn {
