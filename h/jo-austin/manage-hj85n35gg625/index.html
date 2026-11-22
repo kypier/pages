@@ -195,6 +195,71 @@
       margin-bottom: 10px;
     }
 
+    /* ── Listing management ── */
+    .listing-remove-btn {
+      background: none;
+      border: 1.5px solid var(--sand);
+      border-radius: 7px;
+      padding: 5px 11px;
+      font-size: .75rem;
+      font-weight: 600;
+      font-family: inherit;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .listing-remove-btn:hover { border-color: var(--red); color: var(--red); }
+    .listing-airbnb-link {
+      font-size: .75rem;
+      color: var(--muted);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .listing-airbnb-link:hover { color: var(--green); text-decoration: underline; }
+    .undo-bar {
+      display: none;
+      background: #FFF8E1;
+      border: 1px solid #FFE082;
+      border-radius: 7px;
+      padding: 8px 14px;
+      font-size: .82rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .undo-bar.show { display: flex; }
+    .undo-btn {
+      background: none; border: none; color: var(--green);
+      font-size: .82rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      padding: 0; white-space: nowrap;
+    }
+    .add-account-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .add-account-card h3 { font-size: .95rem; font-weight: 600; margin-bottom: 4px; }
+    .add-account-card p { font-size: .82rem; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+    .add-account-row { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+    .add-account-row input { flex: 1; min-width: 200px; }
+    .add-account-btn {
+      background: var(--green); color: #fff; border: none;
+      border-radius: 8px; padding: 10px 18px; font-size: .875rem;
+      font-weight: 600; font-family: inherit; cursor: pointer;
+      white-space: nowrap; transition: opacity .15s; flex-shrink: 0;
+    }
+    .add-account-btn:hover { opacity: .9; }
+    .add-account-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .add-account-status { font-size: .82rem; margin-top: 8px; min-height: 18px; }
+    .add-account-status.ok  { color: var(--green); font-weight: 600; }
+    .add-account-status.err { color: var(--red); }
+    .add-account-status.info { color: var(--muted); }
+
     /* ── Save bar ── */
     .save-bar {
       position: fixed;
@@ -518,14 +583,22 @@
     <!-- ── Your Listings ── -->
     <div class="section-label">Your Listings</div>
 
-    <div class="card">
+    <div class="card" id="listing-card-1280710848136631636">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280710848136631636&#x2F;original&#x2F;84cb9a64-b898-4d36-a5c7-e6239b52b6cc.jpeg" alt="Room near Downtown Austin" />
         
-        <div class="listing-header-text">
+        <div class="listing-header-text" style="flex:1;min-width:0;">
           <h3>Room near Downtown Austin</h3>
           <span>Austin</span>
         </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
+          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280710848136631636" target="_blank" rel="noopener">Airbnb ↗</a>
+          <button class="listing-remove-btn" data-id="1280710848136631636" data-title="Room near Downtown Austin">Remove</button>
+        </div>
+      </div>
+      <div class="undo-bar" id="undo-1280710848136631636">
+        <span>Removed — will disappear on next rebuild.</span>
+        <button class="undo-btn" data-id="1280710848136631636">Undo</button>
       </div>
 
       <div class="card-section">
@@ -562,14 +635,22 @@
         <div class="char-count" id="about-count-1280710848136631636">0/600</div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="listing-card-1280723453874434740">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280723453874434740&#x2F;original&#x2F;d3aff8e2-0e9e-45cb-a5c7-f55dcd7af48d.jpeg" alt="Room in Austin: Near DT, Airport" />
         
-        <div class="listing-header-text">
+        <div class="listing-header-text" style="flex:1;min-width:0;">
           <h3>Room in Austin: Near DT, Airport</h3>
           <span>Austin</span>
         </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
+          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280723453874434740" target="_blank" rel="noopener">Airbnb ↗</a>
+          <button class="listing-remove-btn" data-id="1280723453874434740" data-title="Room in Austin: Near DT, Airport">Remove</button>
+        </div>
+      </div>
+      <div class="undo-bar" id="undo-1280723453874434740">
+        <span>Removed — will disappear on next rebuild.</span>
+        <button class="undo-btn" data-id="1280723453874434740">Undo</button>
       </div>
 
       <div class="card-section">
@@ -606,14 +687,22 @@
         <div class="char-count" id="about-count-1280723453874434740">0/600</div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="listing-card-1280718313866356892">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" alt="Room in Austin, Texas" />
         
-        <div class="listing-header-text">
+        <div class="listing-header-text" style="flex:1;min-width:0;">
           <h3>Room in Austin, Texas</h3>
           <span>Austin</span>
         </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
+          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280718313866356892" target="_blank" rel="noopener">Airbnb ↗</a>
+          <button class="listing-remove-btn" data-id="1280718313866356892" data-title="Room in Austin, Texas">Remove</button>
+        </div>
+      </div>
+      <div class="undo-bar" id="undo-1280718313866356892">
+        <span>Removed — will disappear on next rebuild.</span>
+        <button class="undo-btn" data-id="1280718313866356892">Undo</button>
       </div>
 
       <div class="card-section">
@@ -649,6 +738,19 @@
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-1280718313866356892">0/600</div>
       </div>
+    </div>
+
+    <!-- Add listings from another account -->
+    <div class="add-account-card">
+      <h3>Add listings from another account</h3>
+      <p>Paste any listing URL from your other Airbnb account. We'll find all listings under it and add them to your site.</p>
+      <label for="add-account-url">Airbnb listing URL</label>
+      <div class="add-account-row">
+        <input type="text" id="add-account-url" placeholder="https://www.airbnb.com/rooms/12345678"
+          autocomplete="off" autocapitalize="none" spellcheck="false" />
+        <button type="button" class="add-account-btn" id="add-account-btn">Add account →</button>
+      </div>
+      <div class="add-account-status" id="add-account-status"></div>
     </div>
 
     <!-- ── About You ── -->
@@ -1172,6 +1274,107 @@
         btn.textContent = 'Send to agent →';
       });
     });
+
+    // ── Remove listing ────────────────────────────────────────────
+    document.querySelectorAll('.listing-remove-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var id    = btn.dataset.id;
+        var title = btn.dataset.title;
+        var undoBar = document.getElementById('undo-' + id);
+
+        btn.disabled = true;
+        btn.textContent = 'Removing…';
+
+        try {
+          var res  = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug:           SLUG,
+              manage_token:   MANAGE_TOKEN,
+              session_token:  SESSION_TOKEN,
+              listing_action: { type: 'remove', listing_id: id },
+            }),
+          });
+          var json = await res.json();
+          if (!json.ok) {
+            btn.disabled = false;
+            btn.textContent = 'Remove';
+            showToast('⚠ ' + (json.error || 'Could not remove listing'));
+            return;
+          }
+          // Show undo bar
+          btn.style.display = 'none';
+          if (undoBar) {
+            undoBar.classList.add('show');
+            setTimeout(function() { undoBar.classList.remove('show'); }, 5000);
+          }
+        } catch (_) {
+          btn.disabled = false;
+          btn.textContent = 'Remove';
+          showToast('Could not connect. Please try again.');
+        }
+      });
+    });
+
+    // Undo remove — full page reload to restore state from server
+    document.querySelectorAll('.undo-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        window.location.reload();
+      });
+    });
+
+    // ── Add account ──────────────────────────────────────────────
+    (function() {
+      var addBtn    = document.getElementById('add-account-btn');
+      var addInput  = document.getElementById('add-account-url');
+      var addStatus = document.getElementById('add-account-status');
+      if (!addBtn) return;
+
+      addBtn.addEventListener('click', async function() {
+        var url = (addInput.value || '').trim();
+        if (!url || !url.includes('airbnb.com/rooms/')) {
+          addStatus.className = 'add-account-status err';
+          addStatus.textContent = 'Paste a full Airbnb listing URL (airbnb.com/rooms/...)';
+          return;
+        }
+
+        addBtn.disabled = true;
+        addBtn.textContent = 'Adding…';
+        addStatus.className = 'add-account-status info';
+        addStatus.textContent = 'Finding listings…';
+
+        try {
+          var res  = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug:           SLUG,
+              manage_token:   MANAGE_TOKEN,
+              session_token:  SESSION_TOKEN,
+              listing_action: { type: 'add_account', airbnb_url: url },
+            }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            addStatus.className = 'add-account-status ok';
+            addStatus.textContent = json.added_listings
+              ? '✓ Found ' + json.added_listings + ' listing(s) — your site is rebuilding now.'
+              : '✓ Queued — your site will update in a few minutes.';
+            addInput.value = '';
+          } else {
+            addStatus.className = 'add-account-status err';
+            addStatus.textContent = json.error || 'Something went wrong. Please try again.';
+          }
+        } catch (_) {
+          addStatus.className = 'add-account-status err';
+          addStatus.textContent = 'Could not connect. Please try again.';
+        }
+
+        addBtn.disabled = false;
+        addBtn.textContent = 'Add account →';
+      });
+    })();
 
     // ── Save & rebuild ─────────────────────────────────────────────
     document.getElementById('save-btn').addEventListener('click', async function() {
