@@ -37,7 +37,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://directbooking.kypier.com/h/jo-austin/blog/sunday-farmers-markets-in-austin-what-i-tell-my-guests/</loc>
+    <loc>https://directbooking.kypier.com/h/jo-austin/blog/parking-in-austin-what-i-tell-guests-before-arrival/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -45,6 +45,12 @@
   <url>
     <loc>https://directbooking.kypier.com/h/jo-austin/blog/new-years-eve-in-austin-local-picks/</loc>
     <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://directbooking.kypier.com/h/jo-austin/blog/farmers-market-austin-sunday-what-i-tell-every-guest/</loc>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
