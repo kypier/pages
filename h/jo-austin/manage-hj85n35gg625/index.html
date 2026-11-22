@@ -583,7 +583,7 @@
     <!-- ── Your Listings ── -->
     <div class="section-label">Your Listings</div>
 
-    <div class="card" id="listing-card-1280710848136631636">
+    <div class="card listing-section" id="listing-card-1280710848136631636" data-id="1280710848136631636">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280710848136631636&#x2F;original&#x2F;84cb9a64-b898-4d36-a5c7-e6239b52b6cc.jpeg" alt="Room near Downtown Austin" />
         
@@ -635,7 +635,7 @@
         <div class="char-count" id="about-count-1280710848136631636">0/600</div>
       </div>
     </div>
-    <div class="card" id="listing-card-1280723453874434740">
+    <div class="card listing-section" id="listing-card-1280723453874434740" data-id="1280723453874434740">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280723453874434740&#x2F;original&#x2F;d3aff8e2-0e9e-45cb-a5c7-f55dcd7af48d.jpeg" alt="Room in Austin: Near DT, Airport" />
         
@@ -687,7 +687,7 @@
         <div class="char-count" id="about-count-1280723453874434740">0/600</div>
       </div>
     </div>
-    <div class="card" id="listing-card-1280718313866356892">
+    <div class="card listing-section" id="listing-card-1280718313866356892" data-id="1280718313866356892">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" alt="Room in Austin, Texas" />
         
@@ -739,7 +739,7 @@
         <div class="char-count" id="about-count-1280718313866356892">0/600</div>
       </div>
     </div>
-    <div class="card" id="listing-card-973861068087887577">
+    <div class="card listing-section" id="listing-card-973861068087887577" data-id="973861068087887577">
       <div class="listing-header">
         <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-973861068087887577&#x2F;original&#x2F;c7223fa7-00b1-4c2d-bb22-76bf7fd5938e.jpeg" alt="3BR Austin DT: Stylish Stay Near UT &amp; Airport" />
         
@@ -1013,8 +1013,8 @@
 
   <!-- ── Sticky save bar ── -->
   <div class="save-bar">
-    <span class="save-note">Changes will appear on your site in ~2&nbsp;minutes.</span>
-    <button class="save-btn" id="save-btn">Save &amp; rebuild →</button>
+    <span class="save-note" id="save-note"></span>
+    <button class="save-btn" id="save-btn" disabled>Save →</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -1046,6 +1046,9 @@
     // ── Per-listing blocked date state ─────────────────────────────
     var blockedMap = {}; // listing_id → [date strings]
 
+    // placeholder — redefined after dirty-tracking setup below
+    var updateSaveBtn = function() {};
+
     // ── Initialise flatpickr for each listing ──────────────────────
     document.querySelectorAll('.date-picker').forEach(function(input) {
       var id      = input.dataset.id;
@@ -1061,6 +1064,7 @@
         onChange: function(dates) {
           blockedMap[id] = dates.map(function(d) { return d.toISOString().split('T')[0]; });
           renderTags(id, fp);
+          updateSaveBtn();
         },
       });
 
@@ -1428,25 +1432,85 @@
       });
     })();
 
-    // ── Save & rebuild ─────────────────────────────────────────────
+    // ── Dirty tracking ─────────────────────────────────────────────
+    // Capture initial values for all fields that go through the Save button.
+    // Content agent and listing remove/add have their own buttons — excluded.
+
+    var initialAboutHost = (document.getElementById('about-host') || {}).value || '';
+
+    // Per-listing initial overrides
+    var initialOverrides = {};
+    document.querySelectorAll('.listing-section').forEach(function(sec) {
+      var id = sec.dataset.id;
+      if (!id) return;
+      initialOverrides[id] = {
+        nightly_rate: (sec.querySelector('.listing-rate') || {}).value || '',
+        about:        (sec.querySelector('.listing-about') || {}).value || '',
+        currency:     (sec.querySelector('.listing-currency') || {}).value || 'usd',
+        blocked:      JSON.stringify((blockedMap[id] || []).slice().sort()),
+      };
+    });
+
+    var initialDomain = (document.getElementById('custom-domain-input') || {}).value || '';
+
+    updateSaveBtn = function() {
+      var aboutHost = (document.getElementById('about-host') || {}).value || '';
+      if (aboutHost !== initialAboutHost) {
+        document.getElementById('save-btn').disabled = false;
+        return;
+      }
+      var domain = (document.getElementById('custom-domain-input') || {}).value || '';
+      if (domain !== initialDomain) {
+        document.getElementById('save-btn').disabled = false;
+        return;
+      }
+      var dirty = false;
+      document.querySelectorAll('.listing-section').forEach(function(sec) {
+        var id = sec.dataset.id;
+        if (!id || dirty) return;
+        var init = initialOverrides[id] || {};
+        var rate = (sec.querySelector('.listing-rate') || {}).value || '';
+        var abt  = (sec.querySelector('.listing-about') || {}).value || '';
+        var cur  = (sec.querySelector('.listing-currency') || {}).value || 'usd';
+        var blk  = JSON.stringify((blockedMap[id] || []).slice().sort());
+        if (rate !== init.nightly_rate || abt !== init.about || cur !== init.currency || blk !== init.blocked) {
+          dirty = true;
+        }
+      });
+      document.getElementById('save-btn').disabled = !dirty;
+    };
+
+    // Listen to all Save-relevant fields
+    var aboutHostEl = document.getElementById('about-host');
+    if (aboutHostEl) aboutHostEl.addEventListener('input', updateSaveBtn);
+
+    document.querySelectorAll('.listing-section .listing-rate, .listing-section .listing-about, .listing-section .listing-currency').forEach(function(el) {
+      el.addEventListener('change', updateSaveBtn);
+      el.addEventListener('input', updateSaveBtn);
+    });
+
+    var domainInput = document.getElementById('custom-domain-input');
+    if (domainInput) domainInput.addEventListener('input', updateSaveBtn);
+
+    // ── Save handler ───────────────────────────────────────────────
     document.getElementById('save-btn').addEventListener('click', async function() {
       var btn    = document.getElementById('save-btn');
+      var note   = document.getElementById('save-note');
       var errBan = document.getElementById('error-banner');
       errBan.style.display = 'none';
 
       btn.disabled = true;
       btn.textContent = 'Saving…';
+      if (note) note.textContent = '';
 
-      var domainInput = document.getElementById('custom-domain-input');
-      var domainValue = domainInput ? domainInput.value.trim().toLowerCase()
+      var domainVal = domainInput ? domainInput.value.trim().toLowerCase()
         .replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '') : '';
 
-      // Warn if domain entered but not validated (unless unchanged from saved)
-      if (domainValue && !domainValidated && domainValue !== SAVED_DOMAIN) {
-        errBan.textContent  = 'Validate your domain before saving — click "Validate DNS" first.';
+      if (domainVal && !domainValidated && domainVal !== SAVED_DOMAIN) {
+        errBan.textContent   = 'Validate your domain before saving — click "Validate DNS" first.';
         errBan.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Save & rebuild →';
+        btn.textContent = 'Save →';
         return;
       }
 
@@ -1456,7 +1520,7 @@
         session_token:     SESSION_TOKEN,
         about_host:        (document.getElementById('about-host') || {}).value || '',
         listing_overrides: collectOverrides(),
-        ...(domainValue && domainValidated ? { custom_domain: domainValue } : {}),
+        ...(domainVal && domainValidated ? { custom_domain: domainVal } : {}),
       };
 
       try {
@@ -1472,25 +1536,45 @@
             window.location.href = 'https://kypier.com/manage-login?slug=jo-austin';
             return;
           }
-          errBan.textContent  = json.error || 'Something went wrong. Please try again.';
+          errBan.textContent   = json.error || 'Something went wrong. Please try again.';
           errBan.style.display = 'block';
           btn.disabled = false;
-          btn.textContent = 'Save & rebuild →';
+          btn.textContent = 'Save →';
           return;
         }
 
-        showToast('✓ Saved — your site will update in ~2 minutes');
-        btn.textContent = 'Saved! Rebuilding…';
-        setTimeout(function() {
-          btn.disabled = false;
-          btn.textContent = 'Save & rebuild →';
-        }, 3000);
+        // Data-only (listing-patch) or full rebuild?
+        var isDataOnly = json.update_type === 'listing-patch';
+
+        showToast('✓ Saved');
+        if (note) {
+          note.textContent = isDataOnly
+            ? ''
+            : "Your site is being updated — you'll receive an email when it's live.";
+        }
+
+        // Reset dirty state — update initials to current values
+        initialAboutHost = (document.getElementById('about-host') || {}).value || '';
+        initialDomain    = domainVal;
+        document.querySelectorAll('.listing-section').forEach(function(sec) {
+          var id = sec.dataset.id;
+          if (!id) return;
+          initialOverrides[id] = {
+            nightly_rate: (sec.querySelector('.listing-rate') || {}).value || '',
+            about:        (sec.querySelector('.listing-about') || {}).value || '',
+            currency:     (sec.querySelector('.listing-currency') || {}).value || 'usd',
+            blocked:      JSON.stringify((blockedMap[id] || []).slice().sort()),
+          };
+        });
+
+        btn.textContent = 'Save →';
+        // button stays disabled (no longer dirty)
 
       } catch (e) {
-        errBan.textContent  = 'Could not connect. Please try again.';
+        errBan.textContent   = 'Could not connect. Please try again.';
         errBan.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Save & rebuild →';
+        btn.textContent = 'Save →';
       }
     });
 
