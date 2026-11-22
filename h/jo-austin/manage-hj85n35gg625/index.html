@@ -236,6 +236,18 @@
       font-size: .82rem; font-weight: 700; cursor: pointer; font-family: inherit;
       padding: 0; white-space: nowrap;
     }
+    .ical-section { margin-top: 18px; }
+    .ical-section-label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
+    .ical-feed-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--sand); font-size: .85rem; }
+    .ical-feed-row:last-child { border-bottom: none; }
+    .ical-feed-status { font-size: .75rem; color: var(--green); }
+    .ical-feed-status.err { color: var(--red); }
+    .ical-feed-label { flex: 1; font-weight: 500; }
+    .ical-outbound { margin-top: 14px; }
+    .ical-outbound-url { font-size: .78rem; font-family: monospace; background: var(--sand); padding: 6px 10px; border-radius: 6px; word-break: break-all; color: var(--ink); }
+    .ical-add-row { display: flex; gap: 8px; margin-top: 12px; }
+    .ical-add-row input { flex: 1; }
+    .ical-sync-footer { display: flex; align-items: center; gap: 12px; margin-top: 12px; font-size: .78rem; color: var(--muted); }
     .add-account-card {
       background: #fff;
       border-radius: var(--radius);
@@ -634,6 +646,31 @@
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-1280710848136631636">0/600</div>
       </div>
+
+      <!-- ── Calendar sync ── -->
+      <div class="card-section ical-section">
+        <div class="card-section-label">Calendar sync</div>
+
+
+        <div class="ical-add-row">
+          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+          <button class="btn-ghost ical-add-btn" data-listing-id="1280710848136631636" style="white-space:nowrap;">+ Add feed</button>
+        </div>
+        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+        <div class="ical-outbound">
+          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+          <div class="ical-outbound-url" id="ical-url-1280710848136631636">https://directbooking.kypier.com/h/jo-austin/listing/1280710848136631636.ics</div>
+          <button class="btn-ghost ical-copy-btn" data-listing-id="1280710848136631636" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        </div>
+
+        <div class="ical-sync-footer">
+          <span>Syncs every 6 hours</span>
+          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+          <span class="ical-sync-status" style="color:var(--green);"></span>
+        </div>
+      </div>
     </div>
     <div class="card listing-section" id="listing-card-1280723453874434740" data-id="1280723453874434740">
       <div class="listing-header">
@@ -685,6 +722,31 @@
         <textarea class="listing-about" data-id="1280723453874434740" maxlength="600"
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-1280723453874434740">0/600</div>
+      </div>
+
+      <!-- ── Calendar sync ── -->
+      <div class="card-section ical-section">
+        <div class="card-section-label">Calendar sync</div>
+
+
+        <div class="ical-add-row">
+          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+          <button class="btn-ghost ical-add-btn" data-listing-id="1280723453874434740" style="white-space:nowrap;">+ Add feed</button>
+        </div>
+        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+        <div class="ical-outbound">
+          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+          <div class="ical-outbound-url" id="ical-url-1280723453874434740">https://directbooking.kypier.com/h/jo-austin/listing/1280723453874434740.ics</div>
+          <button class="btn-ghost ical-copy-btn" data-listing-id="1280723453874434740" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        </div>
+
+        <div class="ical-sync-footer">
+          <span>Syncs every 6 hours</span>
+          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+          <span class="ical-sync-status" style="color:var(--green);"></span>
+        </div>
       </div>
     </div>
     <div class="card listing-section" id="listing-card-1280718313866356892" data-id="1280718313866356892">
@@ -738,6 +800,31 @@
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-1280718313866356892">0/600</div>
       </div>
+
+      <!-- ── Calendar sync ── -->
+      <div class="card-section ical-section">
+        <div class="card-section-label">Calendar sync</div>
+
+
+        <div class="ical-add-row">
+          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+          <button class="btn-ghost ical-add-btn" data-listing-id="1280718313866356892" style="white-space:nowrap;">+ Add feed</button>
+        </div>
+        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+        <div class="ical-outbound">
+          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+          <div class="ical-outbound-url" id="ical-url-1280718313866356892">https://directbooking.kypier.com/h/jo-austin/listing/1280718313866356892.ics</div>
+          <button class="btn-ghost ical-copy-btn" data-listing-id="1280718313866356892" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        </div>
+
+        <div class="ical-sync-footer">
+          <span>Syncs every 6 hours</span>
+          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+          <span class="ical-sync-status" style="color:var(--green);"></span>
+        </div>
+      </div>
     </div>
     <div class="card listing-section" id="listing-card-973861068087887577" data-id="973861068087887577">
       <div class="listing-header">
@@ -790,6 +877,31 @@
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-973861068087887577">0/600</div>
       </div>
+
+      <!-- ── Calendar sync ── -->
+      <div class="card-section ical-section">
+        <div class="card-section-label">Calendar sync</div>
+
+
+        <div class="ical-add-row">
+          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+          <button class="btn-ghost ical-add-btn" data-listing-id="973861068087887577" style="white-space:nowrap;">+ Add feed</button>
+        </div>
+        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+        <div class="ical-outbound">
+          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+          <div class="ical-outbound-url" id="ical-url-973861068087887577">https://directbooking.kypier.com/h/jo-austin/listing/973861068087887577.ics</div>
+          <button class="btn-ghost ical-copy-btn" data-listing-id="973861068087887577" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        </div>
+
+        <div class="ical-sync-footer">
+          <span>Syncs every 6 hours</span>
+          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+          <span class="ical-sync-status" style="color:var(--green);"></span>
+        </div>
+      </div>
     </div>
     <div class="card listing-section" id="listing-card-973904167369197808" data-id="973904167369197808">
       <div class="listing-header">
@@ -841,6 +953,31 @@
         <textarea class="listing-about" data-id="973904167369197808" maxlength="600"
           placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
         <div class="char-count" id="about-count-973904167369197808">0/600</div>
+      </div>
+
+      <!-- ── Calendar sync ── -->
+      <div class="card-section ical-section">
+        <div class="card-section-label">Calendar sync</div>
+
+
+        <div class="ical-add-row">
+          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+          <button class="btn-ghost ical-add-btn" data-listing-id="973904167369197808" style="white-space:nowrap;">+ Add feed</button>
+        </div>
+        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+        <div class="ical-outbound">
+          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+          <div class="ical-outbound-url" id="ical-url-973904167369197808">https://directbooking.kypier.com/h/jo-austin/listing/973904167369197808.ics</div>
+          <button class="btn-ghost ical-copy-btn" data-listing-id="973904167369197808" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        </div>
+
+        <div class="ical-sync-footer">
+          <span>Syncs every 6 hours</span>
+          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+          <span class="ical-sync-status" style="color:var(--green);"></span>
+        </div>
       </div>
     </div>
 
@@ -1616,6 +1753,114 @@
         addBtn.textContent = 'Add account →';
       });
     })();
+
+    // ── iCal: copy outbound link ───────────────────────────────────
+    document.querySelectorAll('.ical-copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var id  = btn.dataset.listingId;
+        var url = (document.getElementById('ical-url-' + id) || {}).textContent || '';
+        if (!url) return;
+        navigator.clipboard.writeText(url).then(function() {
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = 'Copy link'; }, 2000);
+        });
+      });
+    });
+
+    // ── iCal: add feed ─────────────────────────────────────────────
+    document.querySelectorAll('.ical-add-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var listingId = btn.dataset.listingId;
+        var row       = btn.closest('.ical-add-row');
+        var input     = row ? row.querySelector('.ical-url-input') : null;
+        var status    = btn.closest('.ical-section').querySelector('.ical-add-status');
+        var url       = input ? input.value.trim() : '';
+        if (!url) { if (status) { status.className = 'content-status ical-add-status err'; status.textContent = 'Paste an iCal URL first.'; } return; }
+
+        btn.disabled = true;
+        btn.textContent = 'Adding…';
+
+        try {
+          var res  = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug: SLUG, manage_token: MANAGE_TOKEN, session_token: SESSION_TOKEN,
+              listing_action: { type: 'add_ical', listing_id: listingId, ical_url: url, label: '' },
+            }),
+          });
+          var json = await res.json();
+          if (!json.ok) {
+            status.className = 'content-status ical-add-status err';
+            status.textContent = json.error || 'Could not add feed.';
+          } else {
+            status.className = 'content-status ical-add-status ok';
+            status.textContent = '✓ Feed added — syncing now, check back in a minute.';
+            if (input) input.value = '';
+          }
+        } catch (_) {
+          status.className = 'content-status ical-add-status err';
+          status.textContent = 'Could not connect. Please try again.';
+        }
+        btn.disabled = false;
+        btn.textContent = '+ Add feed';
+      });
+    });
+
+    // ── iCal: remove feed ──────────────────────────────────────────
+    document.querySelectorAll('.ical-remove-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var listingId = btn.dataset.listingId;
+        var icalUrl   = btn.dataset.url;
+        btn.disabled  = true;
+        try {
+          var res  = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug: SLUG, manage_token: MANAGE_TOKEN, session_token: SESSION_TOKEN,
+              listing_action: { type: 'remove_ical', listing_id: listingId, ical_url: icalUrl },
+            }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            var row = btn.closest('.ical-feed-row');
+            if (row) { row.style.opacity = '0'; setTimeout(function() { row.remove(); }, 300); }
+          } else {
+            showToast('⚠ ' + (json.error || 'Could not remove feed'));
+            btn.disabled = false;
+          }
+        } catch (_) {
+          showToast('Could not connect. Please try again.');
+          btn.disabled = false;
+        }
+      });
+    });
+
+    // ── iCal: sync now ─────────────────────────────────────────────
+    document.querySelectorAll('.ical-sync-now-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var statusEl = btn.parentElement.querySelector('.ical-sync-status');
+        btn.disabled = true;
+        if (statusEl) statusEl.textContent = '';
+        try {
+          var res  = await fetch(CONTENT_API + '/sync-calendar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug: SLUG, session_token: SESSION_TOKEN }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            if (statusEl) statusEl.textContent = 'Syncing… check back in a minute.';
+          } else {
+            if (statusEl) { statusEl.style.color = 'var(--red)'; statusEl.textContent = json.error || 'Sync failed.'; }
+          }
+        } catch (_) {
+          if (statusEl) { statusEl.style.color = 'var(--red)'; statusEl.textContent = 'Could not connect.'; }
+        }
+        btn.disabled = false;
+      });
+    });
 
     // ── Dirty tracking ─────────────────────────────────────────────
     // Capture initial values for all fields that go through the Save button.
