@@ -25,6 +25,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://directbooking.kypier.com/h/jo-austin/listing/973861068087887577.html</loc>
+    
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://directbooking.kypier.com/h/jo-austin/listing/973904167369197808.html</loc>
+    
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://directbooking.kypier.com/h/jo-austin/blog/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
