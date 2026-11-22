@@ -806,11 +806,13 @@
         <div class="card-section-label">Calendar sync</div>
 
         <div class="ical-section-label">Importing from</div>
+        <div class="ical-feeds-list">
         <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
           <span class="ical-feed-label">Calendar</span>
           <span class="ical-feed-status">✓ Synced Never</span>
           
           <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
+        </div>
         </div>
 
         <div class="ical-add-row">
@@ -1802,8 +1804,63 @@
             status.textContent = json.error || 'Could not add feed.';
           } else {
             status.className = 'content-status ical-add-status ok';
-            status.textContent = '✓ Feed added — syncing now, check back in a minute.';
+            status.textContent = '✓ Feed added — syncing now.';
             if (input) input.value = '';
+
+            // Optimistically insert the new feed row into the DOM
+            var section  = btn.closest('.ical-section');
+            var feedList = section.querySelector('.ical-feeds-list');
+            if (!feedList) {
+              // First feed — create the label + container
+              var labelEl = document.createElement('div');
+              labelEl.className = 'ical-section-label';
+              labelEl.textContent = 'Importing from';
+              feedList = document.createElement('div');
+              feedList.className = 'ical-feeds-list';
+              var addRow = section.querySelector('.ical-add-row');
+              section.insertBefore(feedList, addRow);
+              section.insertBefore(labelEl, feedList);
+            }
+            var feedRow = document.createElement('div');
+            feedRow.className = 'ical-feed-row';
+            feedRow.dataset.url = url;
+            var shortLabel = url.includes('airbnb.com') ? 'Airbnb'
+              : url.includes('vrbo.com')    ? 'VRBO'
+              : url.includes('booking.com') ? 'Booking.com'
+              : 'Calendar';
+            feedRow.innerHTML =
+              '<span class="ical-feed-label">' + shortLabel + '</span>' +
+              '<span class="ical-feed-status">Syncing…</span>' +
+              '<button class="btn-ghost ical-remove-btn" data-listing-id="' + listingId + '" data-url="' + url.replace(/"/g, '&quot;') + '" style="font-size:.75rem;">Remove</button>';
+            feedList.appendChild(feedRow);
+
+            // Wire remove handler on the new row
+            feedRow.querySelector('.ical-remove-btn').addEventListener('click', async function() {
+              var removeBtn = this;
+              removeBtn.disabled = true;
+              try {
+                var r = await fetch(API, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    slug: SLUG, manage_token: MANAGE_TOKEN, session_token: SESSION_TOKEN,
+                    listing_action: { type: 'remove_ical', listing_id: listingId, ical_url: url },
+                  }),
+                });
+                var rj = await r.json();
+                if (rj.ok) {
+                  feedRow.style.opacity = '0';
+                  feedRow.style.transition = 'opacity 0.3s';
+                  setTimeout(function() { feedRow.remove(); }, 300);
+                } else {
+                  showToast('⚠ ' + (rj.error || 'Could not remove feed'));
+                  removeBtn.disabled = false;
+                }
+              } catch (_) {
+                showToast('Could not connect. Please try again.');
+                removeBtn.disabled = false;
+              }
+            });
           }
         } catch (_) {
           status.className = 'content-status ical-add-status err';
