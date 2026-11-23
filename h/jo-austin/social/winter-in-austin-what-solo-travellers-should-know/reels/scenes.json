@@ -2,43 +2,43 @@
   {
     "scene": 1,
     "duration_seconds": 5,
-    "voiceover": "Austin in January is secretly the best time to go. Here is why.",
+    "voiceover": "Austin in January might actually be better than Austin in June",
     "on_screen_text": "Austin's secret season",
-    "visual_prompt": "Aerial drone shot of downtown Austin skyline on a clear winter morning with soft golden light and nearly empty streets."
+    "visual_prompt": "Wide aerial shot of downtown Austin skyline on a clear winter morning with soft golden light and nearly empty streets"
   },
   {
     "scene": 2,
     "duration_seconds": 5,
-    "voiceover": "Lady Bird Lake at 8am in winter. Light jacket. Almost no one around.",
-    "on_screen_text": "Lady Bird Lake trail",
-    "visual_prompt": "Ground-level shot of a person walking alone on a paved lakeside trail with still water reflecting morning light and bare trees."
+    "voiceover": "Lady Bird Lake at 8am in winter. Light jacket. Almost no one there.",
+    "on_screen_text": "Trail with no crowd",
+    "visual_prompt": "Ground-level shot of a person walking alone on Lady Bird Lake Trail at sunrise, light mist over calm water, trees lining the path"
   },
   {
     "scene": 3,
     "duration_seconds": 5,
-    "voiceover": "Franklin Barbecue on a January weekday. 45 minutes, not three hours. Go.",
-    "on_screen_text": "Franklin BBQ, shorter wait",
-    "visual_prompt": "Close-up shot of a tray of sliced brisket with smoke rising, a short line of people visible through a window behind it."
+    "voiceover": "Franklin Barbecue in January. Weekday. 45 minutes, not three hours.",
+    "on_screen_text": "45 min wait. Not 3 hrs.",
+    "visual_prompt": "Close-up shot of a tray of brisket and ribs at Franklin Barbecue with a short line of people visible through a window behind it"
   },
   {
     "scene": 4,
     "duration_seconds": 5,
-    "voiceover": "South Congress is still alive in winter. Same vibe, way fewer people crowding you.",
-    "on_screen_text": "SoCo, same energy less crowd",
-    "visual_prompt": "Wide walking-pace shot down South Congress Avenue showing colorful storefronts and cafe patios with a relaxed, lightly populated street scene."
+    "voiceover": "South Congress is still SoCo in winter. Same vibe, way fewer people.",
+    "on_screen_text": "Same energy, less crowd",
+    "visual_prompt": "Slow walking shot down South Congress Avenue past colorful storefronts and cafe patios on a quiet sunny winter afternoon"
   },
   {
     "scene": 5,
     "duration_seconds": 5,
-    "voiceover": "Light jacket weather, no summer crowds, and brisket you can actually get to.",
-    "on_screen_text": "Winter Austin is worth it",
-    "visual_prompt": "Quick three-cut montage of the lake trail, a barbecue plate, and a SoCo storefront window with warm cafe lighting inside."
+    "voiceover": "60 degrees, slow mornings, no line for the good stuff. That's the move.",
+    "on_screen_text": "60 degrees in January",
+    "visual_prompt": "Montage of a coffee cup on an outdoor cafe table, a sunny SoCo sidewalk, and boots on the Lady Bird Lake trail path"
   },
   {
     "scene": 6,
     "duration_seconds": 5,
-    "voiceover": "Book directly at the link. No fees, no middleman, just your room.",
-    "on_screen_text": "Book direct, zero fees",
-    "visual_prompt": "Clean close-up of a phone screen showing the booking URL directbooking.kypier.com with a finger tapping the book button."
+    "voiceover": "Book directly at the link below. No fees, just the good rate.",
+    "on_screen_text": "Book direct. No fees.",
+    "visual_prompt": "Clean close-up of a phone screen showing the booking URL directbooking.kypier.com with an Austin hotel exterior in soft focus behind it"
   }
 ]
