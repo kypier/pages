@@ -1013,22 +1013,18 @@
         <div class="card-section-label">Connect a custom domain</div>
         <p class="about-host-note">Replace <code>pages.kypier.com/h/jo-austin/</code> with your own domain so guests go directly to <strong>yourdomain.com</strong>.</p>
 
-        <div class="dns-connected">
-          ✓ Connected: stayeastaustin.com
-        </div>
-        <p style="font-size:.8rem;color:var(--muted);margin-top:10px;">To change your domain, enter a new one below and validate it.</p>
 
-        <div style="margin-top:12px">
+        <div style="margin-top:0">
           <label for="custom-domain-input">Domain <span class="hint">e.g. staysbyjo.com</span></label>
           <div class="domain-input-row">
             <input type="text" id="custom-domain-input" placeholder="yourdomain.com"
-              value="stayeastaustin.com" autocomplete="off" autocapitalize="none" spellcheck="false" />
+              value="" autocomplete="off" autocapitalize="none" spellcheck="false" />
             <button type="button" class="validate-btn" id="validate-domain-btn">Validate DNS</button>
           </div>
           <div class="domain-status" id="domain-status"></div>
         </div>
 
-        <div class="dns-steps" id="dns-steps" style="display:none">
+        <div class="dns-steps" id="dns-steps" style="display:block">
           <strong>How to point your domain here:</strong>
           <ol>
             <li>Add your domain to <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare</a> (free plan). They will give you two nameserver addresses.</li>
@@ -1263,7 +1259,7 @@
     var MANAGE_TOKEN = 'hj85n35gg625';
     var API          = 'https://kypier.com/manage';
     var VALIDATE_API = 'https://kypier.com/validate-domain';
-    var SAVED_DOMAIN = 'stayeastaustin.com';  // domain already in host config
+    var SAVED_DOMAIN = '';  // domain already in host config
     var domainValidated = false;             // becomes true after a successful validate call
 
     // ── Per-listing blocked date state ─────────────────────────────
@@ -1390,6 +1386,54 @@
 
         validateBtn.disabled = false;
         validateBtn.textContent = 'Validate DNS';
+      });
+    })();
+
+    // ── Remove domain ─────────────────────────────────────────────
+    (function() {
+      var btn = document.getElementById('remove-domain-btn');
+      if (!btn) return;
+      var statusEl = document.getElementById('remove-domain-status');
+
+      btn.addEventListener('click', async function() {
+        if (!confirm('Remove your custom domain? Your site will fall back to the default kypier.com URL.')) return;
+        btn.disabled = true;
+        btn.textContent = 'Removing…';
+        statusEl.style.color = 'var(--muted)';
+        statusEl.textContent = 'Removing domain…';
+
+        try {
+          var res = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug: SLUG, manage_token: MANAGE_TOKEN, session_token: SESSION_TOKEN,
+              custom_domain: '',
+            }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            statusEl.style.color = 'var(--green)';
+            statusEl.textContent = '✓ Domain removed.';
+            // Hide the connected badge and button
+            var connectedDiv = btn.closest('.dns-connected');
+            if (connectedDiv) connectedDiv.style.display = 'none';
+            btn.style.display = 'none';
+            // Show DNS steps so user can connect a new domain
+            var stepsEl = document.getElementById('dns-steps');
+            if (stepsEl) stepsEl.style.display = 'block';
+          } else {
+            statusEl.style.color = 'var(--red)';
+            statusEl.textContent = json.error || 'Failed to remove domain.';
+            btn.disabled = false;
+            btn.textContent = 'Remove';
+          }
+        } catch (_) {
+          statusEl.style.color = 'var(--red)';
+          statusEl.textContent = 'Could not connect. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Remove';
+        }
       });
     })();
 
