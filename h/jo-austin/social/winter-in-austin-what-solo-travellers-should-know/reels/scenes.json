@@ -1,0 +1,44 @@
+[
+  {
+    "scene": 1,
+    "duration_seconds": 5,
+    "voiceover": "Austin in January is secretly the best time to go. Here is why.",
+    "on_screen_text": "Austin's secret season",
+    "visual_prompt": "Aerial drone shot of downtown Austin skyline on a clear winter morning with soft golden light and nearly empty streets."
+  },
+  {
+    "scene": 2,
+    "duration_seconds": 5,
+    "voiceover": "Lady Bird Lake at 8am in winter. Light jacket. Almost no one around.",
+    "on_screen_text": "Lady Bird Lake trail",
+    "visual_prompt": "Ground-level shot of a person walking alone on a paved lakeside trail with still water reflecting morning light and bare trees."
+  },
+  {
+    "scene": 3,
+    "duration_seconds": 5,
+    "voiceover": "Franklin Barbecue on a January weekday. 45 minutes, not three hours. Go.",
+    "on_screen_text": "Franklin BBQ, shorter wait",
+    "visual_prompt": "Close-up shot of a tray of sliced brisket with smoke rising, a short line of people visible through a window behind it."
+  },
+  {
+    "scene": 4,
+    "duration_seconds": 5,
+    "voiceover": "South Congress is still alive in winter. Same vibe, way fewer people crowding you.",
+    "on_screen_text": "SoCo, same energy less crowd",
+    "visual_prompt": "Wide walking-pace shot down South Congress Avenue showing colorful storefronts and cafe patios with a relaxed, lightly populated street scene."
+  },
+  {
+    "scene": 5,
+    "duration_seconds": 5,
+    "voiceover": "Light jacket weather, no summer crowds, and brisket you can actually get to.",
+    "on_screen_text": "Winter Austin is worth it",
+    "visual_prompt": "Quick three-cut montage of the lake trail, a barbecue plate, and a SoCo storefront window with warm cafe lighting inside."
+  },
+  {
+    "scene": 6,
+    "duration_seconds": 5,
+    "voiceover": "Book directly at the link. No fees, no middleman, just your room.",
+    "on_screen_text": "Book direct, zero fees",
+    "visual_prompt": "Clean close-up of a phone screen showing the booking URL directbooking.kypier.com with a finger tapping the book button."
+  }
+]

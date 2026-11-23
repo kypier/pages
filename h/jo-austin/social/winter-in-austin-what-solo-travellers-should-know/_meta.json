@@ -8,6 +8,7 @@
     "image_model": "gemini-3.1-flash-image"
   },
   "reels": {
-    "status": "script_only"
+    "status": "failed",
+    "error": "all scenes failed"
   }
 }
