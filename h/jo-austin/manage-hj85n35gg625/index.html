@@ -1672,50 +1672,20 @@
       });
     });
 
-    // ── Generate Reel ─────────────────────────────────────────────
-    document.querySelectorAll('.reel-generate-btn').forEach(function(btn) {
-      btn.addEventListener('click', async function() {
-        var idx        = btn.dataset.idx;
-        var articleSlug = btn.dataset.slug;
-        var ta         = document.getElementById('reel-script-text-' + idx);
-        var status     = document.getElementById('reel-status-' + idx);
-        if (!ta || !status) return;
-
-        var scriptText = ta.value.trim();
-        var scriptB64  = scriptText ? btoa(unescape(encodeURIComponent(scriptText))) : '';
-
-        btn.disabled = true;
-        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Sending…';
-        status.className = 'content-status reel-status info';
-        status.textContent = 'Queuing Reel generation…';
-
-        try {
-          var res  = await fetch(CONTENT_API + '/reel', {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({
-              slug:          SLUG,
-              manage_token:  MANAGE_TOKEN,
-              session_token: SESSION_TOKEN,
-              article_slug:  articleSlug,
-              script_b64:    scriptB64 || null,
-            }),
-          });
-          var json = await res.json();
-          if (json.ok) {
-            status.className = 'content-status reel-status ok';
-            status.textContent = '✓ On it — your Reel will be ready to download in a few minutes.';
-          } else {
-            status.className = 'content-status reel-status err';
-            status.textContent = json.error || 'Something went wrong. Please try again.';
-          }
-        } catch (_) {
-          status.className = 'content-status reel-status err';
-          status.textContent = 'Could not connect. Please try again.';
-        }
-
-        btn.disabled = false;
-        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Generate Reel';
+    // ── Download script ───────────────────────────────────────────
+    document.querySelectorAll('.reel-download-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx  = btn.dataset.idx;
+        var slug = btn.dataset.slug;
+        var ta   = document.getElementById('reel-script-text-' + idx);
+        if (!ta) return;
+        var text = ta.value;
+        var blob = new Blob([text], { type: 'text/plain' });
+        var a    = document.createElement('a');
+        a.href   = URL.createObjectURL(blob);
+        a.download = slug + '-reels-script.txt';
+        a.click();
+        URL.revokeObjectURL(a.href);
       });
     });
 
