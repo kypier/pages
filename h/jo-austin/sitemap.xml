@@ -38,9 +38,15 @@
   </url>
   <url>
     <loc>https://directbooking.kypier.com/h/jo-austin/blog/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://directbooking.kypier.com/h/jo-austin/blog/winter-in-austin-what-solo-travellers-should-know/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://directbooking.kypier.com/h/jo-austin/blog/thanksgiving-in-austin-local-picks/</loc>
@@ -63,6 +69,12 @@
   <url>
     <loc>https://directbooking.kypier.com/h/jo-austin/blog/farmers-market-austin-sunday-what-i-tell-every-guest/</loc>
     <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://directbooking.kypier.com/h/jo-austin/blog/eating-near-mueller-austin-my-3-go-to-spots/</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

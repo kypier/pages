@@ -1,0 +1,13 @@
+{
+  "article_slug": "winter-in-austin-what-solo-travellers-should-know",
+  "host_slug": "jo-austin",
+  "generated_at": "2026-11-23T07:15:35.088Z",
+  "carousel": {
+    "status": "ready",
+    "slide_count": 6,
+    "image_model": "gemini-3.1-flash-image"
+  },
+  "reels": {
+    "status": "script_only"
+  }
+}
