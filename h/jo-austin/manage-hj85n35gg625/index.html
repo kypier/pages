@@ -641,7 +641,7 @@
         <div class="ical-feeds-list">
         <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
           <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
+          <span class="ical-feed-status">✓ Synced 5h ago</span>
           
           <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
         </div>
@@ -802,7 +802,7 @@
         <div class="ical-feeds-list">
         <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
           <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
+          <span class="ical-feed-status">✓ Synced 5h ago</span>
           
           <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
         </div>
@@ -1013,18 +1013,22 @@
         <div class="card-section-label">Connect a custom domain</div>
         <p class="about-host-note">Replace <code>pages.kypier.com/h/jo-austin/</code> with your own domain so guests go directly to <strong>yourdomain.com</strong>.</p>
 
+        <div class="dns-connected">
+          ✓ Connected: stayeastaustin.com
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:10px;">To change your domain, enter a new one below and validate it.</p>
 
-        <div style="margin-top:0">
+        <div style="margin-top:12px">
           <label for="custom-domain-input">Domain <span class="hint">e.g. staysbyjo.com</span></label>
           <div class="domain-input-row">
             <input type="text" id="custom-domain-input" placeholder="yourdomain.com"
-              value="" autocomplete="off" autocapitalize="none" spellcheck="false" />
+              value="stayeastaustin.com" autocomplete="off" autocapitalize="none" spellcheck="false" />
             <button type="button" class="validate-btn" id="validate-domain-btn">Validate DNS</button>
           </div>
           <div class="domain-status" id="domain-status"></div>
         </div>
 
-        <div class="dns-steps" id="dns-steps" style="display:block">
+        <div class="dns-steps" id="dns-steps" style="display:none">
           <strong>How to point your domain here:</strong>
           <ol>
             <li>Add your domain to <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare</a> (free plan). They will give you two nameserver addresses.</li>
@@ -1259,7 +1263,7 @@
     var MANAGE_TOKEN = 'hj85n35gg625';
     var API          = 'https://kypier.com/manage';
     var VALIDATE_API = 'https://kypier.com/validate-domain';
-    var SAVED_DOMAIN = '';  // domain already in host config
+    var SAVED_DOMAIN = 'stayeastaustin.com';  // domain already in host config
     var domainValidated = false;             // becomes true after a successful validate call
 
     // ── Per-listing blocked date state ─────────────────────────────
