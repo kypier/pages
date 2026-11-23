@@ -1,9 +1,0 @@
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Kypier//Direct Booking//EN
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-X-WR-CALNAME:2BR DT Austin Gem near Airport — Availability
-X-WR-CALDESC:Blocked dates. Import into Airbnb or VRBO to keep availability in sync.
-URL:https://directbooking.kypier.com/h/jo-austin/listing/973904167369197808.html
-END:VCALENDAR
