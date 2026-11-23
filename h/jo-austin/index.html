@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="https://stayeastaustin.com/assets/logo.jpg">
   <style>/* ============================================================
    Kypier — Generator CSS
    Design system: Coastal Slate Blue / Terracotta / Sage / Sand
@@ -133,7 +134,8 @@ p  { color: var(--text-muted); line-height: 1.7; }
   top: 44px;
   z-index: 99;
 }
-.nav__brand { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text); }
+.nav__brand { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text); display: flex; align-items: center; }
+.nav__logo { height: 36px; width: auto; object-fit: contain; display: block; }
 .nav__actions { display: flex; align-items: center; gap: .75rem; }
 .nav__links { display: flex; gap: 1.5rem; font-size: .875rem; color: var(--text-muted); }
 .nav__links a:hover { color: var(--text); }
@@ -545,7 +547,26 @@ p  { color: var(--text-muted); line-height: 1.7; }
 .text-muted { color: var(--text-muted); }
 .text-sm { font-size: .875rem; }
 .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-</style>
+
+
+:root {
+  --bg:              #F9F9F6;
+  --surface:         #FFFFFF;
+  --border:          #DDEAF5;
+  --text:            #0F1E3C;
+  --text-muted:      #4A5A7A;
+  --text-light:      #8A9AB8;
+  --primary:         #183B8C;
+  --primary-hover:   #122d6e;
+  --secondary:       #E85D4A;
+  --secondary-hover: #cc4a38;
+  --sage:            #F4D58D;
+  --sage-light:      #FDF8EE;
+  --green:           #183B8C;
+  --green-hover:     #122d6e;
+  --amber:           #E85D4A;
+  --amber-hover:     #cc4a38;
+}</style>
 </head>
 <body>
 
@@ -559,7 +580,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
 
   <!-- ── Nav ─────────────────────────────────────────────────── -->
   <nav class="nav">
-    <a class="nav__brand" href="#">Jo-Austin</a>
+    <a class="nav__brand" href="#"><img class="nav__logo" src="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;assets&#x2F;logo.jpg" alt="Jo-Austin"></a>
     <div class="nav__actions">
       <a class="nav__link" href="./blog/">Local Guide</a>
       <a class="btn btn--outline btn--sm" href="mailto:hello@StayEastAustin.com">

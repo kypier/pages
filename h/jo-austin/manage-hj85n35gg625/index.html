@@ -986,6 +986,54 @@
       </div>
     </div>
 
+    <!-- ── Branding ── -->
+    <div class="section-label">Branding</div>
+    <div class="card">
+      <div class="card-section">
+        <div class="card-section-label">Site Theme</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="radio" name="site-theme" id="theme-coastal-slate" value="coastal-slate" >
+            <span>
+              <strong>Coastal Slate</strong>
+              <span class="hint" style="margin-left:6px;">Warm Sand · Slate Blue · Terracotta</span>
+            </span>
+            <span style="display:inline-flex;gap:4px;margin-left:auto;">
+              <span style="width:16px;height:16px;border-radius:50%;background:#F5EFE6;border:1px solid #ccc;"></span>
+              <span style="width:16px;height:16px;border-radius:50%;background:#1B2E3C;"></span>
+              <span style="width:16px;height:16px;border-radius:50%;background:#C25E3E;"></span>
+            </span>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="radio" name="site-theme" id="theme-cobalt-riviera" value="cobalt-riviera" checked>
+            <span>
+              <strong>Cobalt Riviera</strong>
+              <span class="hint" style="margin-left:6px;">Salt Air White · Cobalt Blue · Coral</span>
+            </span>
+            <span style="display:inline-flex;gap:4px;margin-left:auto;">
+              <span style="width:16px;height:16px;border-radius:50%;background:#F9F9F6;border:1px solid #ccc;"></span>
+              <span style="width:16px;height:16px;border-radius:50%;background:#183B8C;"></span>
+              <span style="width:16px;height:16px;border-radius:50%;background:#E85D4A;"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="card-section" style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;">
+        <div class="card-section-label">Logo URL</div>
+        <p class="about-host-note">Paste a URL to your logo image (JPG, PNG, or SVG). It will appear in the nav on all pages.</p>
+        <div style="margin-bottom:10px;">
+          <img src="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;assets&#x2F;logo.jpg" alt="Current logo" style="height:40px;object-fit:contain;border-radius:4px;background:#f5f5f5;padding:4px 8px;border:1px solid var(--border);">
+        </div>
+        <input type="text" id="branding-logo-url" placeholder="https://example.com/logo.png" value="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;assets&#x2F;logo.jpg" autocomplete="off" />
+      </div>
+
+      <div style="margin-top:16px;">
+        <button type="button" class="save-btn" id="save-branding-btn">Save branding</button>
+        <span class="save-status" id="save-branding-status"></span>
+      </div>
+    </div>
+
     <!-- ── Custom Domain ── -->
     <div class="section-label">Your Domain</div>
     <div class="card">
@@ -2260,6 +2308,51 @@ Add music via Instagram or CapCut before posting.</textarea>
         btn.textContent = 'Save →';
       }
     });
+
+    // ── Branding save ───────────────────────────────────────────
+    var saveBrandingBtn = document.getElementById('save-branding-btn');
+    if (saveBrandingBtn) {
+      saveBrandingBtn.addEventListener('click', async function() {
+        var btn    = saveBrandingBtn;
+        var status = document.getElementById('save-branding-status');
+        var errBan = document.getElementById('error-banner');
+        errBan.style.display = 'none';
+        btn.disabled    = true;
+        btn.textContent = 'Saving…';
+        if (status) status.textContent = '';
+
+        var selectedTheme = (document.querySelector('input[name="site-theme"]:checked') || {}).value || 'coastal-slate';
+        var logoUrl       = (document.getElementById('branding-logo-url') || {}).value?.trim() || '';
+
+        try {
+          var res  = await fetch(API, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              slug:          SLUG,
+              manage_token:  MANAGE_TOKEN,
+              session_token: SESSION_TOKEN,
+              theme:         selectedTheme,
+              logo_url:      logoUrl,
+            }),
+          });
+          var json = await res.json();
+          if (!json.ok) {
+            if (json.auth === false) { window.location.href = 'https://kypier.com/manage-login?slug=jo-austin'; return; }
+            errBan.textContent = json.error || 'Something went wrong.';
+            errBan.style.display = 'block';
+          } else {
+            showToast('✓ Branding saved');
+            if (status) status.textContent = "Your site is being updated.";
+          }
+        } catch(e) {
+          errBan.textContent   = 'Could not connect. Please try again.';
+          errBan.style.display = 'block';
+        }
+        btn.disabled    = false;
+        btn.textContent = 'Save branding';
+      });
+    }
 
   })();
   </script>
