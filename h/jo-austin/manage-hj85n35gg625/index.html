@@ -655,7 +655,7 @@
         <div class="ical-feeds-list">
         <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
           <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
+          <span class="ical-feed-status">✓ Synced 1h ago</span>
           
           <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
         </div>
@@ -816,7 +816,7 @@
         <div class="ical-feeds-list">
         <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
           <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
+          <span class="ical-feed-status">✓ Synced 1h ago</span>
           
           <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
         </div>
@@ -1017,6 +1017,48 @@
         <textarea id="about-host" maxlength="300"
           placeholder="Tell guests a bit about yourself as a host…"></textarea>
         <div class="char-count" id="about-host-count">0/300</div>
+      </div>
+    </div>
+
+    <!-- ── Contact Methods ── -->
+    <div class="section-label">Contact Methods</div>
+    <div class="card">
+      <div class="card-section">
+        <div class="card-section-label">How guests reach you</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Choose which contact options to show on your site. These appear in the nav, the contact section, and the booking widget.</p>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--sand);">
+          <div>
+            <div style="font-size:.875rem;font-weight:600;">WhatsApp</div>
+            <div style="font-size:.8rem;color:var(--muted);">+15127978671</div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
+            <input type="checkbox" id="contact-wa-toggle" checked style="width:16px;height:16px;">
+            Show
+          </label>
+        </div>
+
+        <div style="padding:12px 0;border-bottom:1px solid var(--sand);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="font-size:.875rem;font-weight:600;">Email</div>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
+              <input type="checkbox" id="contact-email-toggle"  style="width:16px;height:16px;">
+              Show
+            </label>
+          </div>
+          <input type="email" id="contact-email-value" placeholder="your@email.com" value="" />
+        </div>
+
+        <div style="padding:12px 0;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="font-size:.875rem;font-weight:600;">Instagram</div>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
+              <input type="checkbox" id="contact-instagram-toggle"  style="width:16px;height:16px;">
+              Show
+            </label>
+          </div>
+          <input type="text" id="contact-instagram-value" placeholder="yourbrand (without @)" value="" />
+        </div>
       </div>
     </div>
 
@@ -2131,6 +2173,20 @@ Add music via Instagram or CapCut before posting.</textarea>
         document.getElementById('save-btn').disabled = false;
         return;
       }
+      // Contact channels dirty check
+      var waEl    = document.getElementById('contact-wa-toggle');
+      var emailEl = document.getElementById('contact-email-toggle');
+      var emailVEl= document.getElementById('contact-email-value');
+      var instaEl = document.getElementById('contact-instagram-toggle');
+      var instaVEl= document.getElementById('contact-instagram-value');
+      if ((waEl    && waEl.checked     !== initialContactWa)    ||
+          (emailEl && emailEl.checked  !== initialContactEmail)  ||
+          (emailVEl && emailVEl.value  !== initialEmailValue)    ||
+          (instaEl && instaEl.checked  !== initialContactInsta)  ||
+          (instaVEl && instaVEl.value  !== initialInstaValue)) {
+        document.getElementById('save-btn').disabled = false;
+        return;
+      }
       var dirty = false;
       document.querySelectorAll('.listing-section').forEach(function(sec) {
         var id = sec.dataset.id;
@@ -2159,6 +2215,22 @@ Add music via Instagram or CapCut before posting.</textarea>
     var domainInput = document.getElementById('custom-domain-input');
     if (domainInput) domainInput.addEventListener('input', updateSaveBtn);
 
+    // ── Contact channels dirty tracking ───────────────────────────
+    var initialContactWa    = (document.getElementById('contact-wa-toggle')    || {}).checked ?? true;
+    var initialContactEmail = (document.getElementById('contact-email-toggle') || {}).checked ?? false;
+    var initialEmailValue   = (document.getElementById('contact-email-value')  || {}).value   || '';
+    var initialContactInsta = (document.getElementById('contact-instagram-toggle') || {}).checked ?? false;
+    var initialInstaValue   = (document.getElementById('contact-instagram-value')  || {}).value || '';
+
+    ['contact-wa-toggle','contact-email-toggle','contact-instagram-toggle'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('change', updateSaveBtn);
+    });
+    ['contact-email-value','contact-instagram-value'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateSaveBtn);
+    });
+
     // ── Save handler ───────────────────────────────────────────────
     document.getElementById('save-btn').addEventListener('click', async function() {
       var btn    = document.getElementById('save-btn');
@@ -2181,6 +2253,12 @@ Add music via Instagram or CapCut before posting.</textarea>
         return;
       }
 
+      var contactWaToggle    = document.getElementById('contact-wa-toggle');
+      var contactEmailToggle = document.getElementById('contact-email-toggle');
+      var contactEmailInput  = document.getElementById('contact-email-value');
+      var contactInstaToggle = document.getElementById('contact-instagram-toggle');
+      var contactInstaInput  = document.getElementById('contact-instagram-value');
+
       var payload = {
         slug:              SLUG,
         manage_token:      MANAGE_TOKEN,
@@ -2188,6 +2266,15 @@ Add music via Instagram or CapCut before posting.</textarea>
         about_host:        (document.getElementById('about-host') || {}).value || '',
         listing_overrides: collectOverrides(),
         ...(domainVal && domainValidated ? { custom_domain: domainVal } : {}),
+        contact_channels: {
+          whatsapp:  contactWaToggle  ? contactWaToggle.checked  : true,
+          email:     contactEmailToggle && contactEmailToggle.checked
+                       ? (contactEmailInput  ? contactEmailInput.value.trim()  : '')
+                       : '',
+          instagram: contactInstaToggle && contactInstaToggle.checked
+                       ? (contactInstaInput  ? contactInstaInput.value.trim()  : '')
+                       : '',
+        },
       };
 
       try {
@@ -2221,8 +2308,13 @@ Add music via Instagram or CapCut before posting.</textarea>
         }
 
         // Reset dirty state — update initials to current values
-        initialAboutHost = (document.getElementById('about-host') || {}).value || '';
-        initialDomain    = domainVal;
+        initialAboutHost    = (document.getElementById('about-host') || {}).value || '';
+        initialDomain       = domainVal;
+        initialContactWa    = contactWaToggle    ? contactWaToggle.checked    : initialContactWa;
+        initialContactEmail = contactEmailToggle ? contactEmailToggle.checked : initialContactEmail;
+        initialEmailValue   = contactEmailInput  ? contactEmailInput.value    : initialEmailValue;
+        initialContactInsta = contactInstaToggle ? contactInstaToggle.checked : initialContactInsta;
+        initialInstaValue   = contactInstaInput  ? contactInstaInput.value    : initialInstaValue;
         document.querySelectorAll('.listing-section').forEach(function(sec) {
           var id = sec.dataset.id;
           if (!id) return;
