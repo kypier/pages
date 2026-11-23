@@ -1,0 +1,44 @@
+[
+  {
+    "scene": 1,
+    "duration_seconds": 5,
+    "voiceover": "Most people sleep through the best hour in Nairobi on Christmas morning.",
+    "on_screen_text": "7am changes everything",
+    "visual_prompt": "Golden morning light filtering through dense forest canopy in Karura Forest, mist hovering low over a dirt trail, completely empty path stretching into the trees."
+  },
+  {
+    "scene": 2,
+    "duration_seconds": 5,
+    "voiceover": "Karura Forest at 7am on Christmas Day. Barely anyone there. Entry is cheap.",
+    "on_screen_text": "Karura Forest, Nairobi",
+    "visual_prompt": "A lone walker on a sunlit forest path in Karura, shafts of warm light cutting between tall trees, dew still visible on the ground."
+  },
+  {
+    "scene": 3,
+    "duration_seconds": 5,
+    "voiceover": "Skip the overbooked spots. Talisman has a garden, good food, and zero tourist chaos.",
+    "on_screen_text": "Christmas lunch, no stress",
+    "visual_prompt": "A relaxed outdoor garden restaurant setting with lush greenery, families seated at tables under shade, plates of food arriving, warm afternoon light."
+  },
+  {
+    "scene": 4,
+    "duration_seconds": 5,
+    "voiceover": "The 26th hits different. Uhuru Gardens is free and full of local families unwinding.",
+    "on_screen_text": "Free. Local. No tourists.",
+    "visual_prompt": "Wide open green parkland at Uhuru Gardens, Nairobi families walking and sitting on the grass, soft overcast Boxing Day light, calm and unhurried atmosphere."
+  },
+  {
+    "scene": 5,
+    "duration_seconds": 5,
+    "voiceover": "This is how Nairobi actually spends the holidays. No itinerary needed.",
+    "on_screen_text": "Real Nairobi, real Christmas",
+    "visual_prompt": "A quick three-shot sequence cutting between forest trail, garden restaurant, and park lawn, all feeling local and lived-in rather than staged."
+  },
+  {
+    "scene": 6,
+    "duration_seconds": 5,
+    "voiceover": "Book your stay directly at the link below and pay zero booking fees.",
+    "on_screen_text": "Book direct, no fees",
+    "visual_prompt": "Clean graphic screen showing the URL directbooking.kypier.com/h/jo-kenyata/ centered on a warm neutral background with a simple tap-here animation."
+  }
+]

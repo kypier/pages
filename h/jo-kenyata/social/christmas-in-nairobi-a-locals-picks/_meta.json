@@ -1,0 +1,14 @@
+{
+  "article_slug": "christmas-in-nairobi-a-locals-picks",
+  "host_slug": "jo-kenyata",
+  "generated_at": "2026-11-23T22:00:08.597Z",
+  "carousel": {
+    "status": "ready",
+    "slide_count": 6,
+    "image_model": "gemini-3.1-flash-image"
+  },
+  "reels": {
+    "status": "script_ready",
+    "generated_at": "2026-11-23T22:00:21.265Z"
+  }
+}
