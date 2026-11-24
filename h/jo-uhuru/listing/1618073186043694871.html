@@ -822,9 +822,20 @@ p  { color: var(--text-muted); line-height: 1.7; }
         <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:5px;">🔒 Secure Checkout</p>
         <p id="booking-error" class="booking-error" style="display:none"></p>
 
+        <a id="contact-dates-btn" class="btn btn--outline btn--full" href="mailto:hello@kaributrove.com" target="_blank" rel="noopener" style="margin-top:.5rem;text-align:center;display:none;">
+          Request dates
+        </a>
 
         <hr class="booking-widget__divider">
 
+        <div class="booking-widget__actions">
+          <a class="btn btn--outline btn--full" href="mailto:hello@kaributrove.com" target="_blank" rel="noopener">
+            
+            
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email to book
+          </a>
+        </div>
 
         <p class="booking-widget__note">
           You'll receive check-in details after booking.<br>
@@ -970,7 +981,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
         <p>Jo Uhuru · Nairobi apartments, booked securely direct.</p>
         <p class="footer__power">Powered by <a href="https://kypier.com/start" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;vertical-align:middle;margin-left:6px;"><img src="https://directbooking.kypier.com/h/jo-uhuru/assets/kypier-wordmark.jpg" alt="Kypier" style="height:28px;width:auto;object-fit:contain;"></a></p>
       </div>
-      
+      <a class="btn btn--outline" href="mailto:hello@kaributrove.com" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.4);color:#fff;">Book direct →</a>
     </div>
   </footer>
 
@@ -1026,7 +1037,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
     var API         = widget.dataset.api;
     var PRICE_API   = 'https://kypier.com/api/price';
     var BASE_URL    = location.href.split('?')[0];
-    var WA_BASE     = document.getElementById('contact-dates-btn').href || '';
+    var WA_BASE     = (document.getElementById('contact-dates-btn') || {}).href || '';
 
     var SYMS = { usd: '$', gbp: '£', eur: '€' };
     var SYM  = SYMS[CURRENCY] || CURRENCY.toUpperCase() + ' ';
