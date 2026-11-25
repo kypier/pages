@@ -391,10 +391,11 @@ p  { color: var(--text-muted); line-height: 1.7; }
 }
 .footer__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .footer__brand h3 { font-family: var(--font-serif); font-size: 1.25rem; color: #fff; margin-bottom: .25rem; }
-.footer__brand p { font-size: .8125rem; opacity: .7; }
-.footer__power { font-size: .75rem; opacity: .6; margin-top: .75rem; display: flex; align-items: center; gap: 2px; }
-.footer__power a { opacity: .85; display: inline-flex; align-items: center; }
-.footer__power a:hover { opacity: 1; }
+.footer__brand p { font-size: .8125rem; color: rgba(255,255,255,.85); }
+.footer__power { font-size: .75rem; color: rgba(255,255,255,.75); margin-top: .75rem; display: flex; align-items: center; gap: 6px; }
+.footer__power a { display: inline-flex; align-items: center; }
+.footer__power a:hover { opacity: .85; }
+.footer__power img { border-radius: 4px; }
 
 /* ── Ad slot (non-vetted hosts) ─────────────────────────────── */
 .ad-slot {
@@ -845,6 +846,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
     <span class="banner__text">
       <strong>Powered by Kypier</strong> · Get your free direct booking site
     </span>
+    <a href="https://kypier.com/start" class="banner__cta" target="_blank" rel="noopener">Get yours free →</a>
   </div>
 
   <!-- ── Nav ─────────────────────────────────────────────────── -->
