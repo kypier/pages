@@ -438,7 +438,57 @@
       margin-bottom: 2px;
     }
     .article-meta { font-size: .75rem; color: var(--muted); }
-    .article-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .article-actions { flex-shrink: 0; position: relative; }
+    .article-kebab {
+      background: none;
+      border: 1.5px solid var(--sand);
+      border-radius: 7px;
+      padding: 5px 11px;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      transition: border-color .15s, color .15s;
+    }
+    .article-kebab:hover { border-color: var(--green); color: var(--green); }
+    .article-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 4px);
+      background: #fff;
+      border: 1.5px solid var(--sand);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      min-width: 180px;
+      z-index: 50;
+      overflow: hidden;
+    }
+    .article-dropdown.open { display: block; }
+    .article-dropdown a,
+    .article-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      font-size: .85rem;
+      font-weight: 500;
+      font-family: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sand);
+      transition: background .1s;
+    }
+    .article-dropdown a:last-child,
+    .article-dropdown button:last-child { border-bottom: none; }
+    .article-dropdown a:hover,
+    .article-dropdown button:hover { background: var(--cream); }
+    .article-dropdown .dd-delete { color: var(--red); }
+    .article-dropdown .dd-locked { color: var(--light); cursor: default; }
+    .article-dropdown .dd-locked:hover { background: none; }
     .btn-ghost {
       background: none;
       border: 1.5px solid var(--sand);
@@ -541,8 +591,7 @@
     .content-status.err  { color: var(--red); }
     .content-status.info { color: var(--muted); }
     @media (max-width: 480px) {
-      .article-row { flex-wrap: wrap; }
-      .article-actions { width: 100%; justify-content: flex-end; }
+      .article-row { flex-wrap: nowrap; }
     }
 
     /* ── Footer links ── */
@@ -670,7 +719,7 @@
           <div class="ical-feeds-list">
           <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
             <span class="ical-feed-label">Calendar</span>
-            <span class="ical-feed-status">✓ Synced 2h ago</span>
+            <span class="ical-feed-status">✓ Synced 3h ago</span>
             
             <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
           </div>
@@ -805,7 +854,7 @@
           <div class="ical-feeds-list">
           <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
             <span class="ical-feed-label">Calendar</span>
-            <span class="ical-feed-status">✓ Synced 2h ago</span>
+            <span class="ical-feed-status">✓ Synced 3h ago</span>
             
             <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
           </div>
@@ -1080,9 +1129,13 @@
             <div class="article-meta">Events · 2026-11-23</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;winter-in-austin-what-solo-travellers-should-know&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="0" data-slug="winter-in-austin-what-solo-travellers-should-know" data-title="Winter in Austin: What Solo Travellers Should Know">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="0" data-slug="winter-in-austin-what-solo-travellers-should-know" data-title="Winter in Austin: What Solo Travellers Should Know" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="0" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-0">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;winter-in-austin-what-solo-travellers-should-know&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="0" data-slug="winter-in-austin-what-solo-travellers-should-know" data-title="Winter in Austin: What Solo Travellers Should Know">Refine</button>
+              <button class="social-trigger-btn" data-idx="0" data-slug="winter-in-austin-what-solo-travellers-should-know">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="0" data-slug="winter-in-austin-what-solo-travellers-should-know" data-title="Winter in Austin: What Solo Travellers Should Know">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-0" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1159,9 +1212,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Events · 2026-11-21</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;thanksgiving-in-austin-local-picks&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="1" data-slug="thanksgiving-in-austin-local-picks" data-title="Thanksgiving in Austin: A Local&#39;s Picks">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="1" data-slug="thanksgiving-in-austin-local-picks" data-title="Thanksgiving in Austin: A Local&#39;s Picks" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="1" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-1">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;thanksgiving-in-austin-local-picks&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="1" data-slug="thanksgiving-in-austin-local-picks" data-title="Thanksgiving in Austin: A Local&#39;s Picks">Refine</button>
+              <button class="social-trigger-btn" data-idx="1" data-slug="thanksgiving-in-austin-local-picks">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="1" data-slug="thanksgiving-in-austin-local-picks" data-title="Thanksgiving in Austin: A Local&#39;s Picks">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-1" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1182,9 +1239,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Tips · 2026-11-22</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;parking-in-austin-what-i-tell-guests-before-arrival&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="2" data-slug="parking-in-austin-what-i-tell-guests-before-arrival" data-title="Parking in Austin: What I Tell Guests Before Arrival">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="2" data-slug="parking-in-austin-what-i-tell-guests-before-arrival" data-title="Parking in Austin: What I Tell Guests Before Arrival" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="2" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-2">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;parking-in-austin-what-i-tell-guests-before-arrival&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="2" data-slug="parking-in-austin-what-i-tell-guests-before-arrival" data-title="Parking in Austin: What I Tell Guests Before Arrival">Refine</button>
+              <button class="social-trigger-btn" data-idx="2" data-slug="parking-in-austin-what-i-tell-guests-before-arrival">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="2" data-slug="parking-in-austin-what-i-tell-guests-before-arrival" data-title="Parking in Austin: What I Tell Guests Before Arrival">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-2" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1205,9 +1266,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Events · 2026-11-21</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;new-years-eve-in-austin-local-picks&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="3" data-slug="new-years-eve-in-austin-local-picks" data-title="New Year&#39;s Eve in Austin: Where the Locals Go">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="3" data-slug="new-years-eve-in-austin-local-picks" data-title="New Year&#39;s Eve in Austin: Where the Locals Go" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="3" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-3">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;new-years-eve-in-austin-local-picks&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="3" data-slug="new-years-eve-in-austin-local-picks" data-title="New Year&#39;s Eve in Austin: Where the Locals Go">Refine</button>
+              <button class="social-trigger-btn" data-idx="3" data-slug="new-years-eve-in-austin-local-picks">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="3" data-slug="new-years-eve-in-austin-local-picks" data-title="New Year&#39;s Eve in Austin: Where the Locals Go">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-3" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1228,9 +1293,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Guide · 2026-11-22</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;farmers-market-austin-sunday-what-i-tell-every-guest&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="4" data-slug="farmers-market-austin-sunday-what-i-tell-every-guest" data-title="Farmers Market Austin Sunday: What I Tell Every Guest">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="4" data-slug="farmers-market-austin-sunday-what-i-tell-every-guest" data-title="Farmers Market Austin Sunday: What I Tell Every Guest" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="4" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-4">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;farmers-market-austin-sunday-what-i-tell-every-guest&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="4" data-slug="farmers-market-austin-sunday-what-i-tell-every-guest" data-title="Farmers Market Austin Sunday: What I Tell Every Guest">Refine</button>
+              <button class="social-trigger-btn" data-idx="4" data-slug="farmers-market-austin-sunday-what-i-tell-every-guest">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="4" data-slug="farmers-market-austin-sunday-what-i-tell-every-guest" data-title="Farmers Market Austin Sunday: What I Tell Every Guest">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-4" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1251,9 +1320,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Guide · 2026-11-23</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;eating-near-mueller-austin-my-3-go-to-spots&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="5" data-slug="eating-near-mueller-austin-my-3-go-to-spots" data-title="Eating Near Mueller Austin: My 3 Go-To Spots">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="5" data-slug="eating-near-mueller-austin-my-3-go-to-spots" data-title="Eating Near Mueller Austin: My 3 Go-To Spots" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="5" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-5">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;eating-near-mueller-austin-my-3-go-to-spots&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="5" data-slug="eating-near-mueller-austin-my-3-go-to-spots" data-title="Eating Near Mueller Austin: My 3 Go-To Spots">Refine</button>
+              <button class="social-trigger-btn" data-idx="5" data-slug="eating-near-mueller-austin-my-3-go-to-spots">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="5" data-slug="eating-near-mueller-austin-my-3-go-to-spots" data-title="Eating Near Mueller Austin: My 3 Go-To Spots">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-5" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1274,9 +1347,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Seasonal · 2026-11-21</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;christmas-week-in-austin-local-guide&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="6" data-slug="christmas-week-in-austin-local-guide" data-title="Christmas Week in Austin: A Local&#39;s Guide">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="6" data-slug="christmas-week-in-austin-local-guide" data-title="Christmas Week in Austin: A Local&#39;s Guide" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="6" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-6">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;christmas-week-in-austin-local-guide&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="6" data-slug="christmas-week-in-austin-local-guide" data-title="Christmas Week in Austin: A Local&#39;s Guide">Refine</button>
+              <button class="social-trigger-btn" data-idx="6" data-slug="christmas-week-in-austin-local-guide">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="6" data-slug="christmas-week-in-austin-local-guide" data-title="Christmas Week in Austin: A Local&#39;s Guide">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-6" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1297,9 +1374,13 @@ Add music via Instagram or CapCut before posting.</textarea>
             <div class="article-meta">Events · 2026-11-21</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;black-friday-in-austin-best-spots&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="7" data-slug="black-friday-in-austin-best-spots" data-title="Black Friday in Austin: Skip the Mall, Do This Instead">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="7" data-slug="black-friday-in-austin-best-spots" data-title="Black Friday in Austin: Skip the Mall, Do This Instead" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="7" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-7">
+              <a href="https:&#x2F;&#x2F;stayeastaustin.com&#x2F;blog&#x2F;black-friday-in-austin-best-spots&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="7" data-slug="black-friday-in-austin-best-spots" data-title="Black Friday in Austin: Skip the Mall, Do This Instead">Refine</button>
+              <button class="social-trigger-btn" data-idx="7" data-slug="black-friday-in-austin-best-spots">Generate social assets</button>
+              <button class="dd-delete article-delete-btn" data-idx="7" data-slug="black-friday-in-austin-best-spots" data-title="Black Friday in Austin: Skip the Mall, Do This Instead">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-7" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -1681,15 +1762,66 @@ Add music via Instagram or CapCut before posting.</textarea>
       });
     })();
 
+    // ── Kebab menu open/close ────────────────────────────────────
+    document.querySelectorAll('.article-kebab').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var idx = btn.dataset.idx;
+        var dd  = document.getElementById('article-dd-' + idx);
+        if (!dd) return;
+        var isOpen = dd.classList.contains('open');
+        // Close all dropdowns
+        document.querySelectorAll('.article-dropdown.open').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.article-dropdown.open').forEach(function(el) { el.classList.remove('open'); });
+    });
+
     // Refine toggle
     document.querySelectorAll('.refine-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var idx   = btn.dataset.idx;
         var panel = document.getElementById('refine-panel-' + idx);
+        // Close dropdown
+        var dd = document.getElementById('article-dd-' + idx);
+        if (dd) dd.classList.remove('open');
         if (!panel) return;
         var open = panel.classList.toggle('open');
-        btn.textContent = open ? 'Close' : 'Refine';
         if (open) panel.querySelector('textarea').focus();
+      });
+    });
+
+    // ── Social agent trigger ─────────────────────────────────────
+    document.querySelectorAll('.social-trigger-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var idx         = btn.dataset.idx;
+        var articleSlug = btn.dataset.slug;
+        var dd          = document.getElementById('article-dd-' + idx);
+        if (dd) dd.classList.remove('open');
+
+        btn.disabled    = true;
+        btn.textContent = 'Sending…';
+
+        try {
+          var res  = await fetch(CONTENT_API + '/social', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ slug: SLUG, session_token: SESSION_TOKEN, article_slug: articleSlug }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            showToast('✓ Social agent running — assets will appear in a few minutes.');
+          } else {
+            showToast('⚠ ' + (json.error || 'Could not start social agent.'));
+          }
+        } catch (_) {
+          showToast('Could not connect. Please try again.');
+        }
+
+        btn.disabled    = false;
+        btn.textContent = 'Generate social assets';
       });
     });
 
