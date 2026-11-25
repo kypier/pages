@@ -920,6 +920,21 @@
       </div>
     </div>
 
+    <!-- ── Payments ── -->
+    <div class="section-label">Payments</div>
+    <div class="card">
+      <div class="card-section">
+
+
+        <h3 style="font-size:1rem;margin-bottom:8px;">Connect Stripe to accept direct bookings</h3>
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct card payments from guests.</p>
+        <a id="stripe-connect-btn" href="#" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">
+          Connect Stripe →
+        </a>
+
+      </div>
+    </div>
+
     <!-- ── Ads placeholder ── -->
     <div class="section-label">Services</div>
     <div class="ads-placeholder">
@@ -964,6 +979,12 @@
     var SLUG         = 'karibu-trove';
     var MANAGE_TOKEN = 'fkvbqts8f26z';
     var API          = 'https://kypier.com/manage';
+
+    // ── Wire up Stripe Connect button ─────────────────────────────
+    var stripeConnectBtn = document.getElementById('stripe-connect-btn');
+    if (stripeConnectBtn) {
+      stripeConnectBtn.href = '/connect/onboard?slug=' + encodeURIComponent(SLUG) + '&session=' + encodeURIComponent(SESSION_TOKEN || '');
+    }
     var VALIDATE_API = 'https://kypier.com/validate-domain';
     var SAVED_DOMAIN = '';  // domain already in host config
     var domainValidated = false;             // becomes true after a successful validate call
