@@ -1325,15 +1325,14 @@ Add music via Instagram or CapCut before posting.</textarea>
 
     <!-- ── Payments ── -->
     <div class="section-label">Payments</div>
-    <div class="card">
+    <div class="card" id="payments-section">
       <div class="card-section">
 
 
-        <h3 style="font-size:1rem;margin-bottom:8px;">Connect Stripe to accept direct bookings</h3>
-        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct card payments from guests.</p>
-        <a id="stripe-connect-btn" href="#" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">
-          Connect Stripe →
-        </a>
+        <!-- State A: Not connected -->
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct bookings from guests.</p>
+        <a href="#" id="stripe-oauth-btn" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">Connect your Stripe account →</a>
+        <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">New to Stripe? <a href="#" id="stripe-express-btn">Create an account instead →</a></p>
 
       </div>
     </div>
@@ -1383,10 +1382,19 @@ Add music via Instagram or CapCut before posting.</textarea>
     var MANAGE_TOKEN = 'hj85n35gg625';
     var API          = 'https://kypier.com/manage';
 
-    // ── Wire up Stripe Connect button ─────────────────────────────
-    var stripeConnectBtn = document.getElementById('stripe-connect-btn');
-    if (stripeConnectBtn) {
-      stripeConnectBtn.href = '/connect/onboard?slug=' + encodeURIComponent(SLUG) + '&session=' + encodeURIComponent(SESSION_TOKEN || '');
+    // ── Wire up Stripe buttons ─────────────────────────────────────
+    var oauthBtn   = document.getElementById('stripe-oauth-btn');
+    var expressBtn = document.getElementById('stripe-express-btn');
+    if (oauthBtn)   oauthBtn.href   = 'https://kypier.com/connect/oauth?slug='   + encodeURIComponent(SLUG) + '&session=' + encodeURIComponent(SESSION_TOKEN || '');
+    if (expressBtn) expressBtn.href = 'https://kypier.com/connect/onboard?slug=' + encodeURIComponent(SLUG) + '&session=' + encodeURIComponent(SESSION_TOKEN || '');
+
+    // ── Handle Stripe OAuth return hashes ─────────────────────────
+    if (window.location.hash === '#stripe-complete') {
+      var paymentsSection = document.getElementById('payments-section');
+      if (paymentsSection) paymentsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (window.location.hash === '#stripe-error') {
+      alert('Stripe connection failed. Please try again.');
     }
     var VALIDATE_API = 'https://kypier.com/validate-domain';
     var SAVED_DOMAIN = 'stayeastaustin.com';  // domain already in host config
