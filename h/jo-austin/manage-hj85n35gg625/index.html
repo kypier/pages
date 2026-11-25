@@ -92,24 +92,31 @@
       margin-bottom: 16px;
     }
 
-    /* ── Listing card header ── */
-    .listing-header {
+    /* ── Listing selector bar ── */
+    .listing-selector-bar {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 20px 24px;
+      gap: 12px;
+      padding: 16px 20px;
       border-bottom: 1px solid var(--sand);
+      background: #fff;
     }
-    .listing-thumb {
-      width: 56px;
-      height: 56px;
+    .listing-sel-thumb {
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       object-fit: cover;
       background: var(--sand);
       flex-shrink: 0;
+      display: block;
     }
-    .listing-header-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
-    .listing-header-text span { font-size: .8rem; color: var(--muted); }
+    #listing-selector {
+      flex: 1;
+      font-weight: 600;
+      font-size: .88rem;
+      min-width: 0;
+      padding: 8px 12px;
+    }
 
     /* ── Card sections ── */
     .card-section {
@@ -581,325 +588,310 @@
     <!-- ── Your Listings ── -->
     <div class="section-label">Your Listings</div>
 
-    <div class="card listing-section" id="listing-card-1280710848136631636" data-id="1280710848136631636">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280710848136631636&#x2F;original&#x2F;84cb9a64-b898-4d36-a5c7-e6239b52b6cc.jpeg" alt="Room near Downtown Austin" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>Room near Downtown Austin</h3>
-          <span>Austin</span>
-        </div>
+    <div class="card" id="listing-card">
+
+      <!-- Selector bar -->
+      <div class="listing-selector-bar">
+        <img class="listing-sel-thumb" id="listing-sel-thumb" src="" alt="" />
+        <select id="listing-selector">
+          <option value="1280710848136631636" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280710848136631636&#x2F;original&#x2F;84cb9a64-b898-4d36-a5c7-e6239b52b6cc.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280710848136631636" data-can-remove="1">Room near Downtown Austin</option>
+          <option value="1280723453874434740" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280723453874434740&#x2F;original&#x2F;d3aff8e2-0e9e-45cb-a5c7-f55dcd7af48d.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280723453874434740" data-can-remove="1">Room in Austin: Near DT, Airport</option>
+          <option value="1280718313866356892" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280718313866356892" data-can-remove="1">Room in Austin, Texas</option>
+          <option value="973861068087887577" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-973861068087887577&#x2F;original&#x2F;c7223fa7-00b1-4c2d-bb22-76bf7fd5938e.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;973861068087887577" data-can-remove="1">3BR Austin DT: Stylish Stay Near UT &amp; Airport</option>
+        </select>
         <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280710848136631636" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="1280710848136631636" data-title="Room near Downtown Austin">Remove</button>
+          <a id="listing-airbnb-link" class="listing-airbnb-link" href="#" target="_blank" rel="noopener">Airbnb ↗</a>
+          <button id="listing-remove-btn" class="listing-remove-btn" style="display:none;">Remove</button>
         </div>
       </div>
+
+      <!-- Undo bars (per listing) -->
       <div class="undo-bar" id="undo-1280710848136631636">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="1280710848136631636">Undo</button>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="1280710848136631636"
-              value="52" min="1" placeholder="e.g. 8500" />
-          </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="1280710848136631636">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="1280710848136631636"
-          data-blocked="[]" data-ical-blocked="[&quot;2026-11-25&quot;,&quot;2026-11-26&quot;,&quot;2026-11-27&quot;,&quot;2026-12-30&quot;,&quot;2026-12-31&quot;,&quot;2027-05-24&quot;,&quot;2027-05-25&quot;,&quot;2027-05-26&quot;,&quot;2027-05-27&quot;,&quot;2027-05-28&quot;,&quot;2027-05-29&quot;,&quot;2027-05-30&quot;,&quot;2027-05-31&quot;,&quot;2027-06-01&quot;,&quot;2027-06-02&quot;,&quot;2027-06-03&quot;,&quot;2027-06-04&quot;,&quot;2027-06-05&quot;,&quot;2027-06-06&quot;,&quot;2027-06-07&quot;,&quot;2027-06-08&quot;,&quot;2027-06-09&quot;,&quot;2027-06-10&quot;,&quot;2027-06-11&quot;,&quot;2027-06-12&quot;,&quot;2027-06-13&quot;,&quot;2027-06-14&quot;,&quot;2027-06-15&quot;,&quot;2027-06-16&quot;,&quot;2027-06-17&quot;,&quot;2027-06-18&quot;,&quot;2027-06-19&quot;,&quot;2027-06-20&quot;,&quot;2027-06-21&quot;,&quot;2027-06-22&quot;,&quot;2027-06-23&quot;,&quot;2027-06-24&quot;,&quot;2027-06-25&quot;,&quot;2027-06-26&quot;,&quot;2027-06-27&quot;,&quot;2027-06-28&quot;,&quot;2027-06-29&quot;,&quot;2027-06-30&quot;,&quot;2027-07-01&quot;,&quot;2027-07-02&quot;,&quot;2027-07-03&quot;,&quot;2027-07-04&quot;,&quot;2027-07-05&quot;,&quot;2027-07-06&quot;,&quot;2027-07-07&quot;,&quot;2027-07-08&quot;,&quot;2027-07-09&quot;,&quot;2027-07-10&quot;,&quot;2027-07-11&quot;,&quot;2027-07-12&quot;,&quot;2027-07-13&quot;,&quot;2027-07-14&quot;,&quot;2027-07-15&quot;,&quot;2027-07-16&quot;,&quot;2027-07-17&quot;,&quot;2027-07-18&quot;,&quot;2027-07-19&quot;,&quot;2027-07-20&quot;,&quot;2027-07-21&quot;,&quot;2027-07-22&quot;,&quot;2027-07-23&quot;,&quot;2027-07-24&quot;,&quot;2027-07-25&quot;,&quot;2027-07-26&quot;,&quot;2027-07-27&quot;,&quot;2027-07-28&quot;,&quot;2027-07-29&quot;,&quot;2027-07-30&quot;,&quot;2027-07-31&quot;,&quot;2027-08-01&quot;,&quot;2027-08-02&quot;,&quot;2027-08-03&quot;,&quot;2027-08-04&quot;,&quot;2027-08-05&quot;,&quot;2027-08-06&quot;,&quot;2027-08-07&quot;,&quot;2027-08-08&quot;,&quot;2027-08-09&quot;,&quot;2027-08-10&quot;,&quot;2027-08-11&quot;,&quot;2027-08-12&quot;,&quot;2027-08-13&quot;,&quot;2027-08-14&quot;,&quot;2027-08-15&quot;,&quot;2027-08-16&quot;,&quot;2027-08-17&quot;,&quot;2027-08-18&quot;,&quot;2027-08-19&quot;,&quot;2027-08-20&quot;,&quot;2027-08-21&quot;,&quot;2027-08-22&quot;,&quot;2027-08-23&quot;,&quot;2027-08-24&quot;,&quot;2027-08-25&quot;,&quot;2027-08-26&quot;,&quot;2027-08-27&quot;,&quot;2027-08-28&quot;,&quot;2027-08-29&quot;,&quot;2027-08-30&quot;,&quot;2027-08-31&quot;,&quot;2027-09-01&quot;,&quot;2027-09-02&quot;,&quot;2027-09-03&quot;,&quot;2027-09-04&quot;,&quot;2027-09-05&quot;,&quot;2027-09-06&quot;,&quot;2027-09-07&quot;,&quot;2027-09-08&quot;,&quot;2027-09-09&quot;,&quot;2027-09-10&quot;,&quot;2027-09-11&quot;,&quot;2027-09-12&quot;,&quot;2027-09-13&quot;,&quot;2027-09-14&quot;,&quot;2027-09-15&quot;,&quot;2027-09-16&quot;,&quot;2027-09-17&quot;,&quot;2027-09-18&quot;,&quot;2027-09-19&quot;,&quot;2027-09-20&quot;,&quot;2027-09-21&quot;,&quot;2027-09-22&quot;,&quot;2027-09-23&quot;,&quot;2027-09-24&quot;,&quot;2027-09-25&quot;,&quot;2027-09-26&quot;,&quot;2027-09-27&quot;,&quot;2027-09-28&quot;,&quot;2027-09-29&quot;,&quot;2027-09-30&quot;,&quot;2027-10-01&quot;,&quot;2027-10-02&quot;,&quot;2027-10-03&quot;,&quot;2027-10-04&quot;,&quot;2027-10-05&quot;,&quot;2027-10-06&quot;,&quot;2027-10-07&quot;,&quot;2027-10-08&quot;,&quot;2027-10-09&quot;,&quot;2027-10-10&quot;,&quot;2027-10-11&quot;,&quot;2027-10-12&quot;,&quot;2027-10-13&quot;,&quot;2027-10-14&quot;,&quot;2027-10-15&quot;,&quot;2027-10-16&quot;,&quot;2027-10-17&quot;,&quot;2027-10-18&quot;,&quot;2027-10-19&quot;,&quot;2027-10-20&quot;,&quot;2027-10-21&quot;,&quot;2027-10-22&quot;,&quot;2027-10-23&quot;,&quot;2027-10-24&quot;,&quot;2027-10-25&quot;,&quot;2027-10-26&quot;,&quot;2027-10-27&quot;,&quot;2027-10-28&quot;,&quot;2027-10-29&quot;,&quot;2027-10-30&quot;,&quot;2027-10-31&quot;,&quot;2027-11-01&quot;,&quot;2027-11-02&quot;,&quot;2027-11-03&quot;,&quot;2027-11-04&quot;,&quot;2027-11-05&quot;,&quot;2027-11-06&quot;,&quot;2027-11-07&quot;,&quot;2027-11-08&quot;,&quot;2027-11-09&quot;,&quot;2027-11-10&quot;,&quot;2027-11-11&quot;,&quot;2027-11-12&quot;,&quot;2027-11-13&quot;,&quot;2027-11-14&quot;,&quot;2027-11-15&quot;,&quot;2027-11-16&quot;,&quot;2027-11-17&quot;,&quot;2027-11-18&quot;,&quot;2027-11-19&quot;,&quot;2027-11-20&quot;,&quot;2027-11-21&quot;,&quot;2027-11-22&quot;,&quot;2027-11-23&quot;,&quot;2027-11-24&quot;,&quot;2027-11-25&quot;]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="1280710848136631636" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-1280710848136631636">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-        <div class="ical-section-label">Importing from</div>
-        <div class="ical-feeds-list">
-        <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
-          <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
-          
-          <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
-        </div>
-        </div>
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="1280710848136631636" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-1280710848136631636">https://stayeastaustin.com/listing/1280710848136631636.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="1280710848136631636" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
-        </div>
-
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
-        </div>
-      </div>
-    </div>
-    <div class="card listing-section" id="listing-card-1280723453874434740" data-id="1280723453874434740">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280723453874434740&#x2F;original&#x2F;d3aff8e2-0e9e-45cb-a5c7-f55dcd7af48d.jpeg" alt="Room in Austin: Near DT, Airport" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>Room in Austin: Near DT, Airport</h3>
-          <span>Austin</span>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280723453874434740" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="1280723453874434740" data-title="Room in Austin: Near DT, Airport">Remove</button>
-        </div>
       </div>
       <div class="undo-bar" id="undo-1280723453874434740">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="1280723453874434740">Undo</button>
       </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="1280723453874434740"
-              value="60" min="1" placeholder="e.g. 8500" />
-          </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="1280723453874434740">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="1280723453874434740"
-          data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="1280723453874434740" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-1280723453874434740">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="1280723453874434740" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-1280723453874434740">https://stayeastaustin.com/listing/1280723453874434740.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="1280723453874434740" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
-        </div>
-
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
-        </div>
-      </div>
-    </div>
-    <div class="card listing-section" id="listing-card-1280718313866356892" data-id="1280718313866356892">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" alt="Room in Austin, Texas" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>Room in Austin, Texas</h3>
-          <span>Austin</span>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280718313866356892" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="1280718313866356892" data-title="Room in Austin, Texas">Remove</button>
-        </div>
-      </div>
       <div class="undo-bar" id="undo-1280718313866356892">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="1280718313866356892">Undo</button>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="1280718313866356892"
-              value="50" min="1" placeholder="e.g. 8500" />
-          </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="1280718313866356892">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="1280718313866356892"
-          data-blocked="[]" data-ical-blocked="[&quot;2027-08-22&quot;,&quot;2027-08-23&quot;,&quot;2027-08-24&quot;,&quot;2027-08-25&quot;,&quot;2027-08-26&quot;,&quot;2027-08-27&quot;,&quot;2027-08-28&quot;,&quot;2027-08-29&quot;,&quot;2027-08-30&quot;,&quot;2027-08-31&quot;,&quot;2027-09-01&quot;,&quot;2027-09-02&quot;,&quot;2027-09-03&quot;,&quot;2027-09-04&quot;,&quot;2027-09-05&quot;,&quot;2027-09-06&quot;,&quot;2027-09-07&quot;,&quot;2027-09-08&quot;,&quot;2027-09-09&quot;,&quot;2027-09-10&quot;,&quot;2027-09-11&quot;,&quot;2027-09-12&quot;,&quot;2027-09-13&quot;,&quot;2027-09-14&quot;,&quot;2027-09-15&quot;,&quot;2027-09-16&quot;,&quot;2027-09-17&quot;,&quot;2027-09-18&quot;,&quot;2027-09-19&quot;,&quot;2027-09-20&quot;,&quot;2027-09-21&quot;,&quot;2027-09-22&quot;,&quot;2027-09-23&quot;,&quot;2027-09-24&quot;,&quot;2027-09-25&quot;,&quot;2027-09-26&quot;,&quot;2027-09-27&quot;,&quot;2027-09-28&quot;,&quot;2027-09-29&quot;,&quot;2027-09-30&quot;,&quot;2027-10-01&quot;,&quot;2027-10-02&quot;,&quot;2027-10-03&quot;,&quot;2027-10-04&quot;,&quot;2027-10-05&quot;,&quot;2027-10-06&quot;,&quot;2027-10-07&quot;,&quot;2027-10-08&quot;,&quot;2027-10-09&quot;,&quot;2027-10-10&quot;,&quot;2027-10-11&quot;,&quot;2027-10-12&quot;,&quot;2027-10-13&quot;,&quot;2027-10-14&quot;,&quot;2027-10-15&quot;,&quot;2027-10-16&quot;,&quot;2027-10-17&quot;,&quot;2027-10-18&quot;,&quot;2027-10-19&quot;,&quot;2027-10-20&quot;,&quot;2027-10-21&quot;,&quot;2027-10-22&quot;,&quot;2027-10-23&quot;,&quot;2027-10-24&quot;,&quot;2027-10-25&quot;,&quot;2027-10-26&quot;,&quot;2027-10-27&quot;,&quot;2027-10-28&quot;,&quot;2027-10-29&quot;,&quot;2027-10-30&quot;,&quot;2027-10-31&quot;,&quot;2027-11-01&quot;,&quot;2027-11-02&quot;,&quot;2027-11-03&quot;,&quot;2027-11-04&quot;,&quot;2027-11-05&quot;,&quot;2027-11-06&quot;,&quot;2027-11-07&quot;,&quot;2027-11-08&quot;,&quot;2027-11-09&quot;,&quot;2027-11-10&quot;,&quot;2027-11-11&quot;,&quot;2027-11-12&quot;,&quot;2027-11-13&quot;,&quot;2027-11-14&quot;,&quot;2027-11-15&quot;,&quot;2027-11-16&quot;,&quot;2027-11-17&quot;,&quot;2027-11-18&quot;,&quot;2027-11-19&quot;,&quot;2027-11-20&quot;,&quot;2027-11-21&quot;,&quot;2027-11-22&quot;,&quot;2027-11-23&quot;,&quot;2027-11-24&quot;,&quot;2027-11-25&quot;]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="1280718313866356892" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-1280718313866356892">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-        <div class="ical-section-label">Importing from</div>
-        <div class="ical-feeds-list">
-        <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
-          <span class="ical-feed-label">Calendar</span>
-          <span class="ical-feed-status">✓ Synced just now</span>
-          
-          <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
-        </div>
-        </div>
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="1280718313866356892" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-1280718313866356892">https://stayeastaustin.com/listing/1280718313866356892.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="1280718313866356892" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
-        </div>
-
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
-        </div>
-      </div>
-    </div>
-    <div class="card listing-section" id="listing-card-973861068087887577" data-id="973861068087887577">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-973861068087887577&#x2F;original&#x2F;c7223fa7-00b1-4c2d-bb22-76bf7fd5938e.jpeg" alt="3BR Austin DT: Stylish Stay Near UT &amp; Airport" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>3BR Austin DT: Stylish Stay Near UT &amp; Airport</h3>
-          <span>Austin</span>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;973861068087887577" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="973861068087887577" data-title="3BR Austin DT: Stylish Stay Near UT &amp; Airport">Remove</button>
-        </div>
       </div>
       <div class="undo-bar" id="undo-973861068087887577">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="973861068087887577">Undo</button>
       </div>
 
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="973861068087887577"
-              value="300" min="1" placeholder="e.g. 8500" />
+      <!-- Panels (one per listing, shown/hidden by JS) -->
+      <div class="listing-section"
+           id="listing-panel-1280710848136631636"
+           data-id="1280710848136631636"
+           style="display:none;">
+
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="1280710848136631636"
+                value="52" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="1280710848136631636">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="973861068087887577">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="1280710848136631636"
+            data-blocked="[]" data-ical-blocked="[&quot;2026-11-25&quot;,&quot;2026-11-26&quot;,&quot;2026-11-27&quot;,&quot;2026-12-30&quot;,&quot;2026-12-31&quot;,&quot;2027-05-24&quot;,&quot;2027-05-25&quot;,&quot;2027-05-26&quot;,&quot;2027-05-27&quot;,&quot;2027-05-28&quot;,&quot;2027-05-29&quot;,&quot;2027-05-30&quot;,&quot;2027-05-31&quot;,&quot;2027-06-01&quot;,&quot;2027-06-02&quot;,&quot;2027-06-03&quot;,&quot;2027-06-04&quot;,&quot;2027-06-05&quot;,&quot;2027-06-06&quot;,&quot;2027-06-07&quot;,&quot;2027-06-08&quot;,&quot;2027-06-09&quot;,&quot;2027-06-10&quot;,&quot;2027-06-11&quot;,&quot;2027-06-12&quot;,&quot;2027-06-13&quot;,&quot;2027-06-14&quot;,&quot;2027-06-15&quot;,&quot;2027-06-16&quot;,&quot;2027-06-17&quot;,&quot;2027-06-18&quot;,&quot;2027-06-19&quot;,&quot;2027-06-20&quot;,&quot;2027-06-21&quot;,&quot;2027-06-22&quot;,&quot;2027-06-23&quot;,&quot;2027-06-24&quot;,&quot;2027-06-25&quot;,&quot;2027-06-26&quot;,&quot;2027-06-27&quot;,&quot;2027-06-28&quot;,&quot;2027-06-29&quot;,&quot;2027-06-30&quot;,&quot;2027-07-01&quot;,&quot;2027-07-02&quot;,&quot;2027-07-03&quot;,&quot;2027-07-04&quot;,&quot;2027-07-05&quot;,&quot;2027-07-06&quot;,&quot;2027-07-07&quot;,&quot;2027-07-08&quot;,&quot;2027-07-09&quot;,&quot;2027-07-10&quot;,&quot;2027-07-11&quot;,&quot;2027-07-12&quot;,&quot;2027-07-13&quot;,&quot;2027-07-14&quot;,&quot;2027-07-15&quot;,&quot;2027-07-16&quot;,&quot;2027-07-17&quot;,&quot;2027-07-18&quot;,&quot;2027-07-19&quot;,&quot;2027-07-20&quot;,&quot;2027-07-21&quot;,&quot;2027-07-22&quot;,&quot;2027-07-23&quot;,&quot;2027-07-24&quot;,&quot;2027-07-25&quot;,&quot;2027-07-26&quot;,&quot;2027-07-27&quot;,&quot;2027-07-28&quot;,&quot;2027-07-29&quot;,&quot;2027-07-30&quot;,&quot;2027-07-31&quot;,&quot;2027-08-01&quot;,&quot;2027-08-02&quot;,&quot;2027-08-03&quot;,&quot;2027-08-04&quot;,&quot;2027-08-05&quot;,&quot;2027-08-06&quot;,&quot;2027-08-07&quot;,&quot;2027-08-08&quot;,&quot;2027-08-09&quot;,&quot;2027-08-10&quot;,&quot;2027-08-11&quot;,&quot;2027-08-12&quot;,&quot;2027-08-13&quot;,&quot;2027-08-14&quot;,&quot;2027-08-15&quot;,&quot;2027-08-16&quot;,&quot;2027-08-17&quot;,&quot;2027-08-18&quot;,&quot;2027-08-19&quot;,&quot;2027-08-20&quot;,&quot;2027-08-21&quot;,&quot;2027-08-22&quot;,&quot;2027-08-23&quot;,&quot;2027-08-24&quot;,&quot;2027-08-25&quot;,&quot;2027-08-26&quot;,&quot;2027-08-27&quot;,&quot;2027-08-28&quot;,&quot;2027-08-29&quot;,&quot;2027-08-30&quot;,&quot;2027-08-31&quot;,&quot;2027-09-01&quot;,&quot;2027-09-02&quot;,&quot;2027-09-03&quot;,&quot;2027-09-04&quot;,&quot;2027-09-05&quot;,&quot;2027-09-06&quot;,&quot;2027-09-07&quot;,&quot;2027-09-08&quot;,&quot;2027-09-09&quot;,&quot;2027-09-10&quot;,&quot;2027-09-11&quot;,&quot;2027-09-12&quot;,&quot;2027-09-13&quot;,&quot;2027-09-14&quot;,&quot;2027-09-15&quot;,&quot;2027-09-16&quot;,&quot;2027-09-17&quot;,&quot;2027-09-18&quot;,&quot;2027-09-19&quot;,&quot;2027-09-20&quot;,&quot;2027-09-21&quot;,&quot;2027-09-22&quot;,&quot;2027-09-23&quot;,&quot;2027-09-24&quot;,&quot;2027-09-25&quot;,&quot;2027-09-26&quot;,&quot;2027-09-27&quot;,&quot;2027-09-28&quot;,&quot;2027-09-29&quot;,&quot;2027-09-30&quot;,&quot;2027-10-01&quot;,&quot;2027-10-02&quot;,&quot;2027-10-03&quot;,&quot;2027-10-04&quot;,&quot;2027-10-05&quot;,&quot;2027-10-06&quot;,&quot;2027-10-07&quot;,&quot;2027-10-08&quot;,&quot;2027-10-09&quot;,&quot;2027-10-10&quot;,&quot;2027-10-11&quot;,&quot;2027-10-12&quot;,&quot;2027-10-13&quot;,&quot;2027-10-14&quot;,&quot;2027-10-15&quot;,&quot;2027-10-16&quot;,&quot;2027-10-17&quot;,&quot;2027-10-18&quot;,&quot;2027-10-19&quot;,&quot;2027-10-20&quot;,&quot;2027-10-21&quot;,&quot;2027-10-22&quot;,&quot;2027-10-23&quot;,&quot;2027-10-24&quot;,&quot;2027-10-25&quot;,&quot;2027-10-26&quot;,&quot;2027-10-27&quot;,&quot;2027-10-28&quot;,&quot;2027-10-29&quot;,&quot;2027-10-30&quot;,&quot;2027-10-31&quot;,&quot;2027-11-01&quot;,&quot;2027-11-02&quot;,&quot;2027-11-03&quot;,&quot;2027-11-04&quot;,&quot;2027-11-05&quot;,&quot;2027-11-06&quot;,&quot;2027-11-07&quot;,&quot;2027-11-08&quot;,&quot;2027-11-09&quot;,&quot;2027-11-10&quot;,&quot;2027-11-11&quot;,&quot;2027-11-12&quot;,&quot;2027-11-13&quot;,&quot;2027-11-14&quot;,&quot;2027-11-15&quot;,&quot;2027-11-16&quot;,&quot;2027-11-17&quot;,&quot;2027-11-18&quot;,&quot;2027-11-19&quot;,&quot;2027-11-20&quot;,&quot;2027-11-21&quot;,&quot;2027-11-22&quot;,&quot;2027-11-23&quot;,&quot;2027-11-24&quot;,&quot;2027-11-25&quot;]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="1280710848136631636" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-1280710848136631636">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+          <div class="ical-section-label">Importing from</div>
+          <div class="ical-feeds-list">
+          <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
+            <span class="ical-feed-label">Calendar</span>
+            <span class="ical-feed-status">✓ Synced 2h ago</span>
+            
+            <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
+          </div>
+          </div>
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="1280710848136631636" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-1280710848136631636">https://stayeastaustin.com/listing/1280710848136631636.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="1280710848136631636" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
           </div>
         </div>
       </div>
+      <div class="listing-section"
+           id="listing-panel-1280723453874434740"
+           data-id="1280723453874434740"
+           style="display:none;">
 
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="973861068087887577"
-          data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="973861068087887577" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-973861068087887577">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="973861068087887577" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-973861068087887577">https://stayeastaustin.com/listing/973861068087887577.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="973861068087887577" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="1280723453874434740"
+                value="60" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="1280723453874434740">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="1280723453874434740"
+            data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="1280723453874434740" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-1280723453874434740">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="1280723453874434740" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-1280723453874434740">https://stayeastaustin.com/listing/1280723453874434740.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="1280723453874434740" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
+          </div>
+        </div>
+      </div>
+      <div class="listing-section"
+           id="listing-panel-1280718313866356892"
+           data-id="1280718313866356892"
+           style="display:none;">
+
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="1280718313866356892"
+                value="50" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="1280718313866356892">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="1280718313866356892"
+            data-blocked="[]" data-ical-blocked="[&quot;2027-08-22&quot;,&quot;2027-08-23&quot;,&quot;2027-08-24&quot;,&quot;2027-08-25&quot;,&quot;2027-08-26&quot;,&quot;2027-08-27&quot;,&quot;2027-08-28&quot;,&quot;2027-08-29&quot;,&quot;2027-08-30&quot;,&quot;2027-08-31&quot;,&quot;2027-09-01&quot;,&quot;2027-09-02&quot;,&quot;2027-09-03&quot;,&quot;2027-09-04&quot;,&quot;2027-09-05&quot;,&quot;2027-09-06&quot;,&quot;2027-09-07&quot;,&quot;2027-09-08&quot;,&quot;2027-09-09&quot;,&quot;2027-09-10&quot;,&quot;2027-09-11&quot;,&quot;2027-09-12&quot;,&quot;2027-09-13&quot;,&quot;2027-09-14&quot;,&quot;2027-09-15&quot;,&quot;2027-09-16&quot;,&quot;2027-09-17&quot;,&quot;2027-09-18&quot;,&quot;2027-09-19&quot;,&quot;2027-09-20&quot;,&quot;2027-09-21&quot;,&quot;2027-09-22&quot;,&quot;2027-09-23&quot;,&quot;2027-09-24&quot;,&quot;2027-09-25&quot;,&quot;2027-09-26&quot;,&quot;2027-09-27&quot;,&quot;2027-09-28&quot;,&quot;2027-09-29&quot;,&quot;2027-09-30&quot;,&quot;2027-10-01&quot;,&quot;2027-10-02&quot;,&quot;2027-10-03&quot;,&quot;2027-10-04&quot;,&quot;2027-10-05&quot;,&quot;2027-10-06&quot;,&quot;2027-10-07&quot;,&quot;2027-10-08&quot;,&quot;2027-10-09&quot;,&quot;2027-10-10&quot;,&quot;2027-10-11&quot;,&quot;2027-10-12&quot;,&quot;2027-10-13&quot;,&quot;2027-10-14&quot;,&quot;2027-10-15&quot;,&quot;2027-10-16&quot;,&quot;2027-10-17&quot;,&quot;2027-10-18&quot;,&quot;2027-10-19&quot;,&quot;2027-10-20&quot;,&quot;2027-10-21&quot;,&quot;2027-10-22&quot;,&quot;2027-10-23&quot;,&quot;2027-10-24&quot;,&quot;2027-10-25&quot;,&quot;2027-10-26&quot;,&quot;2027-10-27&quot;,&quot;2027-10-28&quot;,&quot;2027-10-29&quot;,&quot;2027-10-30&quot;,&quot;2027-10-31&quot;,&quot;2027-11-01&quot;,&quot;2027-11-02&quot;,&quot;2027-11-03&quot;,&quot;2027-11-04&quot;,&quot;2027-11-05&quot;,&quot;2027-11-06&quot;,&quot;2027-11-07&quot;,&quot;2027-11-08&quot;,&quot;2027-11-09&quot;,&quot;2027-11-10&quot;,&quot;2027-11-11&quot;,&quot;2027-11-12&quot;,&quot;2027-11-13&quot;,&quot;2027-11-14&quot;,&quot;2027-11-15&quot;,&quot;2027-11-16&quot;,&quot;2027-11-17&quot;,&quot;2027-11-18&quot;,&quot;2027-11-19&quot;,&quot;2027-11-20&quot;,&quot;2027-11-21&quot;,&quot;2027-11-22&quot;,&quot;2027-11-23&quot;,&quot;2027-11-24&quot;,&quot;2027-11-25&quot;]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="1280718313866356892" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-1280718313866356892">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+          <div class="ical-section-label">Importing from</div>
+          <div class="ical-feeds-list">
+          <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
+            <span class="ical-feed-label">Calendar</span>
+            <span class="ical-feed-status">✓ Synced 2h ago</span>
+            
+            <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
+          </div>
+          </div>
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="1280718313866356892" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-1280718313866356892">https://stayeastaustin.com/listing/1280718313866356892.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="1280718313866356892" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
+          </div>
+        </div>
+      </div>
+      <div class="listing-section"
+           id="listing-panel-973861068087887577"
+           data-id="973861068087887577"
+           style="display:none;">
+
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="973861068087887577"
+                value="300" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="973861068087887577">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="973861068087887577"
+            data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="973861068087887577" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-973861068087887577">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="973861068087887577" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-973861068087887577">https://stayeastaustin.com/listing/973861068087887577.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="973861068087887577" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -1329,10 +1321,9 @@ Add music via Instagram or CapCut before posting.</textarea>
       <div class="card-section">
 
 
-        <!-- State A: Not connected -->
-        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct bookings from guests.</p>
-        <a href="#" id="stripe-oauth-btn" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">Connect your Stripe account →</a>
-        <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">New to Stripe? <a href="#" id="stripe-express-btn">Create an account instead →</a></p>
+        <!-- State B/C: Connected but pending verification -->
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:12px;">Stripe connected — waiting for account verification.</p>
+        <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.85rem;padding:8px 16px;">Complete verification on Stripe →</a>
 
       </div>
     </div>
@@ -1428,6 +1419,42 @@ Add music via Instagram or CapCut before posting.</textarea>
 
       input._fp = fp;
     });
+
+    // ── Listing selector ───────────────────────────────────────────
+    var currentListingId = '';
+
+    function switchListing(id) {
+      currentListingId = id;
+      // Show matching panel, hide others
+      document.querySelectorAll('.listing-section').forEach(function(p) {
+        p.style.display = p.dataset.id === id ? '' : 'none';
+      });
+      // Update selector bar
+      var sel    = document.getElementById('listing-selector');
+      var opt    = sel ? sel.querySelector('option[value="' + id + '"]') : null;
+      var thumb  = document.getElementById('listing-sel-thumb');
+      var aLink  = document.getElementById('listing-airbnb-link');
+      var rmBtn  = document.getElementById('listing-remove-btn');
+      if (opt) {
+        if (thumb) {
+          var photo = opt.dataset.photo || '';
+          thumb.src   = photo;
+          thumb.style.display = photo ? '' : 'none';
+        }
+        if (aLink) aLink.href = opt.dataset.airbnb || '#';
+        if (rmBtn) rmBtn.style.display = opt.dataset.canRemove ? '' : 'none';
+      }
+      // Keep dropdown in sync if called programmatically
+      if (sel && sel.value !== id) sel.value = id;
+    }
+
+    (function() {
+      var sel = document.getElementById('listing-selector');
+      if (!sel) return;
+      sel.addEventListener('change', function() { switchListing(sel.value); });
+      // Show first listing on load
+      if (sel.options.length) switchListing(sel.options[0].value);
+    })();
 
     // ── Character counters ─────────────────────────────────────────
     document.querySelectorAll('.listing-about').forEach(function(ta) {
@@ -1824,21 +1851,23 @@ Add music via Instagram or CapCut before posting.</textarea>
 
     // ── Remove listing ────────────────────────────────────────────
     // Pattern: show undo for 5s first, only call API if not undone (pending delete)
-    var pendingRemovals = {}; // id → { timer, card, btn, undoBar }
+    var pendingRemovals = {}; // id → { timer, panel, btn, undoBar }
 
-    document.querySelectorAll('.listing-remove-btn').forEach(function(btn) {
+    (function() {
+      var btn = document.getElementById('listing-remove-btn');
+      if (!btn) return;
+
       btn.addEventListener('click', function() {
-        var id      = btn.dataset.id;
-        var card    = document.getElementById('listing-card-' + id);
+        var id      = currentListingId;
+        var panel   = document.getElementById('listing-panel-' + id);
         var undoBar = document.getElementById('undo-' + id);
 
         // Already pending — ignore double-click
         if (pendingRemovals[id]) return;
 
-        // Visually mark as removed immediately
-        if (card) card.style.opacity = '0.45';
+        // Fade the panel and hide the remove button
+        if (panel) panel.style.opacity = '0.45';
         btn.style.display = 'none';
-
         if (undoBar) undoBar.classList.add('show');
 
         var timer = setTimeout(async function() {
@@ -1858,33 +1887,34 @@ Add music via Instagram or CapCut before posting.</textarea>
             });
             var json = await res.json();
             if (!json.ok) {
-              // Restore on error
-              if (card) card.style.opacity = '';
+              if (panel) panel.style.opacity = '';
               btn.style.display = '';
               showToast('⚠ ' + (json.error || 'Could not remove listing'));
               return;
             }
-            // Confirmed removed — collapse the card
-            if (card) {
-              card.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
-              card.style.overflow   = 'hidden';
-              card.style.maxHeight  = card.offsetHeight + 'px';
-              requestAnimationFrame(function() {
-                card.style.maxHeight = '0';
-                card.style.opacity   = '0';
-              });
+            // Remove option from selector dropdown and switch to next listing
+            var sel = document.getElementById('listing-selector');
+            var opt = sel ? sel.querySelector('option[value="' + id + '"]') : null;
+            if (opt) opt.remove();
+            if (panel) panel.remove();
+            if (sel && sel.options.length) {
+              switchListing(sel.options[0].value);
+            } else {
+              // No listings left — hide the card
+              var card = document.getElementById('listing-card');
+              if (card) card.style.display = 'none';
             }
             showToast('Listing removed — your site is being updated.');
           } catch (_) {
-            if (card) card.style.opacity = '';
+            if (panel) panel.style.opacity = '';
             btn.style.display = '';
             showToast('Could not connect. Please try again.');
           }
         }, 5000);
 
-        pendingRemovals[id] = { timer, card, btn, undoBar };
+        pendingRemovals[id] = { timer, panel, btn, undoBar };
       });
-    });
+    })();
 
     // Undo remove — cancel pending API call, restore visual state
     document.querySelectorAll('.undo-btn').forEach(function(undoBtn) {
@@ -1894,8 +1924,8 @@ Add music via Instagram or CapCut before posting.</textarea>
         if (!pending) return;
         clearTimeout(pending.timer);
         delete pendingRemovals[id];
-        if (pending.card)    pending.card.style.opacity = '';
-        if (pending.btn)     pending.btn.style.display  = '';
+        if (pending.panel)   pending.panel.style.opacity = '';
+        if (pending.btn)     pending.btn.style.display   = '';
         if (pending.undoBar) pending.undoBar.classList.remove('show');
       });
     });
