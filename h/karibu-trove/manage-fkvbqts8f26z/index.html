@@ -92,24 +92,31 @@
       margin-bottom: 16px;
     }
 
-    /* ── Listing card header ── */
-    .listing-header {
+    /* ── Listing selector bar ── */
+    .listing-selector-bar {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 20px 24px;
+      gap: 12px;
+      padding: 16px 20px;
       border-bottom: 1px solid var(--sand);
+      background: #fff;
     }
-    .listing-thumb {
-      width: 56px;
-      height: 56px;
+    .listing-sel-thumb {
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       object-fit: cover;
       background: var(--sand);
       flex-shrink: 0;
+      display: block;
     }
-    .listing-header-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
-    .listing-header-text span { font-size: .8rem; color: var(--muted); }
+    #listing-selector {
+      flex: 1;
+      font-weight: 600;
+      font-size: .88rem;
+      min-width: 0;
+      padding: 8px 12px;
+    }
 
     /* ── Card sections ── */
     .card-section {
@@ -431,7 +438,57 @@
       margin-bottom: 2px;
     }
     .article-meta { font-size: .75rem; color: var(--muted); }
-    .article-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .article-actions { flex-shrink: 0; position: relative; }
+    .article-kebab {
+      background: none;
+      border: 1.5px solid var(--sand);
+      border-radius: 7px;
+      padding: 5px 11px;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      transition: border-color .15s, color .15s;
+    }
+    .article-kebab:hover { border-color: var(--green); color: var(--green); }
+    .article-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 4px);
+      background: #fff;
+      border: 1.5px solid var(--sand);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      min-width: 180px;
+      z-index: 50;
+      overflow: hidden;
+    }
+    .article-dropdown.open { display: block; }
+    .article-dropdown a,
+    .article-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      font-size: .85rem;
+      font-weight: 500;
+      font-family: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sand);
+      transition: background .1s;
+    }
+    .article-dropdown a:last-child,
+    .article-dropdown button:last-child { border-bottom: none; }
+    .article-dropdown a:hover,
+    .article-dropdown button:hover { background: var(--cream); }
+    .article-dropdown .dd-delete { color: var(--red); }
+    .article-dropdown .dd-locked { color: var(--light); cursor: default; }
+    .article-dropdown .dd-locked:hover { background: none; }
     .btn-ghost {
       background: none;
       border: 1.5px solid var(--sand);
@@ -534,8 +591,7 @@
     .content-status.err  { color: var(--red); }
     .content-status.info { color: var(--muted); }
     @media (max-width: 480px) {
-      .article-row { flex-wrap: wrap; }
-      .article-actions { width: 100%; justify-content: flex-end; }
+      .article-row { flex-wrap: nowrap; }
     }
 
     /* ── Footer links ── */
@@ -581,155 +637,156 @@
     <!-- ── Your Listings ── -->
     <div class="section-label">Your Listings</div>
 
-    <div class="card listing-section" id="listing-card-1618301158226895857" data-id="1618301158226895857">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg" alt="1BR Rooftop Apartments in Nairobi" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>1BR Rooftop Apartments in Nairobi</h3>
-          <span>Nairobi</span>
-        </div>
+    <div class="card" id="listing-card">
+
+      <!-- Selector bar -->
+      <div class="listing-selector-bar">
+        <img class="listing-sel-thumb" id="listing-sel-thumb" src="" alt="" />
+        <select id="listing-selector">
+          <option value="1618301158226895857" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1618301158226895857" data-can-remove="1">1BR Rooftop Apartments in Nairobi</option>
+          <option value="1618073186043694871" data-photo="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg" data-airbnb="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1618073186043694871" data-can-remove="1">2BR Luxury Apartments in Nairobi</option>
+        </select>
         <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1618301158226895857" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="1618301158226895857" data-title="1BR Rooftop Apartments in Nairobi">Remove</button>
+          <a id="listing-airbnb-link" class="listing-airbnb-link" href="#" target="_blank" rel="noopener">Airbnb ↗</a>
+          <button id="listing-remove-btn" class="listing-remove-btn" style="display:none;">Remove</button>
         </div>
       </div>
+
+      <!-- Undo bars (per listing) -->
       <div class="undo-bar" id="undo-1618301158226895857">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="1618301158226895857">Undo</button>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="1618301158226895857"
-              value="70" min="1" placeholder="e.g. 8500" />
-          </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="1618301158226895857">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="1618301158226895857"
-          data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="1618301158226895857" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-1618301158226895857">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="1618301158226895857" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-1618301158226895857">https://directbooking.kypier.com/h/karibu-trove/listing/1618301158226895857.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="1618301158226895857" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
-        </div>
-
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
-        </div>
-      </div>
-    </div>
-    <div class="card listing-section" id="listing-card-1618073186043694871" data-id="1618073186043694871">
-      <div class="listing-header">
-        <img class="listing-thumb" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg" alt="2BR Luxury Apartments in Nairobi" />
-        
-        <div class="listing-header-text" style="flex:1;min-width:0;">
-          <h3>2BR Luxury Apartments in Nairobi</h3>
-          <span>Nairobi</span>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-          <a class="listing-airbnb-link" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1618073186043694871" target="_blank" rel="noopener">Airbnb ↗</a>
-          <button class="listing-remove-btn" data-id="1618073186043694871" data-title="2BR Luxury Apartments in Nairobi">Remove</button>
-        </div>
       </div>
       <div class="undo-bar" id="undo-1618073186043694871">
         <span>Listing removed — undo?</span>
         <button class="undo-btn" data-id="1618073186043694871">Undo</button>
       </div>
 
-      <div class="card-section">
-        <div class="card-section-label">Pricing</div>
-        <div class="rate-row">
-          <div>
-            <label>Nightly rate <span class="hint">direct booking</span></label>
-            <input type="number" class="listing-rate" data-id="1618073186043694871"
-              value="70" min="1" placeholder="e.g. 8500" />
+      <!-- Panels (one per listing, shown/hidden by JS) -->
+      <div class="listing-section"
+           id="listing-panel-1618301158226895857"
+           data-id="1618301158226895857"
+           style="display:none;">
+
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="1618301158226895857"
+                value="70" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="1618301158226895857">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <label>Currency</label>
-            <select class="listing-currency" data-id="1618073186043694871">
-              <option value="usd" selected>USD ($)</option>
-              <option value="gbp" >GBP (£)</option>
-              <option value="eur" >EUR (€)</option>
-            </select>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="1618301158226895857"
+            data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="1618301158226895857" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-1618301158226895857">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="1618301158226895857" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-1618301158226895857">https://directbooking.kypier.com/h/karibu-trove/listing/1618301158226895857.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="1618301158226895857" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
           </div>
         </div>
       </div>
+      <div class="listing-section"
+           id="listing-panel-1618073186043694871"
+           data-id="1618073186043694871"
+           style="display:none;">
 
-      <div class="card-section">
-        <div class="card-section-label">Availability</div>
-        <label>Block unavailable dates <span class="hint">click to toggle</span></label>
-        <input type="text" class="date-picker" data-id="1618073186043694871"
-          data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
-      </div>
-
-      <div class="card-section">
-        <div class="card-section-label">About this listing</div>
-        <textarea class="listing-about" data-id="1618073186043694871" maxlength="600"
-          placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
-        <div class="char-count" id="about-count-1618073186043694871">0/600</div>
-      </div>
-
-      <!-- ── Calendar sync ── -->
-      <div class="card-section ical-section">
-        <div class="card-section-label">Calendar sync</div>
-
-
-        <div class="ical-add-row">
-          <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
-          <button class="btn-ghost ical-add-btn" data-listing-id="1618073186043694871" style="white-space:nowrap;">+ Add feed</button>
-        </div>
-        <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
-
-        <div class="ical-outbound">
-          <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
-          <div class="ical-outbound-url" id="ical-url-1618073186043694871">https://directbooking.kypier.com/h/karibu-trove/listing/1618073186043694871.ics</div>
-          <button class="btn-ghost ical-copy-btn" data-listing-id="1618073186043694871" style="margin-top:6px;font-size:.8rem;">Copy link</button>
-          <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+        <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div class="rate-row">
+            <div>
+              <label>Nightly rate <span class="hint">direct booking</span></label>
+              <input type="number" class="listing-rate" data-id="1618073186043694871"
+                value="70" min="1" placeholder="e.g. 8500" />
+            </div>
+            <div>
+              <label>Currency</label>
+              <select class="listing-currency" data-id="1618073186043694871">
+                <option value="usd" selected>USD ($)</option>
+                <option value="gbp" >GBP (£)</option>
+                <option value="eur" >EUR (€)</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div class="ical-sync-footer">
-          <span>Syncs every 6 hours</span>
-          <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
-          <span class="ical-sync-status" style="color:var(--green);"></span>
+        <div class="card-section">
+          <div class="card-section-label">Availability</div>
+          <label>Block unavailable dates <span class="hint">click to toggle</span></label>
+          <input type="text" class="date-picker" data-id="1618073186043694871"
+            data-blocked="[]" data-ical-blocked="[]" placeholder="Click to select dates…" readonly />
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">About this listing</div>
+          <textarea class="listing-about" data-id="1618073186043694871" maxlength="600"
+            placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
+          <div class="char-count" id="about-count-1618073186043694871">0/600</div>
+        </div>
+
+        <!-- ── Calendar sync ── -->
+        <div class="card-section ical-section">
+          <div class="card-section-label">Calendar sync</div>
+
+
+          <div class="ical-add-row">
+            <input type="url" class="ical-url-input" placeholder="Paste Airbnb / VRBO iCal URL…" style="font-size:.82rem;" />
+            <button class="btn-ghost ical-add-btn" data-listing-id="1618073186043694871" style="white-space:nowrap;">+ Add feed</button>
+          </div>
+          <div class="content-status ical-add-status" style="font-size:.8rem;margin-top:6px;"></div>
+
+          <div class="ical-outbound">
+            <div class="ical-section-label" style="margin-top:14px;">Your outbound calendar</div>
+            <div class="ical-outbound-url" id="ical-url-1618073186043694871">https://directbooking.kypier.com/h/karibu-trove/listing/1618073186043694871.ics</div>
+            <button class="btn-ghost ical-copy-btn" data-listing-id="1618073186043694871" style="margin-top:6px;font-size:.8rem;">Copy link</button>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">Import this URL into Airbnb, VRBO, or Booking.com to keep them in sync. Updates every time a date is blocked.</p>
+          </div>
+
+          <div class="ical-sync-footer">
+            <span>Syncs every 6 hours</span>
+            <button class="btn-ghost ical-sync-now-btn" style="font-size:.78rem;">Sync now</button>
+            <span class="ical-sync-status" style="color:var(--green);"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -902,9 +959,13 @@
             <div class="article-meta">Events · 2026-11-24</div>
           </div>
           <div class="article-actions">
-            <a class="btn-ghost" href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;blog&#x2F;christmas-in-nairobi-a-locals-picks&#x2F;" target="_blank" rel="noopener">View</a>
-            <button class="btn-ghost refine-toggle" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks">Refine</button>
-            <button class="btn-ghost article-delete-btn" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks" style="color:var(--red);">Delete</button>
+            <button class="article-kebab" data-idx="0" aria-label="Article actions">···</button>
+            <div class="article-dropdown" id="article-dd-0">
+              <a href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;blog&#x2F;christmas-in-nairobi-a-locals-picks&#x2F;" target="_blank" rel="noopener">View →</a>
+              <button class="refine-toggle" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks">Refine</button>
+              <button class="dd-locked" disabled title="Available on Scale plan">Generate social assets 🔒</button>
+              <button class="dd-delete article-delete-btn" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks">Delete</button>
+            </div>
           </div>
         </div>
         <div class="article-undo-bar" id="article-undo-0" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
@@ -926,10 +987,9 @@
       <div class="card-section">
 
 
-        <!-- State A: Not connected -->
-        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct bookings from guests.</p>
-        <a href="#" id="stripe-oauth-btn" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">Connect your Stripe account →</a>
-        <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">New to Stripe? <a href="#" id="stripe-express-btn">Create an account instead →</a></p>
+        <!-- State B/C: Connected but pending verification -->
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:12px;">Stripe connected — waiting for account verification.</p>
+        <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.85rem;padding:8px 16px;">Complete verification on Stripe →</a>
 
       </div>
     </div>
@@ -1025,6 +1085,42 @@
 
       input._fp = fp;
     });
+
+    // ── Listing selector ───────────────────────────────────────────
+    var currentListingId = '';
+
+    function switchListing(id) {
+      currentListingId = id;
+      // Show matching panel, hide others
+      document.querySelectorAll('.listing-section').forEach(function(p) {
+        p.style.display = p.dataset.id === id ? '' : 'none';
+      });
+      // Update selector bar
+      var sel    = document.getElementById('listing-selector');
+      var opt    = sel ? sel.querySelector('option[value="' + id + '"]') : null;
+      var thumb  = document.getElementById('listing-sel-thumb');
+      var aLink  = document.getElementById('listing-airbnb-link');
+      var rmBtn  = document.getElementById('listing-remove-btn');
+      if (opt) {
+        if (thumb) {
+          var photo = opt.dataset.photo || '';
+          thumb.src   = photo;
+          thumb.style.display = photo ? '' : 'none';
+        }
+        if (aLink) aLink.href = opt.dataset.airbnb || '#';
+        if (rmBtn) rmBtn.style.display = opt.dataset.canRemove ? '' : 'none';
+      }
+      // Keep dropdown in sync if called programmatically
+      if (sel && sel.value !== id) sel.value = id;
+    }
+
+    (function() {
+      var sel = document.getElementById('listing-selector');
+      if (!sel) return;
+      sel.addEventListener('change', function() { switchListing(sel.value); });
+      // Show first listing on load
+      if (sel.options.length) switchListing(sel.options[0].value);
+    })();
 
     // ── Character counters ─────────────────────────────────────────
     document.querySelectorAll('.listing-about').forEach(function(ta) {
@@ -1251,15 +1347,66 @@
       });
     })();
 
+    // ── Kebab menu open/close ────────────────────────────────────
+    document.querySelectorAll('.article-kebab').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var idx = btn.dataset.idx;
+        var dd  = document.getElementById('article-dd-' + idx);
+        if (!dd) return;
+        var isOpen = dd.classList.contains('open');
+        // Close all dropdowns
+        document.querySelectorAll('.article-dropdown.open').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.article-dropdown.open').forEach(function(el) { el.classList.remove('open'); });
+    });
+
     // Refine toggle
     document.querySelectorAll('.refine-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var idx   = btn.dataset.idx;
         var panel = document.getElementById('refine-panel-' + idx);
+        // Close dropdown
+        var dd = document.getElementById('article-dd-' + idx);
+        if (dd) dd.classList.remove('open');
         if (!panel) return;
         var open = panel.classList.toggle('open');
-        btn.textContent = open ? 'Close' : 'Refine';
         if (open) panel.querySelector('textarea').focus();
+      });
+    });
+
+    // ── Social agent trigger ─────────────────────────────────────
+    document.querySelectorAll('.social-trigger-btn').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
+        var idx         = btn.dataset.idx;
+        var articleSlug = btn.dataset.slug;
+        var dd          = document.getElementById('article-dd-' + idx);
+        if (dd) dd.classList.remove('open');
+
+        btn.disabled    = true;
+        btn.textContent = 'Sending…';
+
+        try {
+          var res  = await fetch(CONTENT_API + '/social', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ slug: SLUG, session_token: SESSION_TOKEN, article_slug: articleSlug }),
+          });
+          var json = await res.json();
+          if (json.ok) {
+            showToast('✓ Social agent running — assets will appear in a few minutes.');
+          } else {
+            showToast('⚠ ' + (json.error || 'Could not start social agent.'));
+          }
+        } catch (_) {
+          showToast('Could not connect. Please try again.');
+        }
+
+        btn.disabled    = false;
+        btn.textContent = 'Generate social assets';
       });
     });
 
@@ -1421,21 +1568,23 @@
 
     // ── Remove listing ────────────────────────────────────────────
     // Pattern: show undo for 5s first, only call API if not undone (pending delete)
-    var pendingRemovals = {}; // id → { timer, card, btn, undoBar }
+    var pendingRemovals = {}; // id → { timer, panel, btn, undoBar }
 
-    document.querySelectorAll('.listing-remove-btn').forEach(function(btn) {
+    (function() {
+      var btn = document.getElementById('listing-remove-btn');
+      if (!btn) return;
+
       btn.addEventListener('click', function() {
-        var id      = btn.dataset.id;
-        var card    = document.getElementById('listing-card-' + id);
+        var id      = currentListingId;
+        var panel   = document.getElementById('listing-panel-' + id);
         var undoBar = document.getElementById('undo-' + id);
 
         // Already pending — ignore double-click
         if (pendingRemovals[id]) return;
 
-        // Visually mark as removed immediately
-        if (card) card.style.opacity = '0.45';
+        // Fade the panel and hide the remove button
+        if (panel) panel.style.opacity = '0.45';
         btn.style.display = 'none';
-
         if (undoBar) undoBar.classList.add('show');
 
         var timer = setTimeout(async function() {
@@ -1455,33 +1604,34 @@
             });
             var json = await res.json();
             if (!json.ok) {
-              // Restore on error
-              if (card) card.style.opacity = '';
+              if (panel) panel.style.opacity = '';
               btn.style.display = '';
               showToast('⚠ ' + (json.error || 'Could not remove listing'));
               return;
             }
-            // Confirmed removed — collapse the card
-            if (card) {
-              card.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
-              card.style.overflow   = 'hidden';
-              card.style.maxHeight  = card.offsetHeight + 'px';
-              requestAnimationFrame(function() {
-                card.style.maxHeight = '0';
-                card.style.opacity   = '0';
-              });
+            // Remove option from selector dropdown and switch to next listing
+            var sel = document.getElementById('listing-selector');
+            var opt = sel ? sel.querySelector('option[value="' + id + '"]') : null;
+            if (opt) opt.remove();
+            if (panel) panel.remove();
+            if (sel && sel.options.length) {
+              switchListing(sel.options[0].value);
+            } else {
+              // No listings left — hide the card
+              var card = document.getElementById('listing-card');
+              if (card) card.style.display = 'none';
             }
             showToast('Listing removed — your site is being updated.');
           } catch (_) {
-            if (card) card.style.opacity = '';
+            if (panel) panel.style.opacity = '';
             btn.style.display = '';
             showToast('Could not connect. Please try again.');
           }
         }, 5000);
 
-        pendingRemovals[id] = { timer, card, btn, undoBar };
+        pendingRemovals[id] = { timer, panel, btn, undoBar };
       });
-    });
+    })();
 
     // Undo remove — cancel pending API call, restore visual state
     document.querySelectorAll('.undo-btn').forEach(function(undoBtn) {
@@ -1491,8 +1641,8 @@
         if (!pending) return;
         clearTimeout(pending.timer);
         delete pendingRemovals[id];
-        if (pending.card)    pending.card.style.opacity = '';
-        if (pending.btn)     pending.btn.style.display  = '';
+        if (pending.panel)   pending.panel.style.opacity = '';
+        if (pending.btn)     pending.btn.style.display   = '';
         if (pending.undoBar) pending.undoBar.classList.remove('show');
       });
     });
