@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jo-Austin Room 3 | Jo-Austin</title>
+  <meta name="description" content="Cozy private room with luxurious queen bed, sleeps 2. Minutes from airport, Downtown, and UT Austin. Perfect for urban adventurers, event-goers, and campus visi">
+  <meta property="og:title" content="Jo-Austin Room 3 | Jo-Austin">
+  <meta property="og:description" content="Cozy private room with luxurious queen bed, sleeps 2. Minutes from airport, Downtown, and UT Austin. Perfect for urban adventurers, event-goers, and campus visi">
+  <meta property="og:image" content="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="icon" type="image/jpeg" href="https://stayeastaustin.com/assets/kypier-icon.jpg">
+  <style>
+/* ============================================================
+   Kypier — Generator CSS
+   Design system: Coastal Slate Blue / Terracotta / Sage / Sand
+   Fonts: Fraunces (headings) · Plus Jakarta Sans (body)
+   ============================================================ */
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --bg:          #F5EFE6;   /* Warm Sand */
+  --surface:     #FFFFFF;
+  --border:      #E0D8CF;
+  --text:        #1B2E3C;   /* Coastal Slate Blue */
+  --text-muted:  #5C6B74;
+  --text-light:  #9B9690;
+
+  /* Brand colours */
+  --primary:        #1B2E3C;  /* Coastal Slate Blue */
+  --primary-hover:  #142230;
+  --secondary:      #C25E3E;  /* Terracotta Clay */
+  --secondary-hover:#A84E32;
+  --sage:           #7D917A;  /* Soft Sage */
+  --sage-light:     #EDF1EC;
+
+  /* Legacy aliases used throughout CSS */
+  --green:       var(--primary);
+  --green-hover: var(--primary-hover);
+  --amber:       var(--secondary);
+  --amber-hover: var(--secondary-hover);
+
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-pill: 100px;
+
+  --shadow-sm:   0 1px 4px rgba(27,46,60,0.07);
+  --shadow-md:   0 4px 16px rgba(27,46,60,0.09);
+  --shadow-lg:   0 8px 32px rgba(27,46,60,0.12);
+
+  --font-serif:  'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+html { font-size: 16px; scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem);  font-weight: 700; }
+h3 { font-size: 1.125rem; font-weight: 600; }
+p  { color: var(--text-muted); line-height: 1.7; }
+
+/* ── Banner ─────────────────────────────────────────────────── */
+.banner {
+  background: var(--text);
+  color: #fff;
+  font-size: 0.8125rem;
+  padding: 0 1.5rem;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.banner__text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.banner__text strong { font-weight: 600; }
+.banner__cta {
+  flex-shrink: 0;
+  border: 1.5px solid #fff;
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.banner__cta:hover { background: #fff; color: var(--text); }
+.banner__badge {
+  flex-shrink: 0;
+  background: var(--green);
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ── Nav ────────────────────────────────────────────────────── */
+.nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 44px;
+  z-index: 99;
+}
+.nav__brand { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text); display: flex; align-items: center; }
+.nav__logo { height: 36px; width: auto; object-fit: contain; display: block; }
+.nav__actions { display: flex; align-items: center; gap: .75rem; }
+.nav__links { display: flex; gap: 1.5rem; font-size: .875rem; color: var(--text-muted); }
+.nav__links a:hover { color: var(--text); }
+.nav__link { color: var(--primary); text-decoration: none; font-size: .88rem; font-weight: 500; }
+.nav__link:hover { text-decoration: underline; }
+.nav__link--active { font-weight: 600; }
+@media (max-width: 640px) {
+  .nav__links { display: none; }
+  .nav__brand { max-width: 45vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nav__actions .btn--outline { display: none; }
+  .nav__link { font-size: .78rem; white-space: nowrap; }
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: .9375rem;
+  font-weight: 500;
+  line-height: 1;
+  transition: background .15s, transform .1s, box-shadow .15s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:active { transform: none; }
+
+.btn--primary   { background: var(--green); color: #fff; }
+.btn--primary:hover { background: var(--green-hover); }
+.btn--amber     { background: var(--amber); color: #fff; }
+.btn--amber:hover { background: var(--amber-hover); }
+.btn--outline   { border: 1.5px solid var(--green); color: var(--green); background: transparent; }
+.btn--outline:hover { background: var(--green); color: #fff; }
+.btn--ghost     { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+.btn--ghost:hover { border-color: var(--text); }
+.btn--mpesa     { background: #4CAF50; color: #fff; font-weight: 600; }
+.btn--mpesa:hover { background: #43A047; }
+.btn--wa        { background: #25D366; color: #fff; }
+.btn--wa:hover  { background: #1ebe5a; }
+.btn--card      { background: var(--text); color: #fff; }
+.btn--card:hover { background: #333; }
+.btn--full { width: 100%; justify-content: center; padding: 13px 22px; }
+.btn--sm { padding: 7px 16px; font-size: .8125rem; }
+.btn--lg { padding: 14px 32px; font-size: 1rem; }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: clamp(360px, 60vh, 580px);
+  overflow: hidden;
+}
+.hero__photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 60%, transparent 100%);
+}
+.hero__content {
+  position: absolute;
+  bottom: 2.5rem; left: 2rem; right: 2rem;
+  color: #fff;
+  max-width: 560px;
+}
+.hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  margin-bottom: .75rem;
+}
+.hero__title { font-family: var(--font-serif); font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: .75rem; color: #fff; }
+.hero__sub { font-size: .9375rem; color: #fff; opacity: 1; margin-bottom: 1.25rem; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+/* detail-page variant: title top-left */
+.hero--detail .hero__content { bottom: auto; top: 50%; transform: translateY(-50%); }
+.hero__back { display: inline-flex; align-items: center; gap: .4rem; font-size: .8125rem; opacity: .85; margin-bottom: 1rem; }
+.hero__back:hover { opacity: 1; }
+.hero__location { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin-bottom: .5rem; }
+
+/* ── Section wrapper ────────────────────────────────────────── */
+.section { padding: 4rem 0; }
+.section--tight { padding: 2.5rem 0; }
+.section--dark { background: var(--surface); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.section__header { margin-bottom: 2rem; }
+.section__header h2 { margin-bottom: .5rem; }
+
+/* ── Listing grid ───────────────────────────────────────────── */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.listing-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+.listing-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.listing-card__photo {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.listing-card__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.listing-card:hover .listing-card__photo img { transform: scale(1.03); }
+.listing-card__badge {
+  position: absolute;
+  top: .75rem; left: .75rem;
+  background: var(--green);
+  color: #fff;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+.listing-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+.listing-card__location { font-size: .75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: .06em; }
+.listing-card__title { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+.listing-card__desc { font-size: .875rem; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+.listing-card__meta { font-size: .8125rem; color: var(--text-muted); display: flex; gap: .75rem; flex-wrap: wrap; }
+.listing-card__meta span::before { content: '·'; margin-right: .75rem; }
+.listing-card__meta span:first-child::before { display: none; }
+.listing-card__cta { display: inline-flex; align-items: center; gap: .35rem; font-size: .875rem; font-weight: 600; color: var(--green); margin-top: .25rem; }
+.listing-card__cta:hover { color: var(--green-hover); }
+
+/* ── About section ──────────────────────────────────────────── */
+.about { max-width: 680px; }
+.about p { font-size: 1.0625rem; line-height: 1.8; }
+
+/* ── Neighbourhood guide ────────────────────────────────────── */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.guide-card { background: var(--surface); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+.guide-card__photo { aspect-ratio: 3/2; background: var(--border); position: relative; }
+.guide-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+.guide-card__icon { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; background: var(--sand); }
+.guide-card__cat {
+  position: absolute; top: .6rem; left: .6rem;
+  background: rgba(255,255,255,.92);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+.guide-card__body { padding: 1rem; }
+.guide-card__name { font-family: var(--font-serif); font-size: 1.0625rem; font-weight: 700; margin-bottom: .35rem; }
+.guide-card__desc { font-size: .8125rem; color: var(--text-muted); line-height: 1.6; }
+.guide-card__dist { font-size: .75rem; color: var(--text-light); margin-top: .5rem; display: flex; align-items: center; gap: .3rem; }
+/* Fallback: guide placeholder when no data */
+.guide-placeholder { background: var(--surface); border-radius: var(--radius-md); padding: 2rem; text-align: center; color: var(--text-muted); font-size: .9375rem; }
+
+/* ── Amenity pills ──────────────────────────────────────────── */
+.amenity-grid { display: flex; flex-wrap: wrap; gap: .625rem; }
+.amenity-pill {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+/* ── Questions / contact ────────────────────────────────────── */
+.contact { max-width: 540px; }
+.contact p { font-size: 1rem; margin-bottom: 1.25rem; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer {
+  background: var(--primary);
+  color: rgba(255,255,255,.85);
+  padding: 2.5rem 1.5rem;
+}
+.footer__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.footer__brand h3 { font-family: var(--font-serif); font-size: 1.25rem; color: #fff; margin-bottom: .25rem; }
+.footer__brand p { font-size: .8125rem; color: rgba(255,255,255,.85); }
+.footer__power { font-size: .75rem; color: rgba(255,255,255,.75); margin-top: .75rem; display: flex; align-items: center; gap: 6px; }
+.footer__power a { display: inline-flex; align-items: center; }
+.footer__power a:hover { opacity: .85; }
+.footer__power img { border-radius: 4px; }
+
+/* ── Ad slot (non-vetted hosts) ─────────────────────────────── */
+.ad-slot {
+  background: #FEF7F4;
+  border: 1.5px solid #F0DDD6;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.ad-slot__text { font-size: .9375rem; color: var(--text-muted); }
+.ad-slot__text strong { color: var(--text); }
+
+/* ═══════════════════════════════════════════════════════════
+   LISTING DETAIL PAGE
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Stats pills row ────────────────────────────────────────── */
+.stats-row { display: flex; flex-wrap: wrap; gap: .625rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  font-size: .875rem;
+  font-weight: 500;
+  background: var(--surface);
+}
+
+/* ── Photo grid ─────────────────────────────────────────────── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 240px 240px;
+  gap: .5rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.photo-grid__main {
+  grid-row: 1 / 3;
+  position: relative;
+}
+.photo-grid__sub { position: relative; overflow: hidden; }
+.photo-grid__sub--last { position: relative; }
+.photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-grid__show-all {
+  position: absolute;
+  bottom: .75rem; right: .75rem;
+  background: rgba(255,255,255,.92);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .15s;
+}
+.photo-grid__show-all:hover { background: #fff; }
+@media (max-width: 640px) {
+  .photo-grid { grid-template-columns: 1fr; grid-template-rows: 260px; }
+  .photo-grid__main { grid-row: auto; }
+  .photo-grid__sub { display: none; }
+  .photo-grid__sub--last { display: block; height: auto; }
+  .photo-grid__sub--last img { display: none; }
+  .photo-grid__show-all { position: static; display: block; width: 100%; margin-top: .5rem; text-align: center; border-radius: var(--radius-sm); }
+}
+
+/* ── Detail layout (content + sidebar) ─────────────────────── */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: start;
+  padding: 2.5rem 0;
+}
+@media (max-width: 900px) {
+  .detail-layout { grid-template-columns: 1fr; }
+  .booking-widget { order: -1; position: static; }
+}
+
+/* ── Description ────────────────────────────────────────────── */
+.detail-description h2 { font-size: 1.375rem; margin-bottom: 1rem; }
+.detail-description p  { font-size: 1rem; line-height: 1.8; color: var(--text-muted); }
+
+/* ── Host strip ─────────────────────────────────────────────── */
+.host-strip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 1.75rem 0;
+}
+.host-strip__avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: var(--border); }
+.host-strip__info h3 { font-size: 1rem; font-family: var(--font-sans); font-weight: 600; }
+.host-strip__info p { font-size: .8125rem; color: var(--text-muted); }
+.host-strip__super {
+  font-size: .6875rem;
+  font-weight: 600;
+  background: var(--amber);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  padding: 2px 9px;
+  letter-spacing: .02em;
+}
+
+/* ── Amenities (detail page) ────────────────────────────────── */
+.amenity-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .625rem; }
+.amenity-item { display: flex; align-items: center; gap: .6rem; font-size: .9375rem; padding: .5rem 0; }
+.amenity-item::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+/* ── Reviews ────────────────────────────────────────────────── */
+.rating-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; }
+.rating-score { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; }
+.rating-meta { font-size: .875rem; color: var(--text-muted); }
+.rating-meta strong { color: var(--text); display: block; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+.review-card { background: var(--surface); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: var(--shadow-sm); }
+.review-card__author { font-weight: 600; font-size: .9375rem; margin-bottom: .25rem; }
+.review-card__date { font-size: .75rem; color: var(--text-light); margin-bottom: .75rem; }
+.review-card__text { font-size: .875rem; color: var(--text-muted); line-height: 1.65; }
+.airbnb-reviews-link { margin-top: 1.25rem; }
+
+/* ── Booking widget ─────────────────────────────────────────── */
+.booking-widget {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: sticky;
+  top: calc(44px + 64px + 1rem);
+  box-shadow: var(--shadow-md);
+}
+.booking-widget__header { margin-bottom: 1.25rem; }
+.booking-widget__label { font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: .25rem; }
+.booking-widget__price { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; }
+.booking-widget__price span { font-size: 1rem; font-family: var(--font-sans); font-weight: 400; color: var(--text-muted); }
+.booking-widget__save { font-size: .8125rem; color: var(--green); font-weight: 500; margin-top: .25rem; }
+.booking-widget__divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+.booking-widget__actions { display: flex; flex-direction: column; gap: .625rem; }
+/* ── Booking date picker ────────────────────────────────────── */
+.booking-dates { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: .5rem; margin-bottom: .875rem; }
+.booking-date-sep { color: var(--text-light); font-size: .875rem; padding-bottom: .5rem; text-align: center; }
+.booking-date-label { display: block; font-size: .6875rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: .25rem; }
+.booking-date-input { width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-md); padding: .5rem .625rem; font-size: .875rem; font-family: var(--font-sans); background: var(--bg); cursor: pointer; }
+.booking-date-input:focus { outline: none; border-color: var(--amber); }
+/* flatpickr overrides */
+.flatpickr-calendar { font-family: var(--font-sans); box-shadow: var(--shadow-md); border-radius: var(--radius-lg); }
+.flatpickr-day.selected, .flatpickr-day.selected:hover { background: var(--amber); border-color: var(--amber); }
+.flatpickr-day.inRange { background: #FFF3CD; border-color: #FFF3CD; }
+/* Guests stepper */
+.booking-guests-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: .875rem; }
+.booking-guests-label { font-size: .9375rem; }
+.guests-stepper { display: flex; align-items: center; gap: .625rem; }
+.guests-stepper span { font-weight: 600; min-width: 1.25rem; text-align: center; }
+.stepper-btn { width: 2rem; height: 2rem; border: 1.5px solid var(--border); border-radius: 50%; background: none; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.stepper-btn:hover { border-color: var(--text); }
+/* Booking price breakdown */
+.booking-breakdown { background: var(--bg); border-radius: var(--radius-md); padding: .75rem; margin-bottom: .125rem; }
+.breakdown-row { display: flex; justify-content: space-between; font-size: .875rem; padding: .25rem 0; }
+.breakdown-row--total { border-top: 1px solid var(--border); margin-top: .25rem; padding-top: .5rem; font-size: .9375rem; }
+.booking-error { font-size: .8125rem; color: #c0392b; margin-top: .5rem; }
+.booking-widget__note { font-size: .75rem; color: var(--text-light); text-align: center; margin-top: .625rem; line-height: 1.5; }
+.booking-widget__airbnb { margin-top: .75rem; text-align: center; }
+.booking-widget__airbnb a { font-size: .8125rem; color: var(--text-muted); text-decoration: underline; }
+
+/* ── Booking comparison card ────────────────────────────────── */
+.booking-compare { padding-top: 1.25rem; padding-bottom: 0; }
+.compare-card { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; border: 1.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); box-shadow: var(--shadow-sm); }
+.compare-option { padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+.compare-option--direct { background: #FEF7F4; }
+.compare-option__badge { display: inline-block; background: var(--amber); color: #fff; font-size: .6875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .2rem .5rem; border-radius: 999px; align-self: flex-start; }
+.compare-option__label { font-size: .6875rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+.compare-option__price { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.compare-option__price span { font-size: .875rem; font-family: var(--font-sans); font-weight: 400; color: var(--text-muted); }
+.compare-option__perks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .3rem; flex: 1; }
+.compare-option__perks li { font-size: .8125rem; color: var(--text-muted); }
+.compare-btn { align-self: flex-start; margin-top: auto; }
+.compare-divider { display: flex; align-items: center; justify-content: center; padding: 0 .75rem; background: var(--bg); border-left: 1.5px solid var(--border); border-right: 1.5px solid var(--border); }
+.compare-divider span { font-size: .75rem; color: var(--text-light); font-weight: 600; writing-mode: vertical-rl; letter-spacing: .15em; text-transform: uppercase; }
+@media (max-width: 600px) {
+  .compare-card { grid-template-columns: 1fr; }
+  .compare-divider { writing-mode: horizontal-tb; padding: .75rem; border-left: none; border-right: none; border-top: 1.5px solid var(--border); border-bottom: 1.5px solid var(--border); }
+  .compare-divider span { writing-mode: horizontal-tb; }
+}
+
+/* ── House rules ────────────────────────────────────────────── */
+.rules-list { display: flex; flex-direction: column; gap: .625rem; }
+.rules-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .9375rem; color: var(--text-muted); }
+.rules-list li::before { content: '—'; color: var(--text-light); flex-shrink: 0; }
+
+/* ── Utilities ──────────────────────────────────────────────── */
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: .5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: .875rem; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+
+:root {
+  --bg:              #F9F9F6;
+  --surface:         #FFFFFF;
+  --border:          #DDEAF5;
+  --text:            #0F1E3C;
+  --text-muted:      #4A5A7A;
+  --text-light:      #8A9AB8;
+  --primary:         #183B8C;
+  --primary-hover:   #122d6e;
+  --secondary:       #E85D4A;
+  --secondary-hover: #cc4a38;
+  --sage:            #F4D58D;
+  --sage-light:      #FDF8EE;
+  --green:           #183B8C;
+  --green-hover:     #122d6e;
+  --amber:           #E85D4A;
+  --amber-hover:     #cc4a38;
+}
+
+/* ── v2 detail additions ──────────────────────────────────────── */
+.v2-standout-strip { display:flex; flex-wrap:wrap; gap:.5rem; padding:1rem 0 1.5rem; }
+.v2-standout-strip span { background:var(--primary); color:#fff; font-size:.8rem; font-weight:500; padding:5px 14px; border-radius:var(--radius-pill); }
+.v2-other-rooms-section { margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); }
+.v2-other-rooms-section h3 { font-family:var(--font-serif); margin-bottom:1.25rem; }
+.v2-other-rooms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+.v2-mini-card { background:var(--surface); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; display:block; transition:box-shadow .15s; }
+.v2-mini-card:hover { box-shadow:var(--shadow-md); }
+.v2-mini-card img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+.v2-mini-card__body { padding:.875rem; }
+.v2-mini-card__name { font-family:var(--font-serif); font-size:.9375rem; font-weight:700; color:var(--text); margin-bottom:.25rem; }
+.v2-mini-card__specs { font-size:.775rem; color:var(--text-muted); }
+.v2-mini-card__rate { font-size:.875rem; font-weight:700; color:var(--primary); margin-top:.4rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Banner ──────────────────────────────────────────────── -->
+  <div class="banner">
+    <span class="banner__text">
+      <strong>Powered by Kypier</strong> · Get your free direct booking site
+    </span>
+    <a href="https://kypier.com/start" class="banner__cta" target="_blank" rel="noopener">Get yours free →</a>
+  </div>
+
+  <!-- ── Nav ─────────────────────────────────────────────────── -->
+  <nav class="nav">
+    <a class="nav__brand" href="../index.html">Jo-Austin</a>
+    <div class="nav__links">
+      <a href="#photos">Photos</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#the-area">The area</a>
+    </div>
+    <div class="nav__actions">
+      <a class="btn btn--primary btn--sm" href="" target="_blank" rel="noopener">Book direct</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="hero hero--detail">
+    <img class="hero__photo" src="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;miso&#x2F;Hosting-1280718313866356892&#x2F;original&#x2F;8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" alt="Jo-Austin Room 3" loading="eager">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <a class="hero__back" href="../index.html">← All rooms</a>
+      <p class="hero__location">Room · Austin</p>
+      <h1 class="hero__title">Jo-Austin Room 3</h1>
+      
+    </div>
+  </section>
+
+  <!-- ── Stats ───────────────────────────────────────────────── -->
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-pill">👤 Sleeps 2</div>
+      <div class="stat-pill">🛏 1 bedroom</div>
+      <div class="stat-pill">🛏 1 bed</div>
+      
+      <div class="stat-pill">★ 4.5 · 27 reviews</div>
+    </div>
+  </div>
+
+  <!-- ── Standout amenities strip ──────────────────────────────── -->
+  <div class="container">
+    <div class="v2-standout-strip">
+      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="v2-standout-strip">
+      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="v2-standout-strip">
+      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
+    </div>
+  </div>
+
+  <div class="container booking-compare">
+    <div class="compare-card">
+      <div class="compare-option compare-option--airbnb">
+        <div class="compare-option__label">View on Airbnb</div>
+        <div class="compare-option__price">$50 <span>/ night + fees</span></div>
+        <ul class="compare-option__perks">
+          <li>★ Verified reviews &amp; ratings</li>
+          <li>Airbnb payment protection</li>
+        </ul>
+        <a class="btn btn--outline btn--sm compare-btn" href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280718313866356892?currency&#x3D;USD&amp;locale&#x3D;en" target="_blank" rel="noopener">View on Airbnb →</a>
+      </div>
+      <div class="compare-divider"><span>or</span></div>
+      <div class="compare-option compare-option--direct">
+        <div class="compare-option__badge">Save $5/night</div>
+        <div class="compare-option__label">Book directly with us</div>
+        <div class="compare-option__price">$45 <span>/ night, no fees</span></div>
+        <ul class="compare-option__perks">
+          <li>✓ No Airbnb service fee</li>
+          <li>✓ Direct host communication</li>
+          <li>✓ Same room &amp; host</li>
+        </ul>
+        <a class="btn btn--amber btn--sm compare-btn" href="#booking">Book direct &amp; save →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Photo grid ──────────────────────────────────────────── -->
+  <div class="container" id="photos" style="padding-top:1.5rem;">
+    <div class="photo-grid">
+      <div class="photo-grid__main">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg" alt="Jo-Austin Room 3 — photo 1" loading="eager">
+      </div>
+      <div class="photo-grid__sub">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/f891d71a-eab1-4340-a29c-2478420a15d3.jpeg" alt="Jo-Austin Room 3 — photo 2" loading="lazy">
+      </div>
+      <div class="photo-grid__sub">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/359b7016-35b7-4aab-bb14-f401e3e669e9.jpeg" alt="Jo-Austin Room 3 — photo 3" loading="lazy">
+      </div>
+      <div class="photo-grid__sub">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/28fc6af9-c0d7-4c01-857c-c28fd5bd755e.jpeg" alt="Jo-Austin Room 3 — photo 4" loading="lazy">
+      </div>
+      <div class="photo-grid__sub photo-grid__sub--last">
+        <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/2c26859e-cbdf-41cb-845d-176e8fb0bf17.jpeg" alt="Jo-Austin Room 3 — photo 5" loading="lazy">
+        <button class="photo-grid__show-all" id="show-all-photos-btn">Show all 7 photos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Photo lightbox ─────────────────────────────────────────── -->
+  <div id="photo-lightbox" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.96);overflow-y:auto;padding:20px 16px 40px;">
+    <button onclick="document.getElementById('photo-lightbox').style.display='none';document.body.style.overflow='';" style="position:fixed;top:14px;right:18px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.3rem;width:36px;height:36px;border-radius:50%;cursor:pointer;z-index:9001;display:flex;align-items:center;justify-content:center;">✕</button>
+    <div id="lightbox-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-width:1100px;margin:48px auto 0;"></div>
+  </div>
+
+  <!-- ── Detail layout ───────────────────────────────────────── -->
+  <div class="container">
+    <div class="detail-layout">
+
+      <!-- Left: description + content -->
+      <div class="detail-content">
+
+        <!-- Description -->
+        <div class="detail-description">
+          <h2>About this room</h2>
+          <p class="text-sm text-muted" style="margin-bottom:.5rem;">Listed as: Room in Austin, Texas</p>
+          <p>Cozy private room with luxurious queen bed, sleeps 2. Minutes from airport, Downtown, and UT Austin. Perfect for urban adventurers, event-goers, and campus visitors. Shared bathroom, in-room TV, and fridge in kitchen. Free WiFi and street parking. We&#39;re a text away for local tips. Ideal for music lovers, business travelers, or university events. Immerse in Austin&#39;s spirit by day, unwind in your stylish retreat by night. &lt;br &#x2F;&gt;&lt;br &#x2F;&gt;Pls Note: Cooking is not allowed!</p>
+        </div>
+
+        <!-- Host strip -->
+        <div class="host-strip">
+          <img class="host-strip__avatar" src="https://a0.muscache.com/im/Portrait/Avatars/v2/magenta?im_w=240&im_t=J&im_s=86&im_f=AirbnbCerealLatinMedium.ttf&im_c=901e7c&script=latin" alt="Jo">
+          <div class="host-strip__info">
+            <h3>Hosted by Jo </h3>
+            <p>2 years hosting · Responds within a few hours</p>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Amenities -->
+        <div id="amenities">
+          <h2 class="mb-2">What this place offers</h2>
+          <div class="amenity-list">
+            <div class="amenity-item">Shampoo</div>
+            <div class="amenity-item">Hot water</div>
+            <div class="amenity-item">Washer</div>
+            <div class="amenity-item">Dryer – In unit</div>
+            <div class="amenity-item">Iron</div>
+            <div class="amenity-item">TV</div>
+            <div class="amenity-item">Air conditioning</div>
+            <div class="amenity-item">Ceiling fan</div>
+            <div class="amenity-item">Heating</div>
+            <div class="amenity-item">Lock on bedroom door</div>
+            <div class="amenity-item">Exterior security cameras on property</div>
+            <div class="amenity-item">Smoke alarm</div>
+            <div class="amenity-item">Carbon monoxide alarm</div>
+            <div class="amenity-item">Wifi</div>
+            <div class="amenity-item">Kitchen</div>
+            <div class="amenity-item">Refrigerator</div>
+            <div class="amenity-item">Free street parking</div>
+            <div class="amenity-item">Paid parking on premises – 1 space</div>
+            <div class="amenity-item">Single level home</div>
+            <div class="amenity-item">Self check-in</div>
+            <div class="amenity-item">Keypad</div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Reviews -->
+
+        <!-- House rules -->
+        <div>
+          <h2 class="mb-2">House rules</h2>
+          <ul class="rules-list">
+            <li>Up to 2 overnight guests</li>
+            <li>No pets</li>
+            <li>No smoking</li>
+            <li>Quiet hours</li>
+            <li>No parties or events</li>
+            <li>No commercial photography</li>
+          </ul>
+          
+          
+        </div>
+        <hr class="divider">
+
+        <!-- Other rooms you might like -->
+        <div class="v2-other-rooms-section">
+          <h3>Other rooms you might like</h3>
+          <div class="v2-other-rooms-grid" id="other-rooms-list"></div>
+        </div>
+        <script>window.OTHER_ROOMS = [{"id":"1280710848136631636","room_name":"Jo-Austin Room 1","room_type_label":"Room","nightly_rate":58,"currency_symbol":"$","bedrooms":1,"beds":1,"bathrooms":0,"max_guests":2,"standout_amenities":["Kitchen","In-unit laundry","A/C"],"detail_path":"1280710848136631636.html","photo_url":"https://a0.muscache.com/im/pictures/miso/Hosting-1280710848136631636/original/84cb9a64-b898-4d36-a5c7-e6239b52b6cc.jpeg"},{"id":"1280723453874434740","room_name":"Jo-Austin Room 2","room_type_label":"Room","nightly_rate":60,"currency_symbol":"$","bedrooms":1,"beds":1,"bathrooms":0,"max_guests":2,"standout_amenities":["Kitchen","In-unit laundry","A/C"],"detail_path":"1280723453874434740.html","photo_url":"https://a0.muscache.com/im/pictures/miso/Hosting-1280723453874434740/original/d3aff8e2-0e9e-45cb-a5c7-f55dcd7af48d.jpeg"},{"id":"973861068087887577","room_name":"3-Bedroom House","room_type_label":"House","nightly_rate":300,"currency_symbol":"$","bedrooms":3,"beds":3,"bathrooms":1,"max_guests":7,"standout_amenities":["Kitchen","In-unit laundry","A/C"],"detail_path":"973861068087887577.html","photo_url":"https://a0.muscache.com/im/pictures/miso/Hosting-973861068087887577/original/c7223fa7-00b1-4c2d-bb22-76bf7fd5938e.jpeg"}];</script>
+        <script>
+        (function () {
+          var rooms = window.OTHER_ROOMS || [];
+          var container = document.getElementById('other-rooms-list');
+          if (!container) return;
+          rooms.forEach(function (r) {
+            var card = document.createElement('a');
+            card.className = 'v2-mini-card';
+            card.href = r.detail_path || '#';
+            var specs = [
+              r.bedrooms ? r.bedrooms + ' bed' + (r.bedrooms !== 1 ? 's' : '') : null,
+              r.bathrooms ? r.bathrooms + ' bath' : null,
+              r.max_guests ? r.max_guests + ' guests' : null,
+            ].filter(Boolean).join(' · ');
+            var amenityHtml = '';
+            if (r.standout_amenities && r.standout_amenities.length) {
+              amenityHtml = '<div class="v2-mini-card__specs" style="margin-top:.25rem;font-size:.7rem;">' +
+                r.standout_amenities.slice(0,3).join(' · ') + '</div>';
+            }
+            card.innerHTML =
+              '<img src="' + (r.photo_url || '') + '" alt="' + esc(r.room_name) + '" loading="lazy">' +
+              '<div class="v2-mini-card__body">' +
+                '<div class="v2-mini-card__name">' + esc(r.room_name) + '</div>' +
+                '<div class="v2-mini-card__specs">' + esc(specs) + '</div>' +
+                amenityHtml +
+                (r.nightly_rate ? '<div class="v2-mini-card__rate">' + (r.currency_symbol || '$') + r.nightly_rate + '/night</div>' : '') +
+              '</div>';
+            container.appendChild(card);
+          });
+          function esc(s) {
+            return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+          }
+        })();
+        </script>
+
+      </div><!-- /detail-content -->
+
+      <!-- Right: booking widget -->
+      <aside id="booking" class="booking-widget"
+        data-api="https://kypier.com/book"
+        data-rate="45"
+        data-airbnb-rate="50"
+        data-currency="usd"
+        data-max-guests="2"
+        data-title="Jo-Austin Room 3">
+
+        <div class="booking-widget__header">
+          <div class="booking-widget__price">$45 <span>/ night</span></div>
+          <div class="booking-widget__save">Save ~12% vs Airbnb</div>
+        </div>
+
+        <div class="booking-dates">
+          <div class="booking-date-field">
+            <label class="booking-date-label">Check-in</label>
+            <input id="fp-checkin" type="text" placeholder="Add date" readonly class="booking-date-input">
+          </div>
+          <div class="booking-date-sep">→</div>
+          <div class="booking-date-field">
+            <label class="booking-date-label">Check-out</label>
+            <input id="fp-checkout" type="text" placeholder="Add date" readonly class="booking-date-input">
+          </div>
+        </div>
+
+        <!-- Guest breakdown -->
+        <div style="margin-bottom:.875rem;">
+          <div class="booking-guests-row" style="margin-bottom:.5rem;">
+            <div><div class="booking-guests-label" style="font-weight:600;">Adults</div><div style="font-size:.75rem;color:var(--text-muted);">Ages 13+</div></div>
+            <div class="guests-stepper">
+              <button type="button" id="adults-minus" class="stepper-btn">−</button>
+              <span id="adults-val">1</span>
+              <button type="button" id="adults-plus" class="stepper-btn">+</button>
+            </div>
+          </div>
+          <div class="booking-guests-row" style="margin-bottom:.5rem;">
+            <div><div class="booking-guests-label" style="font-weight:600;">Children</div><div style="font-size:.75rem;color:var(--text-muted);">Ages 2–12</div></div>
+            <div class="guests-stepper">
+              <button type="button" id="children-minus" class="stepper-btn">−</button>
+              <span id="children-val">0</span>
+              <button type="button" id="children-plus" class="stepper-btn">+</button>
+            </div>
+          </div>
+          <div class="booking-guests-row" style="margin-bottom:.5rem;">
+            <div><div class="booking-guests-label" style="font-weight:600;">Infants</div><div style="font-size:.75rem;color:var(--text-muted);">Under 2</div></div>
+            <div class="guests-stepper">
+              <button type="button" id="infants-minus" class="stepper-btn">−</button>
+              <span id="infants-val">0</span>
+              <button type="button" id="infants-plus" class="stepper-btn">+</button>
+            </div>
+          </div>
+          <div class="booking-guests-row">
+            <div><div class="booking-guests-label" style="font-weight:600;">Pets</div><div style="font-size:.75rem;color:var(--text-muted);">Check house rules</div></div>
+            <div class="guests-stepper">
+              <button type="button" id="pets-minus" class="stepper-btn">−</button>
+              <span id="pets-val">0</span>
+              <button type="button" id="pets-plus" class="stepper-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price comparison (shown after dates selected) -->
+        <div id="price-loading" style="display:none;text-align:center;padding:10px 0;font-size:.85rem;color:var(--text-muted);">Fetching current price…</div>
+        <div id="booking-breakdown" class="booking-breakdown" style="display:none">
+          <div class="breakdown-row"><span id="bd-label"></span><span id="bd-airbnb-total" style="text-decoration:line-through;color:var(--text-muted);"></span></div>
+          <div class="breakdown-row" style="color:var(--green);font-weight:600;"><span id="bd-direct-label">Direct booking</span><span id="bd-direct-total"></span></div>
+          <div class="breakdown-row" style="color:var(--green);font-size:.8rem;"><span>You save</span><span id="bd-savings"></span></div>
+          <div class="breakdown-row breakdown-row--total"><span>Total (direct)</span><strong id="bd-total"></strong></div>
+        </div>
+
+        <button class="btn btn--primary btn--full" style="margin-top:.75rem;opacity:.5;cursor:not-allowed;" disabled>
+          Book direct
+        </button>
+        <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:8px;line-height:1.5;">Direct booking coming soon — contact host to reserve.</p>
+
+        <a id="contact-dates-btn" class="btn btn--outline btn--full" href="https://ig.me/m/stayeastaustin" target="_blank" rel="noopener" style="margin-top:.5rem;text-align:center;display:none;">
+          Request dates
+        </a>
+
+        <hr class="booking-widget__divider">
+
+        <div class="booking-widget__actions">
+          <a class="btn btn--outline btn--full" href="https://ig.me/m/stayeastaustin" target="_blank" rel="noopener">
+            
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            
+            DM us to book
+          </a>
+        </div>
+
+        <p class="booking-widget__note">
+          You'll receive check-in details after booking.<br>
+          Questions? We reply within a few hours.
+        </p>
+        <div class="booking-widget__airbnb">
+          <a href="https:&#x2F;&#x2F;www.airbnb.com&#x2F;rooms&#x2F;1280718313866356892?currency&#x3D;USD&amp;locale&#x3D;en" target="_blank" rel="noopener">★ Read Airbnb reviews →</a>
+        </div>
+      </aside>
+
+    </div><!-- /detail-layout -->
+  </div>
+
+  <!-- ── Where you'll be ────────────────────────────────────────── -->
+  <section class="section" id="location">
+    <div class="container">
+      <div class="section__header">
+        <h2>Where you'll be</h2>
+        <p>Austin · Exact address shared after booking.</p>
+      </div>
+      <div id="listing-map" style="height:320px;border-radius:12px;overflow:hidden;"></div>
+    </div>
+  </section>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9/dist/leaflet.js"></script>
+  <script>
+  (function () {
+    var map = L.map('listing-map', { zoomControl: false, scrollWheelZoom: false })
+      .setView([30.30970, -97.70570], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
+    L.circle([30.30970, -97.70570], {
+      radius: 250,
+      color: '#1A3A5C',
+      fillColor: '#1A3A5C',
+      fillOpacity: 0.15,
+      weight: 2,
+    }).addTo(map);
+  })();
+  </script>
+
+  <!-- ── Neighbourhood guide ──────────────────────────────────────── -->
+  <section class="section" id="the-area">
+    <div class="container">
+      <div class="section__header">
+        <h2>Explore Austin like a local</h2>
+        <p>Places worth visiting during your stay.</p>
+      </div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-card__photo">
+            <img src="/h/jo-austin/nbhd-assets/franklin-barbecue.jpg" alt="Franklin Barbecue" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🍽️</div>
+            
+            <span class="guide-card__cat">Food</span>
+          </div>
+          <div class="guide-card__body">
+            <div class="guide-card__name">Franklin Barbecue</div>
+            <div class="guide-card__desc">Austin&#39;s most iconic barbecue spot, famous for brisket that sells out by early afternoon—expect to arrive by 10:30 AM and wait 1–2 hours in line. The brisket sandwich costs around $18 and is consistently rated as the best in Texas, making it a must-do for first-time visitors despite the wait.</div>
+          </div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card__photo">
+            <img src="/h/jo-austin/nbhd-assets/lady-bird-lake-trail.jpg" alt="Lady Bird Lake Trail" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🌿</div>
+            
+            <span class="guide-card__cat">Nature</span>
+          </div>
+          <div class="guide-card__body">
+            <div class="guide-card__name">Lady Bird Lake Trail</div>
+            <div class="guide-card__desc">A 10-mile scenic loop perfect for jogging, walking, or biking with stunning downtown skyline views and easy parking at the Boardhouse trailhead ($3–$5). It&#39;s the most accessible outdoor escape for guests staying anywhere in central Austin, with paddle board rentals and coffee shops nearby.</div>
+          </div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card__photo">
+            <img src="/h/jo-austin/nbhd-assets/texas-state-capitol.jpg" alt="Texas State Capitol" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🏛️</div>
+            
+            <span class="guide-card__cat">Culture</span>
+          </div>
+          <div class="guide-card__body">
+            <div class="guide-card__name">Texas State Capitol</div>
+            <div class="guide-card__desc">A stunning pink granite building offering free guided tours daily (9 AM–5 PM, Monday–Friday) showcasing Texas history and architecture—no tickets required. Located downtown with nearby street parking, it&#39;s ideal for a quick 1–2 hour cultural visit before grabbing lunch on Congress Avenue.</div>
+          </div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card__photo">
+            <img src="/h/jo-austin/nbhd-assets/south-congress-avenue-soco.jpg" alt="South Congress Avenue (SoCo)" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🛍️</div>
+            
+            <span class="guide-card__cat">Shopping</span>
+          </div>
+          <div class="guide-card__body">
+            <div class="guide-card__name">South Congress Avenue (SoCo)</div>
+            <div class="guide-card__desc">Austin&#39;s trendiest shopping and dining district lined with vintage shops, galleries, and local boutiques with affordable vintage clothing ($10–$40 per item) and plenty of foot traffic. The area has great Uber&#x2F;Lyft pickup spots and metered street parking, plus iconic photo ops like the &quot;I Love You So Much&quot; mural.</div>
+          </div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card__photo">
+            <img src="/h/jo-austin/nbhd-assets/6th-street.jpg" alt="6th Street" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🍸</div>
+            
+            <span class="guide-card__cat">Nightlife</span>
+          </div>
+          <div class="guide-card__body">
+            <div class="guide-card__name">6th Street</div>
+            <div class="guide-card__desc">Austin&#39;s main live music and bar district with venues like Hole in the Wall and The Speakeasy featuring live performances nightly, most with no cover charge or $5–$15 entry fees. It&#39;s packed Thursday–Saturday and easily accessible via Uber&#x2F;Lyft, with nearby paid parking garages ($10–$15 for evening).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Host claim CTA ─────────────────────────────────────────── -->
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <h3>Jo-Austin</h3>
+        <p>Jo-Austin · Austin apartments, booked securely direct.</p>
+        <p class="footer__power">Powered by <a href="https://kypier.com/start" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;vertical-align:middle;margin-left:6px;"><img src="https://stayeastaustin.com/assets/kypier-wordmark.jpg" alt="Kypier" style="height:28px;width:auto;object-fit:contain;"></a></p>
+      </div>
+      <a class="btn btn--outline" href="https://ig.me/m/stayeastaustin" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.4);color:#fff;">Book direct →</a>
+    </div>
+  </footer>
+
+  <!-- ── Booking widget JS ───────────────────────────────────── -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+  (function () {
+    // ── Booking confirmed banner ──────────────────────────────────
+    if (new URLSearchParams(location.search).get('booked') === '1') {
+      var b = document.createElement('div');
+      b.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:#2ecc71;color:#fff;text-align:center;padding:.875rem 1rem;font-weight:600;font-size:.9375rem;';
+      b.textContent = '🎉 Booking confirmed! You\'ll receive check-in details shortly.';
+      document.body.prepend(b);
+    }
+
+    // ── Photo lightbox ────────────────────────────────────────────
+    var PHOTOS = ["https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/8af309cd-da85-44bf-8ecb-b4a11652f5b1.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/f891d71a-eab1-4340-a29c-2478420a15d3.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/359b7016-35b7-4aab-bb14-f401e3e669e9.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/28fc6af9-c0d7-4c01-857c-c28fd5bd755e.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/2c26859e-cbdf-41cb-845d-176e8fb0bf17.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/7dae8ed4-d5dd-43fe-8661-2365ac3f364f.jpeg","https://a0.muscache.com/im/pictures/miso/Hosting-1280718313866356892/original/b0725cbf-6bdd-4e6d-97c0-d69376a6fb10.jpeg"];
+    var showBtn = document.getElementById('show-all-photos-btn');
+    if (showBtn) {
+      showBtn.addEventListener('click', function () {
+        var grid = document.getElementById('lightbox-grid');
+        if (!grid.children.length) {
+          PHOTOS.forEach(function (url) {
+            var img = document.createElement('img');
+            img.src = url;
+            img.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:6px;cursor:zoom-in;';
+            img.loading = 'lazy';
+            img.onclick = function () { window.open(url, '_blank'); };
+            grid.appendChild(img);
+          });
+        }
+        document.getElementById('photo-lightbox').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    document.getElementById('photo-lightbox').addEventListener('click', function (e) {
+      if (e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { document.getElementById('photo-lightbox').style.display = 'none'; document.body.style.overflow = ''; }
+    });
+
+    // ── Widget setup ──────────────────────────────────────────────
+    var widget = document.querySelector('.booking-widget');
+    if (!widget) return;
+
+    var RATE        = parseFloat(widget.dataset.rate) || 0;
+    var AIRBNB_RATE = parseFloat(widget.dataset.airbnbRate) || 0;
+    var CURRENCY    = (widget.dataset.currency || 'usd').toLowerCase();
+    var MAX_GUESTS  = parseInt(widget.dataset.maxGuests) || 8;
+    var TITLE       = widget.dataset.title || 'Room';
+    var LISTING_ID  = '1280718313866356892';
+    var API         = widget.dataset.api;
+    var PRICE_API   = 'https://kypier.com/api/price';
+    var BASE_URL    = location.href.split('?')[0];
+    var WA_BASE     = (document.getElementById('contact-dates-btn') || {}).href || '';
+
+    var SYMS = { usd: '$', gbp: '£', eur: '€' };
+    var SYM  = SYMS[CURRENCY] || CURRENCY.toUpperCase() + ' ';
+
+    var checkIn, checkOut;
+    var BLOCKED = ["2026-11-27","2027-08-24","2027-08-25","2027-08-26","2027-08-27","2027-08-28","2027-08-29","2027-08-30","2027-08-31","2027-09-01","2027-09-02","2027-09-03","2027-09-04","2027-09-05","2027-09-06","2027-09-07","2027-09-08","2027-09-09","2027-09-10","2027-09-11","2027-09-12","2027-09-13","2027-09-14","2027-09-15","2027-09-16","2027-09-17","2027-09-18","2027-09-19","2027-09-20","2027-09-21","2027-09-22","2027-09-23","2027-09-24","2027-09-25","2027-09-26","2027-09-27","2027-09-28","2027-09-29","2027-09-30","2027-10-01","2027-10-02","2027-10-03","2027-10-04","2027-10-05","2027-10-06","2027-10-07","2027-10-08","2027-10-09","2027-10-10","2027-10-11","2027-10-12","2027-10-13","2027-10-14","2027-10-15","2027-10-16","2027-10-17","2027-10-18","2027-10-19","2027-10-20","2027-10-21","2027-10-22","2027-10-23","2027-10-24","2027-10-25","2027-10-26","2027-10-27","2027-10-28","2027-10-29","2027-10-30","2027-10-31","2027-11-01","2027-11-02","2027-11-03","2027-11-04","2027-11-05","2027-11-06","2027-11-07","2027-11-08","2027-11-09","2027-11-10","2027-11-11","2027-11-12","2027-11-13","2027-11-14","2027-11-15","2027-11-16","2027-11-17","2027-11-18","2027-11-19","2027-11-20","2027-11-21","2027-11-22","2027-11-23","2027-11-24","2027-11-25","2027-11-26","2027-11-27"];
+
+    // ── Flatpickr ─────────────────────────────────────────────────
+    function firstBlockedAfter(date) {
+      var t = date.getTime();
+      var sorted = BLOCKED
+        .map(function(s) { return new Date(s + 'T00:00:00'); })
+        .filter(function(b) { return b.getTime() > t; })
+        .sort(function(a, b) { return a - b; });
+      return sorted.length ? sorted[0] : null;
+    }
+
+    var fpIn = flatpickr('#fp-checkin', {
+      minDate: 'today', dateFormat: 'Y-m-d',
+      altInput: true, altFormat: 'M j, Y',
+      disableMobile: false, disable: BLOCKED,
+      appendTo: document.body,
+      onChange: function (dates) {
+        checkIn = dates[0] || null;
+        if (fpOut) {
+          if (checkIn) {
+            var nextBlocked = firstBlockedAfter(checkIn);
+            fpOut.set('minDate', new Date(checkIn.getTime() + 86400000));
+            fpOut.set('maxDate', nextBlocked ? new Date(nextBlocked.getTime() - 86400000) : null);
+            if (checkOut && (checkOut <= checkIn || (nextBlocked && checkOut >= nextBlocked))) {
+              fpOut.clear(); checkOut = null;
+            }
+          } else {
+            fpOut.set('minDate', new Date(Date.now() + 86400000));
+            fpOut.set('maxDate', null);
+          }
+        }
+        refresh();
+      },
+    });
+    var fpOut = flatpickr('#fp-checkout', {
+      minDate: new Date(Date.now() + 86400000), dateFormat: 'Y-m-d',
+      altInput: true, altFormat: 'M j, Y',
+      disableMobile: false, disable: BLOCKED,
+      appendTo: document.body,
+      onChange: function (dates) { checkOut = dates[0] || null; refresh(); },
+    });
+
+    // ── Guest steppers ────────────────────────────────────────────
+    var adults = 1, children = 0, infants = 0, pets = 0;
+    function makeStepper(minusId, plusId, valId, getVal, setVal, min, max) {
+      document.getElementById(minusId).addEventListener('click', function () {
+        if (getVal() > min) { setVal(getVal() - 1); document.getElementById(valId).textContent = getVal(); refresh(); }
+      });
+      document.getElementById(plusId).addEventListener('click', function () {
+        if (getVal() < max) { setVal(getVal() + 1); document.getElementById(valId).textContent = getVal(); refresh(); }
+      });
+    }
+    makeStepper('adults-minus',   'adults-plus',   'adults-val',   function(){return adults;},   function(v){adults=v;},   1, MAX_GUESTS);
+    makeStepper('children-minus', 'children-plus', 'children-val', function(){return children;}, function(v){children=v;}, 0, MAX_GUESTS - 1);
+    makeStepper('infants-minus',  'infants-plus',  'infants-val',  function(){return infants;},  function(v){infants=v;},  0, 5);
+    makeStepper('pets-minus',     'pets-plus',     'pets-val',     function(){return pets;},     function(v){pets=v;},     0, 5);
+
+    function fmt(d) { return d.toISOString().split('T')[0]; }
+    function totalGuests() { return adults + children; }
+
+    // ── Refresh widget ────────────────────────────────────────────
+    var priceTimeout;
+    function refresh() {
+      var waDatesBtn   = document.getElementById('contact-dates-btn');
+      var bookBtn      = document.getElementById('book-btn');
+      var bd           = document.getElementById('booking-breakdown');
+      var priceLoading = document.getElementById('price-loading');
+
+      if (!checkIn || !checkOut) {
+        if (bookBtn) { bookBtn.disabled = true; bookBtn.textContent = 'Select dates to continue'; }
+        if (bd) bd.style.display = 'none';
+        if (priceLoading) priceLoading.style.display = 'none';
+        return;
+      }
+      var nights = Math.round((checkOut - checkIn) / 86400000);
+      if (nights < 1) { if (bookBtn) bookBtn.disabled = true; return; }
+
+      if (waDatesBtn && WA_BASE) {
+        var msg = 'Hi, I would like to book ' + TITLE + ' from ' + fmt(checkIn) + ' to ' + fmt(checkOut) +
+          ' (' + nights + ' night' + (nights !== 1 ? 's' : '') + ', ' + totalGuests() + ' guest' + (totalGuests() !== 1 ? 's' : '') + '). Please share your rate.';
+        waDatesBtn.href = WA_BASE.split('?')[0] + '?text=' + encodeURIComponent(msg);
+        waDatesBtn.textContent = 'Request ' + nights + ' night' + (nights !== 1 ? 's' : '') + ' on WhatsApp';
+      }
+
+      if (!RATE && !LISTING_ID) return;
+
+      clearTimeout(priceTimeout);
+      if (bd) bd.style.display = 'none';
+      if (priceLoading) priceLoading.style.display = 'block';
+      if (bookBtn) { bookBtn.disabled = true; bookBtn.textContent = 'Book Now'; }
+
+      priceTimeout = setTimeout(function () { fetchPrice(nights); }, 400);
+    }
+
+    function fetchPrice(nights) {
+      var bd           = document.getElementById('booking-breakdown');
+      var priceLoading = document.getElementById('price-loading');
+      var bookBtn      = document.getElementById('book-btn');
+
+      var params = new URLSearchParams({
+        listing_id: LISTING_ID,
+        check_in:   fmt(checkIn),
+        check_out:  fmt(checkOut),
+        adults:     adults,
+        children:   children,
+        infants:    infants,
+        pets:       pets,
+        currency:   CURRENCY,
+      });
+
+      fetch(PRICE_API + '?' + params)
+        .then(function (r) { return r.json(); })
+        .then(function (p) {
+          if (priceLoading) priceLoading.style.display = 'none';
+          var airbnbTotal  = p.airbnb_total  || ((AIRBNB_RATE || RATE) * nights);
+          var directTotal  = p.direct_total  || (RATE * nights);
+          var savings      = airbnbTotal - directTotal;
+          var savingsPct   = Math.round((savings / airbnbTotal) * 100);
+          if (bd) {
+            document.getElementById('bd-label').textContent        = 'Airbnb (' + nights + ' night' + (nights!==1?'s':'') + ')';
+            document.getElementById('bd-airbnb-total').textContent = SYM + airbnbTotal.toLocaleString();
+            document.getElementById('bd-direct-label').textContent = 'Direct booking';
+            document.getElementById('bd-direct-total').textContent = SYM + directTotal.toLocaleString();
+            document.getElementById('bd-savings').textContent      = SYM + savings.toLocaleString() + ' (' + savingsPct + '%)';
+            document.getElementById('bd-total').textContent        = SYM + directTotal.toLocaleString();
+            bd.style.display = '';
+          }
+          if (bookBtn) { bookBtn.disabled = false; bookBtn.textContent = 'Book Now'; }
+          widget.dataset.directTotal = directTotal;
+        })
+        .catch(function (err) {
+          console.log('Price fetch error:', err.message);
+          if (priceLoading) priceLoading.style.display = 'none';
+          if (RATE && bd) {
+            var airbnbFallback = (AIRBNB_RATE || RATE) * nights;
+            var total = RATE * nights;
+            var fallbackSavings = airbnbFallback - total;
+            var fallbackPct = AIRBNB_RATE ? Math.round((fallbackSavings / airbnbFallback) * 100) : 0;
+            document.getElementById('bd-label').textContent        = 'Airbnb (' + nights + ' night' + (nights!==1?'s':'') + ')';
+            document.getElementById('bd-airbnb-total').textContent = SYM + airbnbFallback.toLocaleString();
+            document.getElementById('bd-direct-label').textContent = 'Direct booking';
+            document.getElementById('bd-direct-total').textContent = SYM + total.toLocaleString();
+            document.getElementById('bd-savings').textContent      = SYM + fallbackSavings.toLocaleString() + (fallbackPct ? ' (' + fallbackPct + '%)' : '');
+            document.getElementById('bd-total').textContent        = SYM + total.toLocaleString();
+            bd.style.display = '';
+            widget.dataset.directTotal = total;
+          }
+          if (bookBtn) { bookBtn.disabled = false; bookBtn.textContent = 'Book Now'; }
+        });
+    }
+
+    // ── Book button ───────────────────────────────────────────────
+    var bookBtnEl = document.getElementById('book-btn');
+    if (bookBtnEl) bookBtnEl.addEventListener('click', function () {
+      if (!checkIn || !checkOut) return;
+      var btn    = this;
+      var nights = Math.round((checkOut - checkIn) / 86400000);
+      var directTotal   = parseFloat(widget.dataset.directTotal) || Math.round(RATE * nights * 0.9);
+      var amount_cents  = Math.round(directTotal * 100);
+
+      btn.disabled = true; btn.textContent = 'Redirecting…';
+
+      fetch(API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          listing_title: TITLE,
+          check_in:      fmt(checkIn),
+          check_out:     fmt(checkOut),
+          nights:        nights,
+          amount_cents:  amount_cents,
+          currency:      CURRENCY,
+          success_url:   BASE_URL + '?booked=1',
+          cancel_url:    BASE_URL,
+        }),
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.url) { window.location.href = d.url; }
+        else { throw new Error(d.error); }
+      })
+      .catch(function (err) {
+        console.log('Stripe error:', err.message);
+        btn.disabled = false; btn.textContent = 'Book Now';
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>
