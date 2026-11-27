@@ -882,6 +882,26 @@
       </div>
 
       <div class="card-section" style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;">
+        <div class="card-section-label">Template</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="radio" name="template_version" id="template-v1" value="v1" checked>
+            <span>
+              <strong>Classic (v1)</strong>
+              <span class="hint" style="margin-left:6px;">Default layout</span>
+            </span>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="radio" name="template_version" id="template-v2" value="v2" >
+            <span>
+              <strong>Boutique (v2)</strong>
+              <span class="hint" style="margin-left:6px;">Room browser layout</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="card-section" style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;">
         <div class="card-section-label">Logo URL</div>
         <p class="about-host-note">Paste a URL to your logo image (JPG, PNG, or SVG). It will appear in the nav on all pages.</p>
         <input type="text" id="branding-logo-url" placeholder="https://example.com/logo.png" value="" autocomplete="off" />
@@ -2070,19 +2090,21 @@
         btn.textContent = 'Saving…';
         if (status) status.textContent = '';
 
-        var selectedTheme = (document.querySelector('input[name="site-theme"]:checked') || {}).value || 'coastal-slate';
-        var logoUrl       = (document.getElementById('branding-logo-url') || {}).value?.trim() || '';
+        var selectedTheme   = (document.querySelector('input[name="site-theme"]:checked') || {}).value || 'coastal-slate';
+        var selectedTemplate = (document.querySelector('input[name="template_version"]:checked') || {}).value || 'v1';
+        var logoUrl          = (document.getElementById('branding-logo-url') || {}).value?.trim() || '';
 
         try {
           var res  = await fetch(API, {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              slug:          SLUG,
-              manage_token:  MANAGE_TOKEN,
-              session_token: SESSION_TOKEN,
-              theme:         selectedTheme,
-              logo_url:      logoUrl,
+              slug:             SLUG,
+              manage_token:     MANAGE_TOKEN,
+              session_token:    SESSION_TOKEN,
+              theme:            selectedTheme,
+              template_version: selectedTemplate,
+              logo_url:         logoUrl,
             }),
           });
           var json = await res.json();
