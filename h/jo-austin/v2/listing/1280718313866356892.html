@@ -632,22 +632,6 @@ p  { color: var(--text-muted); line-height: 1.7; }
     </div>
   </div>
 
-  <!-- ── Standout amenities strip ──────────────────────────────── -->
-  <div class="container">
-    <div class="v2-standout-strip">
-      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
-    </div>
-  </div>
-  <div class="container">
-    <div class="v2-standout-strip">
-      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
-    </div>
-  </div>
-  <div class="container">
-    <div class="v2-standout-strip">
-      <span>Kitchen</span><span>In-unit laundry</span><span>A&#x2F;C</span>
-    </div>
-  </div>
 
   <div class="container booking-compare">
     <div class="compare-card">
@@ -1133,6 +1117,15 @@ p  { color: var(--text-muted); line-height: 1.7; }
       appendTo: document.body,
       onChange: function (dates) { checkOut = dates[0] || null; refresh(); },
     });
+
+    // Pre-fill dates from URL params (passed by room browser)
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var ci = params.get('checkin');
+      var co = params.get('checkout');
+      if (ci && fpIn) { fpIn.setDate(ci, true); }
+      if (co && fpOut) { fpOut.setDate(co, true); }
+    })();
 
     // ── Guest steppers ────────────────────────────────────────────
     var adults = 1, children = 0, infants = 0, pets = 0;

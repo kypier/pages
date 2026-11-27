@@ -1067,6 +1067,17 @@ p  { color: var(--text-muted); line-height: 1.7; }
       if (emptyEl) {
         emptyEl.style.display = visible === 0 ? 'block' : 'none';
       }
+
+      // Append date params to all "View room" links so the detail page can pre-fill the booking widget
+      var dateParams = '';
+      if (ciVal && coVal) {
+        dateParams = '?checkin=' + encodeURIComponent(ciVal) + '&checkout=' + encodeURIComponent(coVal);
+      }
+      document.querySelectorAll('.v2-view-link, .v2-room-card__link').forEach(function (a) {
+        var base = a.getAttribute('data-base-href') || a.href.split('?')[0];
+        a.setAttribute('data-base-href', base);
+        a.href = base + dateParams;
+      });
     }
 
     // Initial count
