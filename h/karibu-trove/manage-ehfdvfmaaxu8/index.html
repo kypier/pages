@@ -319,6 +319,37 @@
     }
     .toast.show { opacity: 1; }
 
+    /* ── Build status banner ── */
+    .build-banner {
+      display: none;
+      position: sticky;
+      top: 60px;
+      z-index: 200;
+      background: #1A3A5C;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: .85rem;
+      font-weight: 500;
+      text-align: center;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    .build-banner.is-visible { display: flex; }
+    .build-banner.is-error   { background: #c0392b; }
+    .build-banner.is-done    { background: #1B5E20; }
+    .build-spinner {
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    .build-banner.is-error .build-spinner,
+    .build-banner.is-done  .build-spinner { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     /* ── Error banner ── */
     .error-banner {
       background: #FFF0F0;
@@ -616,6 +647,12 @@
   <!-- ── Toast notification ── -->
   <div class="toast" id="toast">✓ Saved — your site will update in ~2 minutes</div>
 
+  <!-- ── Build status banner ── -->
+  <div class="build-banner" id="build-banner">
+    <div class="build-spinner" id="build-spinner"></div>
+    <span id="build-banner-msg">Site updating — changes will be live in ~2 minutes</span>
+  </div>
+
   <!-- ── Top nav ── -->
   <nav class="nav">
     <img src="../assets/kypier-wordmark.jpg" alt="Kypier" style="height:32px;width:auto;object-fit:contain;">
@@ -674,7 +711,7 @@
             <div>
               <label>Nightly rate <span class="hint">direct booking</span></label>
               <input type="number" class="listing-rate" data-id="1618301158226895857"
-                value="70" min="1" placeholder="e.g. 8500" />
+                value="65" min="1" placeholder="e.g. 8500" />
             </div>
             <div>
               <label>Currency</label>
@@ -737,7 +774,7 @@
             <div>
               <label>Nightly rate <span class="hint">direct booking</span></label>
               <input type="number" class="listing-rate" data-id="1618073186043694871"
-                value="70" min="1" placeholder="e.g. 8500" />
+                value="65" min="1" placeholder="e.g. 8500" />
             </div>
             <div>
               <label>Currency</label>
@@ -823,27 +860,37 @@
         <div class="card-section-label">How guests reach you</div>
         <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Choose which contact options to show on your site. These appear in the nav, the contact section, and the booking widget.</p>
 
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--sand);">
+          <div>
+            <div style="font-size:.875rem;font-weight:600;">WhatsApp</div>
+            <div style="font-size:.8rem;color:var(--muted);">+15127978671</div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
+            <input type="checkbox" id="contact-wa-toggle" checked style="width:16px;height:16px;">
+            Show
+          </label>
+        </div>
 
         <div style="padding:12px 0;border-bottom:1px solid var(--sand);">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
             <div style="font-size:.875rem;font-weight:600;">Email</div>
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
-              <input type="checkbox" id="contact-email-toggle" checked style="width:16px;height:16px;">
+              <input type="checkbox" id="contact-email-toggle"  style="width:16px;height:16px;">
               Show
             </label>
           </div>
-          <input type="email" id="contact-email-value" placeholder="your@email.com" value="hello@kaributrove.com" />
+          <input type="email" id="contact-email-value" placeholder="your@email.com" value="" />
         </div>
 
         <div style="padding:12px 0;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
             <div style="font-size:.875rem;font-weight:600;">Instagram</div>
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.875rem;">
-              <input type="checkbox" id="contact-instagram-toggle" checked style="width:16px;height:16px;">
+              <input type="checkbox" id="contact-instagram-toggle"  style="width:16px;height:16px;">
               Show
             </label>
           </div>
-          <input type="text" id="contact-instagram-value" placeholder="yourbrand (without @)" value="go_with_trove" />
+          <input type="text" id="contact-instagram-value" placeholder="yourbrand (without @)" value="" />
         </div>
       </div>
     </div>
@@ -885,14 +932,14 @@
         <div class="card-section-label">Template</div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
           <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
-            <input type="radio" name="template_version" id="template-v1" value="v1" checked>
+            <input type="radio" name="template_version" id="template-v1" value="v1" >
             <span>
               <strong>Classic (v1)</strong>
               <span class="hint" style="margin-left:6px;">Default layout</span>
             </span>
           </label>
           <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
-            <input type="radio" name="template_version" id="template-v2" value="v2" >
+            <input type="radio" name="template_version" id="template-v2" value="v2" checked>
             <span>
               <strong>Boutique (v2)</strong>
               <span class="hint" style="margin-left:6px;">Room browser layout</span>
@@ -967,38 +1014,8 @@
       <div class="content-status" id="generate-status"></div>
     </div>
 
-    <!-- Existing articles -->
-    <div class="card">
-      <div class="card-section" style="padding-bottom:4px;">
-        <div class="card-section-label">Published articles · <a href="https://directbooking.kypier.com/h/karibu-trove/blog/" target="_blank" rel="noopener" style="font-size:.75rem;color:var(--green);font-weight:600;text-decoration:none;">View all →</a></div>
-        <div class="article-row" id="article-row-0">
-          <img class="article-thumb" src="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;blog&#x2F;assets&#x2F;christmas-in-nairobi-a-locals-picks.jpg" alt="Christmas in Nairobi: A Local&#39;s Picks">
-          
-          <div class="article-info">
-            <div class="article-title">Christmas in Nairobi: A Local&#39;s Picks</div>
-            <div class="article-meta">Events · 2026-11-24</div>
-          </div>
-          <div class="article-actions">
-            <button class="article-kebab" data-idx="0" aria-label="Article actions">···</button>
-            <div class="article-dropdown" id="article-dd-0">
-              <a href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;blog&#x2F;christmas-in-nairobi-a-locals-picks&#x2F;" target="_blank" rel="noopener">View →</a>
-              <button class="refine-toggle" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks">Refine</button>
-              <button class="dd-locked" disabled title="Available on Scale plan">Generate social assets 🔒</button>
-              <button class="dd-delete article-delete-btn" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" data-title="Christmas in Nairobi: A Local&#39;s Picks">Delete</button>
-            </div>
-          </div>
-        </div>
-        <div class="article-undo-bar" id="article-undo-0" style="display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff3f3;border-radius:8px;font-size:.85rem;color:var(--red);margin-top:4px;">
-          <span>Article deleted — undo?</span>
-          <button class="article-undo-btn btn-ghost" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks" style="color:var(--muted);">Undo</button>
-        </div>
-        <div class="refine-panel" id="refine-panel-0">
-          <label>Ask the content agent to change something in <strong>Christmas in Nairobi: A Local&#39;s Picks</strong></label>
-          <textarea class="refine-input" placeholder="e.g. Rewrite the title to be more punchy, or update the Local Take section with a tip about parking on SoCo…" data-slug="christmas-in-nairobi-a-locals-picks"></textarea>
-          <button class="refine-submit" data-idx="0" data-slug="christmas-in-nairobi-a-locals-picks">Send to agent →</button>
-          <div class="content-status refine-status" id="refine-status-0"></div>
-        </div>
-      </div>
+    <div class="ads-placeholder" style="border-style:solid;border-color:var(--sand);">
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">No articles published yet. Generate your first one above — it will appear on your site within a few minutes.</p>
     </div>
 
     <!-- ── Payments ── -->
@@ -1007,9 +1024,10 @@
       <div class="card-section">
 
 
-        <!-- State B/C: Connected but pending verification -->
-        <p style="font-size:.875rem;color:var(--muted);margin-bottom:12px;">Stripe connected — waiting for account verification.</p>
-        <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.85rem;padding:8px 16px;">Complete verification on Stripe →</a>
+        <!-- State A: Not connected -->
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px;line-height:1.5;">Connect your Stripe account to start accepting direct bookings from guests.</p>
+        <a href="#" id="stripe-oauth-btn" class="save-btn" style="display:inline-block;text-decoration:none;font-size:.9rem;padding:10px 20px;">Connect your Stripe account →</a>
+        <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">New to Stripe? <a href="#" id="stripe-express-btn">Create an account instead →</a></p>
 
       </div>
     </div>
@@ -1056,7 +1074,7 @@
       window.location.href = 'https://kypier.com/manage-login?slug=karibu-trove';
     }
     var SLUG         = 'karibu-trove';
-    var MANAGE_TOKEN = 'fkvbqts8f26z';
+    var MANAGE_TOKEN = 'ehfdvfmaaxu8';
     var API          = 'https://kypier.com/manage';
 
     // ── Wire up Stripe buttons ─────────────────────────────────────
@@ -1320,6 +1338,99 @@
       t.classList.add('show');
       setTimeout(function() { t.classList.remove('show'); }, 4000);
     }
+
+    // ── Build status poller ────────────────────────────────────────
+    var BuildPoller = (function () {
+      var STATUS_URL = 'https://kypier.com/start/status?slug=' + encodeURIComponent(SLUG);
+      var banner     = document.getElementById('build-banner');
+      var bannerMsg  = document.getElementById('build-banner-msg');
+      var pollTimer  = null;
+      var building   = false;
+
+      function allSaveBtns() {
+        return Array.from(document.querySelectorAll('#save-btn, #save-branding-btn'));
+      }
+
+      function lockSaveBtns() {
+        allSaveBtns().forEach(function (b) { b.disabled = true; });
+      }
+
+      function unlockSaveBtns() {
+        // save-btn re-enables only when dirty; save-branding-btn always re-enables
+        var saveBrandingBtn = document.getElementById('save-branding-btn');
+        if (saveBrandingBtn) { saveBrandingBtn.disabled = false; saveBrandingBtn.textContent = 'Save branding'; }
+        // save-btn re-enables only when dirty — trigger a re-check
+        if (typeof updateSaveBtn === 'function') updateSaveBtn();
+      }
+
+      function setBanner(state, msg) {
+        if (!banner) return;
+        banner.classList.remove('is-visible', 'is-error', 'is-done');
+        if (state === 'building') {
+          bannerMsg.textContent = msg || 'Site updating — changes will be live in ~2 minutes';
+          banner.classList.add('is-visible');
+        } else if (state === 'done') {
+          bannerMsg.textContent = msg || '✓ Site updated — changes are now live';
+          banner.classList.add('is-visible', 'is-done');
+          setTimeout(function () { banner.classList.remove('is-visible', 'is-done'); }, 6000);
+        } else if (state === 'error') {
+          bannerMsg.textContent = msg || 'Build failed — check your settings and save again';
+          banner.classList.add('is-visible', 'is-error');
+        } else {
+          // hide
+        }
+      }
+
+      function stopPolling() {
+        if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+        building = false;
+      }
+
+      function poll() {
+        fetch(STATUS_URL)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var wf = data.workflow || {};
+            if (wf.failed) {
+              stopPolling();
+              unlockSaveBtns();
+              setBanner('error');
+            } else if (wf.status === 'completed' && !wf.failed) {
+              stopPolling();
+              unlockSaveBtns();
+              setBanner('done');
+            }
+            // still queued or in_progress — keep polling
+          })
+          .catch(function () { /* network error — keep polling */ });
+      }
+
+      function start() {
+        if (building) return; // already polling
+        building = true;
+        lockSaveBtns();
+        setBanner('building');
+        pollTimer = setInterval(poll, 6000);
+        setTimeout(poll, 2000); // first check soon
+      }
+
+      function checkOnLoad() {
+        fetch(STATUS_URL)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var wf = data.workflow || {};
+            if (wf.status === 'queued' || wf.status === 'in_progress') {
+              start();
+            }
+          })
+          .catch(function () { /* silent */ });
+      }
+
+      return { start: start, checkOnLoad: checkOnLoad };
+    })();
+
+    // Check on load whether a build is already running
+    BuildPoller.checkOnLoad();
 
     // ── Content API ───────────────────────────────────────────────
     var CONTENT_API = 'https://kypier.com/content';
@@ -2041,11 +2152,13 @@
         // Data-only (listing-patch) or full rebuild?
         var isDataOnly = json.update_type === 'listing-patch';
 
-        showToast('✓ Saved');
-        if (note) {
-          note.textContent = isDataOnly
-            ? ''
-            : "Your site is being updated — you'll receive an email when it's live.";
+        if (isDataOnly) {
+          showToast('✓ Saved');
+          if (note) note.textContent = '';
+        } else {
+          showToast('✓ Saved — site updating…');
+          if (note) note.textContent = '';
+          BuildPoller.start();
         }
 
         // Reset dirty state — update initials to current values
@@ -2113,15 +2226,16 @@
             errBan.textContent = json.error || 'Something went wrong.';
             errBan.style.display = 'block';
           } else {
-            showToast('✓ Branding saved');
-            if (status) status.textContent = "Your site is being updated.";
+            showToast('✓ Saved — site updating…');
+            if (status) status.textContent = '';
+            BuildPoller.start();
           }
         } catch(e) {
           errBan.textContent   = 'Could not connect. Please try again.';
           errBan.style.display = 'block';
+          btn.disabled    = false;
+          btn.textContent = 'Save branding';
         }
-        btn.disabled    = false;
-        btn.textContent = 'Save branding';
       });
     }
 

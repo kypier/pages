@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://directbooking.kypier.com/h/karibu-trove/sitemap.xml
+
+# Content signals
+search: yes
+ai-input: yes
+ai-train: no

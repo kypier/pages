@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karibu Trove | Nairobi Apartments</title>
-  <meta name="description" content="Karibu Trove · Direct booking in Nairobi.">
-  <meta property="og:title" content="Karibu Trove | Nairobi Apartments">
-  <meta property="og:description" content="Karibu Trove · Direct booking in Nairobi.">
+  <title>Karibu Trove — Rooms &amp; Suites in Nairobi | Direct Booking</title>
+  <meta name="description" content="Book directly with Karibu Trove in Nairobi, Nairobi. 2 rooms available. Skip Airbnb fees — message the host and book direct.">
+  <meta property="og:title" content="Karibu Trove — Rooms &amp; Suites in Nairobi | Direct Booking">
+  <meta property="og:description" content="Book directly with Karibu Trove in Nairobi, Nairobi. 2 rooms available. Skip Airbnb fees — message the host and book direct.">
   <meta property="og:image" content="https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg">
+  <meta property="og:url" content="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/jpeg" href="https://directbooking.kypier.com/h/karibu-trove/assets/kypier-icon.jpg">
-  <style>/* ============================================================
+  <style>
+/* ============================================================
    Kypier — Generator CSS
    Design system: Coastal Slate Blue / Terracotta / Sage / Sand
    Fonts: Fraunces (headings) · Plus Jakarta Sans (body)
@@ -548,7 +550,88 @@ p  { color: var(--text-muted); line-height: 1.7; }
 .text-muted { color: var(--text-muted); }
 .text-sm { font-size: .875rem; }
 .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-</style>
+
+
+/* ── v2 room browser ──────────────────────────────────────────── */
+.v2-filter-bar { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; align-items:flex-end; }
+.v2-filter-group { display:flex; flex-direction:column; gap:4px; }
+.v2-filter-group label { font-size:.75rem; font-weight:600; color:var(--text-muted); letter-spacing:.04em; text-transform:uppercase; }
+.v2-filter-group select, .v2-filter-group input[type=date] {
+  border:1.5px solid var(--border); border-radius:var(--radius-sm);
+  padding:8px 12px; font-size:.875rem; font-family:var(--font-sans);
+  background:var(--surface); color:var(--text); cursor:pointer;
+}
+.v2-filter-group select:focus, .v2-filter-group input[type=date]:focus { outline:none; border-color:var(--primary); }
+.v2-rooms-count { font-size:.875rem; color:var(--text-muted); margin-bottom:1.25rem; }
+.v2-room-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; }
+.v2-room-card { background:var(--surface); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; transition:box-shadow .2s, transform .2s; }
+.v2-room-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.v2-room-card[data-hidden] { display:none; }
+.v2-room-card__photo { position:relative; aspect-ratio:4/3; overflow:hidden; }
+.v2-room-card__photo img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.v2-room-card:hover .v2-room-card__photo img { transform:scale(1.04); }
+.v2-tier-badge { position:absolute; top:.6rem; left:.6rem; background:var(--primary); color:#fff; font-size:.6875rem; font-weight:600; letter-spacing:.04em; padding:3px 10px; border-radius:var(--radius-pill); }
+.v2-room-card__link { display:block; text-decoration:none; color:inherit; flex:1; }
+.v2-room-card__body { padding:1.25rem 1.25rem .75rem; }
+.v2-room-card__name { font-family:var(--font-serif); font-size:1.0625rem; font-weight:700; color:var(--text); line-height:1.3; margin-bottom:.35rem; }
+.v2-room-card__specs { font-size:.8rem; color:var(--text-muted); margin-bottom:.6rem; }
+.v2-amenity-chips { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.75rem; }
+.v2-amenity-chip { background:var(--sage-light,#EDF1EC); color:var(--text); font-size:.7rem; font-weight:500; padding:3px 9px; border-radius:var(--radius-pill); }
+.v2-room-card__rate { font-size:1rem; font-weight:700; color:var(--primary); }
+.v2-room-card__rate span { font-size:.8rem; font-weight:400; color:var(--text-muted); }
+.v2-room-card__footer { padding:.75rem 1.25rem 1rem; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.v2-view-link { font-size:.875rem; font-weight:600; color:var(--primary); display:inline-flex; align-items:center; gap:.3rem; }
+.v2-compare-btn { font-size:.8rem; font-weight:500; color:var(--text-muted); border:1.5px solid var(--border); border-radius:var(--radius-pill); padding:5px 12px; background:transparent; cursor:pointer; transition:border-color .15s, color .15s, background .15s; }
+.v2-compare-btn:hover, .v2-compare-btn.is-selected { border-color:var(--primary); color:var(--primary); background:var(--sage-light,#EDF1EC); }
+.v2-rooms-empty { text-align:center; padding:3rem; color:var(--text-muted); display:none; }
+
+/* Comparison drawer */
+.v2-compare-drawer { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:2px solid var(--primary); box-shadow:0 -4px 24px rgba(27,46,60,.12); padding:1rem 1.5rem; z-index:200; display:none; }
+.v2-compare-drawer.is-visible { display:block; }
+.v2-compare-drawer__inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+.v2-compare-drawer__label { font-size:.8125rem; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+.v2-compare-slots { display:flex; gap:1rem; flex:1; }
+.v2-compare-slot { display:flex; align-items:center; gap:.75rem; background:var(--bg); border-radius:var(--radius-sm); padding:.5rem .75rem; min-width:180px; }
+.v2-compare-slot__thumb { width:44px; height:44px; border-radius:6px; object-fit:cover; flex-shrink:0; }
+.v2-compare-slot__info { flex:1; min-width:0; }
+.v2-compare-slot__name { font-size:.8125rem; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.v2-compare-slot__rate { font-size:.75rem; color:var(--text-muted); }
+.v2-compare-slot__remove { font-size:1.1rem; color:var(--text-muted); cursor:pointer; padding:2px 4px; flex-shrink:0; background:none; border:none; }
+.v2-compare-slot__remove:hover { color:var(--secondary); }
+.v2-compare-drawer__actions { display:flex; gap:.75rem; align-items:center; }
+
+/* Comparison modal */
+.v2-compare-modal { position:fixed; inset:0; background:rgba(27,46,60,.55); z-index:300; display:none; align-items:center; justify-content:center; padding:1rem; }
+.v2-compare-modal.is-open { display:flex; }
+.v2-compare-modal__box { background:var(--surface); border-radius:var(--radius-lg); max-width:760px; width:100%; max-height:90vh; overflow-y:auto; padding:2rem; position:relative; }
+.v2-compare-modal__close { position:absolute; top:1rem; right:1rem; font-size:1.25rem; color:var(--text-muted); cursor:pointer; background:none; border:none; }
+.v2-compare-table { width:100%; border-collapse:collapse; margin-top:1.25rem; }
+.v2-compare-table th { text-align:left; font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); padding:.6rem .75rem; border-bottom:2px solid var(--border); }
+.v2-compare-table td { padding:.7rem .75rem; border-bottom:1px solid var(--border); font-size:.9rem; vertical-align:top; }
+.v2-compare-table td:first-child { color:var(--text-muted); font-size:.8125rem; white-space:nowrap; }
+.v2-compare-table tr:last-child td { border-bottom:none; }
+
+@media(max-width:600px) {
+  .v2-filter-bar { gap:.75rem; }
+  .v2-room-grid { grid-template-columns:1fr; }
+  .v2-compare-slots { flex-direction:column; }
+}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Karibu Trove",
+    "description": "Book directly with Karibu Trove in Nairobi, Nairobi. 2 rooms available. Skip Airbnb fees — message the host and book direct.",
+    "url": "https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;",
+    "image": "https:&#x2F;&#x2F;a0.muscache.com&#x2F;im&#x2F;pictures&#x2F;hosting&#x2F;Hosting-1618073186043694871&#x2F;original&#x2F;427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi"
+    },
+    "telephone": "+15127978671"
+  }
+  </script>
 </head>
 <body>
 
@@ -564,16 +647,11 @@ p  { color: var(--text-muted); line-height: 1.7; }
   <nav class="nav">
     <a class="nav__brand" href="#">Karibu Trove</a>
     <div class="nav__actions">
-      <a class="nav__link" href="./blog/">Local Guide</a>
-      <a class="btn btn--outline btn--sm" href="mailto:hello@kaributrove.com">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email us
+      <a class="btn btn--outline btn--sm" href="https:&#x2F;&#x2F;wa.me&#x2F;15127978671" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp us
       </a>
-      <a class="btn btn--outline btn--sm" href="https:&#x2F;&#x2F;ig.me&#x2F;m&#x2F;go_with_trove" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        @go_with_trove
-      </a>
-      <a class="btn btn--primary btn--sm" href="#listings">Find your stay</a>
+      <a class="btn btn--primary btn--sm" href="#rooms">Browse rooms</a>
     </div>
   </nav>
 
@@ -582,68 +660,150 @@ p  { color: var(--text-muted); line-height: 1.7; }
     <img class="hero__photo" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg" alt="Karibu Trove — Nairobi" loading="eager">
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <h1 class="hero__title">Direct stays in the heart of Nairobi</h1>
-      <p class="hero__sub">Hotel-level comfort, booked directly.</p>
-      <a class="btn btn--amber btn--lg" href="#listings">View our apartments ↓</a>
+      <h1 class="hero__title">Stay with Karibu Trove in Nairobi.</h1>
+      <p class="hero__sub">Boutique rooms, booked directly.</p>
+      <a class="btn btn--amber btn--lg" href="#rooms">Browse rooms ↓</a>
     </div>
   </section>
 
-  <!-- ── Listings ─────────────────────────────────────────────── -->
-  <section class="section" id="listings">
+  <!-- ── Room browser ─────────────────────────────────────────── -->
+  <section class="section" id="rooms">
     <div class="container">
       <div class="section__header">
-        <h2>Stay with Karibu Trove in Nairobi</h2>
+        <h2>Choose your room</h2>
       </div>
-      <div class="listing-grid">
-        <a class="listing-card" href="listing&#x2F;1618301158226895857.html">
-          <div class="listing-card__photo">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg" alt="1BR Rooftop Apartments in Nairobi" loading="lazy">
-            
-          </div>
-          <div class="listing-card__body">
-            <div class="listing-card__location">Nairobi</div>
-            <div class="listing-card__title">1BR Rooftop Apartments in Nairobi</div>
-            <div class="listing-card__desc">Karibu! Step into luxury at Alina Harbour, where sophistication meets comfort. This exquisite 1-bedroom rooftop haven offers the perfect…</div>
-            <div class="listing-card__meta">
-              <span>2 guests</span>
-              <span>1 bedrooms</span>
-              <span>1 beds</span>
-              <span>1 baths</span>
-            </div>
-            <div class="listing-card__cta">View photos &amp; book →</div>
-          </div>
-        </a>
-        <a class="listing-card" href="listing&#x2F;1618073186043694871.html">
-          <div class="listing-card__photo">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg" alt="2BR Luxury Apartments in Nairobi" loading="lazy">
-            
-          </div>
-          <div class="listing-card__body">
-            <div class="listing-card__location">Nairobi</div>
-            <div class="listing-card__title">2BR Luxury Apartments in Nairobi</div>
-            <div class="listing-card__desc">Experience luxury living at Alina Harbour. Our beautifully appointed 2-bedroom apartment features premium furnishings, a fully-equipped…</div>
-            <div class="listing-card__meta">
-              <span>4 guests</span>
-              <span>2 bedrooms</span>
-              <span>2 beds</span>
-              <span>2 baths</span>
-            </div>
-            <div class="listing-card__cta">View photos &amp; book →</div>
-          </div>
-        </a>
+
+      <!-- Filter bar -->
+      <div class="v2-filter-bar" id="room-filters">
+        <div class="v2-filter-group">
+          <label for="filter-guests">Guests</label>
+          <select id="filter-guests">
+            <option value="">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="6">6+</option>
+            <option value="8">8+</option>
+          </select>
+        </div>
+        <div class="v2-filter-group">
+          <label for="filter-type">Room type</label>
+          <select id="filter-type">
+            <option value="">All types</option>
+            <option value="Studio">Studio</option>
+            <option value="Apartment">Apartment</option>
+          </select>
+        </div>
+        <div class="v2-filter-group">
+          <label for="filter-checkin">Check-in</label>
+          <input type="date" id="filter-checkin">
+        </div>
+        <div class="v2-filter-group">
+          <label for="filter-checkout">Check-out</label>
+          <input type="date" id="filter-checkout">
+        </div>
       </div>
+
+      <p class="v2-rooms-count" id="rooms-count"></p>
+
+      <!-- Room grid -->
+      <div class="v2-room-grid" id="room-grid">
+        <article class="v2-room-card"
+          data-guests="2"
+          data-type="Studio"
+          data-rate="65"
+          data-id="1618301158226895857"
+          data-blocked="">
+
+          <a class="v2-room-card__link" href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618301158226895857.html">
+            <div class="v2-room-card__photo">
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg" alt="Nairobi Studio" loading="lazy">
+              <span class="v2-tier-badge">Studio</span>
+            </div>
+            <div class="v2-room-card__body">
+              <div class="v2-room-card__name">Nairobi Studio</div>
+              <div class="v2-room-card__specs">1 bed · 1 bath · 2 guests</div>
+              <div class="v2-amenity-chips">
+                <span class="v2-amenity-chip">Kitchen</span><span class="v2-amenity-chip">In-unit laundry</span>
+              </div>
+              <div class="v2-room-card__rate">$65 <span>/ night</span></div>
+            </div>
+          </a>
+
+          <div class="v2-room-card__footer">
+            <a class="v2-view-link" href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618301158226895857.html">View room →</a>
+            <button class="v2-compare-btn"
+              data-id="1618301158226895857"
+              data-name="Nairobi Studio"
+              data-rate="65"
+              data-photo="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg"
+              data-path="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618301158226895857.html">+ Compare</button>
+          </div>
+
+        </article>
+        <article class="v2-room-card"
+          data-guests="4"
+          data-type="Apartment"
+          data-rate="65"
+          data-id="1618073186043694871"
+          data-blocked="">
+
+          <a class="v2-room-card__link" href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618073186043694871.html">
+            <div class="v2-room-card__photo">
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg" alt="2-Bedroom Apartment" loading="lazy">
+              <span class="v2-tier-badge">Apartment</span>
+            </div>
+            <div class="v2-room-card__body">
+              <div class="v2-room-card__name">2-Bedroom Apartment</div>
+              <div class="v2-room-card__specs">2 bed · 2 bath · 4 guests</div>
+              <div class="v2-amenity-chips">
+                <span class="v2-amenity-chip">Kitchen</span><span class="v2-amenity-chip">In-unit laundry</span>
+              </div>
+              <div class="v2-room-card__rate">$65 <span>/ night</span></div>
+            </div>
+          </a>
+
+          <div class="v2-room-card__footer">
+            <a class="v2-view-link" href="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618073186043694871.html">View room →</a>
+            <button class="v2-compare-btn"
+              data-id="1618073186043694871"
+              data-name="2-Bedroom Apartment"
+              data-rate="65"
+              data-photo="https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg"
+              data-path="https:&#x2F;&#x2F;directbooking.kypier.com&#x2F;h&#x2F;karibu-trove&#x2F;listing&#x2F;1618073186043694871.html">+ Compare</button>
+          </div>
+
+        </article>
+      </div>
+
+      <div class="v2-rooms-empty" id="rooms-empty">No rooms match your filters.</div>
+
     </div>
   </section>
 
-  <!-- ── About ─────────────────────────────────────────────────── -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="about">
-        <h2>About Karibu Trove</h2>
-        <p class="mt-2">Karibu Trove offers thoughtfully designed short-term rentals in Nairobi that blend comfort with convenience. Each property is fully stocked with premium amenities including hot water, quality shampoo, and body soap, ensuring guests feel at home from day one. Whether you&#39;re seeking a Nairobi vacation rental for business or leisure, our spaces provide the essentials you need without compromise. Book direct with Karibu Trove and save significantly on Airbnb fees while enjoying personalized service and direct access to our team. We believe travelers deserve accommodations that prioritize both quality and value, making your stay in Nairobi seamless and memorable.</p>
+  <!-- ── Comparison drawer ────────────────────────────────────── -->
+  <div class="v2-compare-drawer" id="compare-drawer">
+    <div class="v2-compare-drawer__inner">
+      <span class="v2-compare-drawer__label">Comparing:</span>
+      <div class="v2-compare-slots" id="compare-slots">
+        <!-- slots injected by JS -->
+      </div>
+      <div class="v2-compare-drawer__actions">
+        <button class="btn btn--primary btn--sm" id="compare-open-btn" disabled>Compare rooms</button>
+        <button class="btn btn--ghost btn--sm" id="compare-clear-btn">Clear</button>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- ── Comparison modal ─────────────────────────────────────── -->
+  <div class="v2-compare-modal" id="compare-modal" role="dialog" aria-modal="true" aria-label="Room comparison">
+    <div class="v2-compare-modal__box">
+      <button class="v2-compare-modal__close" id="compare-modal-close" aria-label="Close">✕</button>
+      <h2 style="font-family:var(--font-serif);margin-bottom:.25rem;">Room comparison</h2>
+      <div id="compare-modal-body"><!-- populated by JS --></div>
+    </div>
+  </div>
 
   <!-- ── Neighbourhood guide ──────────────────────────────────── -->
   <section class="section">
@@ -655,24 +815,24 @@ p  { color: var(--text-muted); line-height: 1.7; }
       <div class="guide-grid">
         <div class="guide-card">
           <div class="guide-card__photo">
-            <img src="/h/karibu-trove/nbhd-assets/nairobi-national-museum.jpg" alt="Nairobi National Museum" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🏛️</div>
+            <img src="/h/karibu-trove/nbhd-assets/karen-blixen-museum.jpg" alt="Karen Blixen Museum" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🏛️</div>
             
             <span class="guide-card__cat">Culture</span>
           </div>
           <div class="guide-card__body">
-            <div class="guide-card__name">Nairobi National Museum</div>
-            <div class="guide-card__desc">Kenya&#39;s premier museum showcases everything from paleontology to contemporary art, with the famous skull of Turkana Boy and interactive exhibits on Kenyan wildlife and culture. Plan 2–3 hours; admission is around 800 KES (~$6 USD) and it&#39;s easily accessible by Uber from most neighbourhoods.</div>
+            <div class="guide-card__name">Karen Blixen Museum</div>
+            <div class="guide-card__desc">Housed in the former home of the author of &#39;Out of Africa,&#39; this museum offers insight into colonial Kenya and literary history through period furnishings and photographs. The lush gardens and guided tours (typically KES 1,500–2,000) provide a peaceful half-day escape just 15 minutes south of central Nairobi via Uber.</div>
           </div>
         </div>
         <div class="guide-card">
           <div class="guide-card__photo">
-            <img src="/h/karibu-trove/nbhd-assets/giraffe-centre.jpg" alt="Giraffe Centre" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🌿</div>
+            <img src="/h/karibu-trove/nbhd-assets/nairobi-national-park.jpg" alt="Nairobi National Park" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="guide-card__icon" style="display:none">🌿</div>
             
             <span class="guide-card__cat">Nature</span>
           </div>
           <div class="guide-card__body">
-            <div class="guide-card__name">Giraffe Centre</div>
-            <div class="guide-card__desc">Located in the suburb of Langata (15 minutes by Uber), you can hand-feed endangered Rothschild giraffes at eye level—a unique African experience that&#39;s especially magical in early morning light. Entry is 1,500 KES (~$11 USD) per adult and the centre opens at 9 AM daily.</div>
+            <div class="guide-card__name">Nairobi National Park</div>
+            <div class="guide-card__desc">Africa&#39;s most accessible safari is just 7 km from downtown, offering game drives where you can spot lions, giraffes, and zebras against the Nairobi skyline backdrop. Entry is around KES 1,500–2,500 per person; hire a guide through your Airbnb host or book online—early morning drives (6–10 AM) are best.</div>
           </div>
         </div>
         <div class="guide-card">
@@ -683,7 +843,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
           </div>
           <div class="guide-card__body">
             <div class="guide-card__name">The Carnivore Restaurant</div>
-            <div class="guide-card__desc">An iconic Nairobi institution serving an all-you-can-eat Brazilian-style BBQ experience with game meats (kudu, impala, ostrich) that you won&#39;t find elsewhere. Dinner runs 2,500–3,500 KES (~$19–26 USD) per person; it&#39;s a 20-minute Uber ride from central Nairobi and reservations are recommended.</div>
+            <div class="guide-card__desc">This iconic Nairobi institution serves an all-you-can-eat Brazilian-style meat buffet in a lively colonial setting, with prices around KES 3,500–5,000 per person including drinks. It&#39;s easily accessible by Uber from most neighbourhoods and offers a quintessential Nairobi dining experience popular with both tourists and locals.</div>
           </div>
         </div>
         <div class="guide-card">
@@ -694,7 +854,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
           </div>
           <div class="guide-card__body">
             <div class="guide-card__name">Westgate Shopping Mall</div>
-            <div class="guide-card__desc">Nairobi&#39;s premier modern shopping centre with high-street brands, a food court, cinema, and supermarket—perfect for both practical supplies and leisure browsing. It&#39;s centrally located with secure paid parking (200 KES&#x2F;hour) and easily reachable by Uber; most shops open 10 AM–9 PM daily.</div>
+            <div class="guide-card__desc">A large, modern mall in Westlands with international brands, local shops, a food court, and a cinema—perfect for air-conditioned shopping on hot days or rainy afternoons. It&#39;s centrally located with secure parking and easily reachable by Uber; expect to spend 2–3 hours browsing or catching a film.</div>
           </div>
         </div>
         <div class="guide-card">
@@ -705,55 +865,63 @@ p  { color: var(--text-muted); line-height: 1.7; }
           </div>
           <div class="guide-card__body">
             <div class="guide-card__name">Brew Bistro &amp; Bar</div>
-            <div class="guide-card__desc">A popular upscale bar in Westlands serving craft cocktails, local beers, and tapas in a relaxed lounge atmosphere that&#39;s ideal for evening socialising. Expect craft cocktails around 800–1,200 KES (~$6–9 USD) and it stays open until midnight; Uber access is straightforward from anywhere in Nairobi.</div>
+            <div class="guide-card__desc">A popular rooftop bar in the Westlands area serving craft cocktails, craft beers, and casual food in a relaxed atmosphere with views over the city. It&#39;s ideal for evening drinks (open from 5 PM), accessible by Uber, and offers a laid-back vibe where you can mix with both expats and locals.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Amenities ─────────────────────────────────────────────── -->
+  <!-- ── About ────────────────────────────────────────────────── -->
   <section class="section section--dark">
-    <div class="container">
-      <div class="section__header">
-        <h2>What to expect in our Nairobi apartments</h2>
-      </div>
-      <div class="amenity-grid">
-        <span class="amenity-pill">Cleaning products</span>
-        <span class="amenity-pill">Shampoo</span>
-        <span class="amenity-pill">Body soap</span>
-        <span class="amenity-pill">Hot water</span>
-        <span class="amenity-pill">Shower gel</span>
-        <span class="amenity-pill">Washer</span>
-        <span class="amenity-pill">Dryer</span>
-        <span class="amenity-pill">Bed linens</span>
-        <span class="amenity-pill">Room-darkening shades</span>
-        <span class="amenity-pill">Iron</span>
-        <span class="amenity-pill">Drying rack for clothing</span>
-        <span class="amenity-pill">Clothing storage: walk-in closet and closet</span>
-      </div>
-    </div>
+    <div class="container"><div class="about">
+      <h2>About Karibu Trove</h2>
+      <p class="mt-2">Karibu Trove offers thoughtfully curated short-term rentals across Nairobi, designed for travelers seeking comfort without compromise. Each property is stocked with premium essentials including hot water, quality shampoo, and body soap, ensuring a seamless arrival experience. When you book direct with Karibu Trove for your Nairobi vacation rental, you&#39;ll enjoy competitive rates while saving on platform fees—more value for your stay. Our commitment to cleanliness, convenience, and genuine hospitality sets us apart in the competitive rental market. Whether you&#39;re visiting for business or leisure, Karibu Trove provides the foundation for an authentic Nairobi experience with the modern amenities you expect.</p>
+    </div></div>
   </section>
+
+  <!-- ── Amenities ─────────────────────────────────────────────── -->
 
   <!-- ── Contact ────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="contact">
         <h2>Questions before you book?</h2>
-        <p class="mt-2">If you have questions about our apartments, longer stays or special requirements, reach out and we'll be happy to help. You'll receive all check-in details after booking directly through this site.</p>
-        <a class="btn btn--outline mt-3" href="mailto:hello@kaributrove.com" style="display:inline-flex;align-items:center;gap:8px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email us →
-        </a>
-        <a class="btn btn--outline mt-3" href="https:&#x2F;&#x2F;ig.me&#x2F;m&#x2F;go_with_trove" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          DM @go_with_trove →
+        <p class="mt-2">If you have questions about our rooms, longer stays or special requirements, reach out and we'll be happy to help. You'll receive all check-in details after booking directly through this site.</p>
+        <a class="btn btn--wa mt-3" href="https:&#x2F;&#x2F;wa.me&#x2F;15127978671" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp us →
         </a>
       </div>
     </div>
   </section>
 
   <!-- ── Host claim CTA ─────────────────────────────────────────── -->
+  <section style="background:#1A3A5C;padding:52px 20px;">
+    <div style="max-width:720px;margin:0 auto;">
+      <p style="color:rgba(255,255,255,.65);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;">This site was built for you</p>
+      <h2 style="color:#fff;font-family:Georgia,serif;font-size:1.8rem;font-weight:700;margin-bottom:14px;line-height:1.25;">Claim your direct booking site.<br>Start earning more from every stay.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:28px 0 32px;">
+        <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:18px;">
+          <div style="font-size:1.4rem;margin-bottom:8px;">💳</div>
+          <strong style="color:#fff;display:block;margin-bottom:5px;font-size:.875rem;">International payments</strong>
+          <p style="color:rgba(255,255,255,.75);font-size:.8rem;margin:0;line-height:1.5;">Accept secure card bookings from guests anywhere — no cash, no middleman.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:18px;">
+          <div style="font-size:1.4rem;margin-bottom:8px;">💰</div>
+          <strong style="color:#fff;display:block;margin-bottom:5px;font-size:.875rem;">Beat Airbnb on price</strong>
+          <p style="color:rgba(255,255,255,.75);font-size:.8rem;margin:0;line-height:1.5;">Offer guests a better rate than Airbnb — they save on fees, you earn more per booking.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:18px;">
+          <div style="font-size:1.4rem;margin-bottom:8px;">🗓</div>
+          <strong style="color:#fff;display:block;margin-bottom:5px;font-size:.875rem;">Full control</strong>
+          <p style="color:rgba(255,255,255,.75);font-size:.8rem;margin:0;line-height:1.5;">Manage availability, pricing, your neighbourhood guide and social links in one place.</p>
+        </div>
+      </div>
+      <a href="https://kypier.com/host?from=karibu-trove&brand=Karibu%20Trove" style="display:inline-block;background:#fff;color:#1A3A5C;font-weight:700;font-size:.975rem;padding:14px 32px;border-radius:8px;text-decoration:none;">Claim your free site →</a>
+      <p style="color:rgba(255,255,255,.5);margin-top:14px;font-size:.8rem;">Free. No technical skills needed. We'll be in touch within 24 hours.</p>
+    </div>
+  </section>
 
   <!-- ── Footer ─────────────────────────────────────────────────── -->
   <footer class="footer">
@@ -766,6 +934,282 @@ p  { color: var(--text-muted); line-height: 1.7; }
       <a class="btn btn--outline" href="#listings" style="border-color:rgba(255,255,255,.4);color:#fff;">Find your stay →</a>
     </div>
   </footer>
+
+  <!-- ── Room data + JS ────────────────────────────────────────── -->
+  <script>window.ROOMS = [{"id":"1618301158226895857","room_name":"Nairobi Studio","room_type_label":"Studio","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg","bedrooms":1,"beds":1,"bathrooms":1,"max_guests":2,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618301158226895857.html","blocked_dates_csv":"","is_multi_room_ctx":true},{"id":"1618073186043694871","room_name":"2-Bedroom Apartment","room_type_label":"Apartment","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg","bedrooms":2,"beds":2,"bathrooms":2,"max_guests":4,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618073186043694871.html","blocked_dates_csv":"","is_multi_room_ctx":true}];</script>
+  <script>
+  (function () {
+    var ROOMS = window.ROOMS || [];
+
+    // ── Filter logic ──────────────────────────────────────────────
+    var filterGuests   = document.getElementById('filter-guests');
+    var filterType     = document.getElementById('filter-type');
+    var filterCheckin  = document.getElementById('filter-checkin');
+    var filterCheckout = document.getElementById('filter-checkout');
+    var countEl        = document.getElementById('rooms-count');
+    var emptyEl        = document.getElementById('rooms-empty');
+    var cards          = Array.from(document.querySelectorAll('.v2-room-card'));
+
+    // Set min date on date filters
+    var today = new Date().toISOString().split('T')[0];
+    if (filterCheckin)  filterCheckin.min  = today;
+    if (filterCheckout) filterCheckout.min = today;
+
+    filterCheckin && filterCheckin.addEventListener('change', function () {
+      if (filterCheckout && this.value) {
+        filterCheckout.min = this.value;
+        if (filterCheckout.value && filterCheckout.value <= this.value) {
+          filterCheckout.value = '';
+        }
+      }
+      applyFilters();
+    });
+
+    filterGuests   && filterGuests.addEventListener('change',   applyFilters);
+    filterType     && filterType.addEventListener('change',     applyFilters);
+    filterCheckout && filterCheckout.addEventListener('change', applyFilters);
+
+    function dateRangeOverlapsBlocked(checkin, checkout, blockedCsv) {
+      if (!checkin || !checkout || !blockedCsv) return false;
+      var blocked = blockedCsv.split(',').filter(Boolean);
+      if (!blocked.length) return false;
+      var ci = new Date(checkin  + 'T00:00:00').getTime();
+      var co = new Date(checkout + 'T00:00:00').getTime();
+      for (var i = 0; i < blocked.length; i++) {
+        var d = new Date(blocked[i] + 'T00:00:00').getTime();
+        // A blocked date that falls within the stay (ci <= d < co) blocks availability
+        if (d >= ci && d < co) return true;
+      }
+      return false;
+    }
+
+    function applyFilters() {
+      var guestMin  = parseInt(filterGuests && filterGuests.value)  || 0;
+      var typeVal   = filterType   && filterType.value   || '';
+      var ciVal     = filterCheckin  && filterCheckin.value  || '';
+      var coVal     = filterCheckout && filterCheckout.value || '';
+
+      var visible = 0;
+      cards.forEach(function (card) {
+        var guests  = parseInt(card.dataset.guests)  || 0;
+        var type    = card.dataset.type  || '';
+        var blocked = card.dataset.blocked || '';
+
+        var show = true;
+        if (guestMin && guests < guestMin)        show = false;
+        if (typeVal  && type !== typeVal)          show = false;
+        if (ciVal && coVal && dateRangeOverlapsBlocked(ciVal, coVal, blocked)) show = false;
+
+        if (show) {
+          card.removeAttribute('data-hidden');
+          visible++;
+        } else {
+          card.setAttribute('data-hidden', '1');
+        }
+      });
+
+      if (countEl) {
+        countEl.textContent = visible + ' room' + (visible !== 1 ? 's' : '') + ' available';
+      }
+      if (emptyEl) {
+        emptyEl.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+      // Append date params to all "View room" links so the detail page can pre-fill the booking widget
+      var dateParams = '';
+      if (ciVal && coVal) {
+        dateParams = '?checkin=' + encodeURIComponent(ciVal) + '&checkout=' + encodeURIComponent(coVal);
+      }
+      document.querySelectorAll('.v2-view-link, .v2-room-card__link').forEach(function (a) {
+        var base = a.getAttribute('data-base-href') || a.href.split('?')[0];
+        a.setAttribute('data-base-href', base);
+        a.href = base + dateParams;
+      });
+    }
+
+    // Initial count
+    applyFilters();
+
+    // ── Compare logic ─────────────────────────────────────────────
+    var selected = {}; // id → {id, name, rate, photo, path}
+    var drawer       = document.getElementById('compare-drawer');
+    var slotsEl      = document.getElementById('compare-slots');
+    var openBtn      = document.getElementById('compare-open-btn');
+    var clearBtn     = document.getElementById('compare-clear-btn');
+    var modal        = document.getElementById('compare-modal');
+    var modalClose   = document.getElementById('compare-modal-close');
+    var modalBody    = document.getElementById('compare-modal-body');
+
+    function selectedCount() { return Object.keys(selected).length; }
+
+    function renderDrawer() {
+      var count = selectedCount();
+      if (count === 0) {
+        drawer.classList.remove('is-visible');
+        return;
+      }
+      drawer.classList.add('is-visible');
+
+      slotsEl.innerHTML = '';
+      Object.values(selected).forEach(function (room) {
+        var slot = document.createElement('div');
+        slot.className = 'v2-compare-slot';
+        slot.innerHTML =
+          '<img class="v2-compare-slot__thumb" src="' + room.photo + '" alt="' + esc(room.name) + '">' +
+          '<div class="v2-compare-slot__info">' +
+            '<div class="v2-compare-slot__name">' + esc(room.name) + '</div>' +
+            '<div class="v2-compare-slot__rate">$' + room.rate + '/night</div>' +
+          '</div>' +
+          '<button class="v2-compare-slot__remove" data-id="' + room.id + '" aria-label="Remove">×</button>';
+        slotsEl.appendChild(slot);
+      });
+
+      openBtn.disabled = count < 2;
+    }
+
+    function esc(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Click on "+ Compare" buttons
+    document.getElementById('room-grid').addEventListener('click', function (e) {
+      var btn = e.target.closest('.v2-compare-btn');
+      if (!btn) return;
+      var id = btn.dataset.id;
+      if (selected[id]) {
+        delete selected[id];
+        btn.classList.remove('is-selected');
+        btn.textContent = '+ Compare';
+      } else {
+        if (selectedCount() >= 2) return; // max 2
+        selected[id] = {
+          id:    id,
+          name:  btn.dataset.name,
+          rate:  btn.dataset.rate,
+          photo: btn.dataset.photo,
+          path:  btn.dataset.path,
+        };
+        btn.classList.add('is-selected');
+        btn.textContent = '✓ Added';
+        if (selectedCount() === 2) {
+          populateModal();
+          modal.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      renderDrawer();
+    });
+
+    // Remove from drawer slot
+    slotsEl && slotsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('.v2-compare-slot__remove');
+      if (!btn) return;
+      var id = btn.dataset.id;
+      delete selected[id];
+      // un-highlight the grid button
+      var gridBtn = document.querySelector('.v2-compare-btn[data-id="' + id + '"]');
+      if (gridBtn) { gridBtn.classList.remove('is-selected'); gridBtn.textContent = '+ Compare'; }
+      renderDrawer();
+    });
+
+    // Clear all
+    clearBtn && clearBtn.addEventListener('click', function () {
+      Object.keys(selected).forEach(function (id) {
+        delete selected[id];
+        var btn = document.querySelector('.v2-compare-btn[data-id="' + id + '"]');
+        if (btn) { btn.classList.remove('is-selected'); btn.textContent = '+ Compare'; }
+      });
+      renderDrawer();
+    });
+
+    // Open modal
+    openBtn && openBtn.addEventListener('click', function () {
+      populateModal();
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Close modal
+    modalClose && modalClose.addEventListener('click', closeModal);
+    modal && modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      // Clear comparison selection
+      Object.keys(selected).forEach(function(id) {
+        delete selected[id];
+        var btn = document.querySelector('.v2-compare-btn[data-id="' + id + '"]');
+        if (btn) { btn.classList.remove('is-selected'); btn.textContent = '+ Compare'; }
+      });
+      renderDrawer();
+    }
+
+    function populateModal() {
+      var ids = Object.keys(selected);
+      var r1 = ROOMS.find(function(r){ return String(r.id) === ids[0]; }) || {};
+      var r2 = ROOMS.find(function(r){ return String(r.id) === ids[1]; }) || {};
+
+      var rows = [
+        ['Price / night', fmtRate(r1), fmtRate(r2)],
+        ['Bedrooms',      r1.bedrooms  || '—', r2.bedrooms  || '—'],
+        ['Beds',          r1.beds      || '—', r2.beds      || '—'],
+        ['Bathrooms',     r1.bathrooms || '—', r2.bathrooms || '—'],
+        ['Max guests',    r1.max_guests || '—', r2.max_guests || '—'],
+        ['Highlights',    fmtAmenities(r1.standout_amenities), fmtAmenities(r2.standout_amenities)],
+      ];
+
+      var thead = '<tr><th>Feature</th><th>' + esc(r1.room_name || '—') + '</th><th>' + esc(r2.room_name || '—') + '</th></tr>';
+      var tbody = rows.map(function(row) {
+        return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+      }).join('');
+
+      var bookRow = '<tr>' +
+        '<td></td>' +
+        '<td><a class="btn btn--primary btn--sm" href="' + esc(r1.detail_path || '#') + '">Book this room →</a></td>' +
+        '<td><a class="btn btn--primary btn--sm" href="' + esc(r2.detail_path || '#') + '">Book this room →</a></td>' +
+        '</tr>';
+
+      modalBody.innerHTML = '<table class="v2-compare-table"><thead>' + thead + '</thead><tbody>' + tbody + bookRow + '</tbody></table>';
+    }
+
+    function fmtRate(r) {
+      if (!r || !r.nightly_rate) return '—';
+      return (r.currency_symbol || '$') + r.nightly_rate + '/night';
+    }
+    function fmtAmenities(arr) {
+      if (!arr || !arr.length) return '—';
+      return arr.slice(0, 4).map(function(a){ return esc(a); }).join(', ');
+    }
+
+    // ── Auto-select from URL params ───────────────────────────────
+    var params = new URLSearchParams(location.search);
+    var compareParam = params.get('compare');
+    if (compareParam) {
+      compareParam.split(',').slice(0, 2).forEach(function (id) {
+        var btn = document.querySelector('.v2-compare-btn[data-id="' + id.trim() + '"]');
+        if (btn && selectedCount() < 2) {
+          selected[id.trim()] = {
+            id:    id.trim(),
+            name:  btn.dataset.name,
+            rate:  btn.dataset.rate,
+            photo: btn.dataset.photo,
+            path:  btn.dataset.path,
+          };
+          btn.classList.add('is-selected');
+          btn.textContent = '✓ Added';
+        }
+      });
+      renderDrawer();
+    }
+
+  })();
+  </script>
 
 </body>
 </html>
