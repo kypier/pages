@@ -556,6 +556,25 @@ p  { color: var(--text-muted); line-height: 1.7; }
 /* ── v2 detail additions ──────────────────────────────────────── */
 .v2-standout-strip { display:flex; flex-wrap:wrap; gap:.5rem; padding:1rem 0 1.5rem; }
 .v2-standout-strip span { background:var(--primary); color:#fff; font-size:.8rem; font-weight:500; padding:5px 14px; border-radius:var(--radius-pill); }
+/* compact amenity grid */
+.amenity-list { display:grid; grid-template-columns:repeat(3,1fr); gap:.35rem .75rem; }
+.amenity-item { font-size:.875rem; padding:.2rem 0; display:flex; align-items:flex-start; gap:.4rem; line-height:1.4; }
+.amenity-item::before { content:'✓'; color:var(--primary); font-size:.7rem; flex-shrink:0; margin-top:.2rem; }
+
+/* policies section */
+.policies-checkinout { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1.25rem; }
+.policies-checkinout__cell { background:var(--surface); padding:.875rem 1rem; }
+.policies-checkinout__label { font-size:.7rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.3rem; }
+.policies-checkinout__value { font-size:.9375rem; font-weight:600; }
+.policies-rules { padding-left:0; list-style:none; margin:.5rem 0 .25rem; }
+.policies-rules li { font-size:.875rem; padding:.25rem 0; border-bottom:1px solid var(--border); display:flex; gap:.5rem; }
+.policies-rules li::before { content:'•'; color:var(--primary); flex-shrink:0; }
+.policies-rules li:last-child { border-bottom:none; }
+.policy-block { margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--border); }
+.policy-block__label { font-size:.7rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.5rem; }
+.policy-block__text { font-size:.875rem; line-height:1.65; color:var(--text); }
+.special-note-block { background:rgba(232,166,32,.08); border-left:3px solid #E8A620; border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:.75rem 1rem; font-size:.875rem; line-height:1.65; }
+
 .v2-other-rooms-section { margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); }
 .v2-other-rooms-section h3 { font-family:var(--font-serif); margin-bottom:1.25rem; }
 .v2-other-rooms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
@@ -746,14 +765,20 @@ p  { color: var(--text-muted); line-height: 1.7; }
 
         <!-- Reviews -->
 
-        <!-- House rules -->
-        <div>
-          <h2 class="mb-2">House rules</h2>
-          <ul class="rules-list">
-            <li>Up to 2 overnight guests</li>
-          </ul>
-          
-          
+        <!-- Policies & Notes -->
+        <div id="policies">
+          <h2 class="mb-2">Policies &amp; notes</h2>
+
+
+          <div class="policy-block" style="border-top:none;margin-top:0;padding-top:0;">
+            <div class="policy-block__label">House rules</div>
+            <ul class="policies-rules">
+              <li>Up to 2 overnight guests</li>
+            </ul>
+          </div>
+
+
+
         </div>
         <hr class="divider">
 

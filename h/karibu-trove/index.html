@@ -936,7 +936,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
   </footer>
 
   <!-- ── Room data + JS ────────────────────────────────────────── -->
-  <script>window.ROOMS = [{"id":"1618301158226895857","room_name":"Nairobi Studio","room_type_label":"Studio","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg","bedrooms":1,"beds":1,"bathrooms":1,"max_guests":2,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618301158226895857.html","blocked_dates_csv":"","is_multi_room_ctx":true},{"id":"1618073186043694871","room_name":"2-Bedroom Apartment","room_type_label":"Apartment","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg","bedrooms":2,"beds":2,"bathrooms":2,"max_guests":4,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618073186043694871.html","blocked_dates_csv":"","is_multi_room_ctx":true}];</script>
+  <script>window.ROOMS = [{"id":"1618301158226895857","room_name":"Nairobi Studio","room_type_label":"Studio","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/427f273b-7b13-4f3d-831d-88ce66fde22a.jpeg","bedrooms":1,"beds":1,"bathrooms":1,"max_guests":2,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"bed_size_text":"1 bed","detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618301158226895857.html","blocked_dates_csv":"","is_multi_room_ctx":true},{"id":"1618073186043694871","room_name":"2-Bedroom Apartment","room_type_label":"Apartment","photo_url":"https://a0.muscache.com/im/pictures/hosting/Hosting-1618073186043694871/original/408565ff-353e-4f43-a2b3-53864c95cf8c.jpeg","bedrooms":2,"beds":2,"bathrooms":2,"max_guests":4,"nightly_rate":65,"currency_symbol":"$","standout_amenities":["Kitchen","In-unit laundry"],"bed_size_text":"2 beds","detail_path":"https://directbooking.kypier.com/h/karibu-trove/listing/1618073186043694871.html","blocked_dates_csv":"","is_multi_room_ctx":true}];</script>
   <script>
   (function () {
     var ROOMS = window.ROOMS || [];
@@ -1158,7 +1158,7 @@ p  { color: var(--text-muted); line-height: 1.7; }
       var rows = [
         ['Price / night', fmtRate(r1), fmtRate(r2)],
         ['Bedrooms',      r1.bedrooms  || '—', r2.bedrooms  || '—'],
-        ['Beds',          r1.beds      || '—', r2.beds      || '—'],
+        ['Bed size',      r1.bed_size_text || '—', r2.bed_size_text || '—'],
         ['Bathrooms',     r1.bathrooms || '—', r2.bathrooms || '—'],
         ['Max guests',    r1.max_guests || '—', r2.max_guests || '—'],
         ['Highlights',    fmtAmenities(r1.standout_amenities), fmtAmenities(r2.standout_amenities)],

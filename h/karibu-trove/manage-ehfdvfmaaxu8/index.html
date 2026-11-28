@@ -732,10 +732,29 @@
         </div>
 
         <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div>
+            <label>Bed size <span class="hint">shown in room comparison (e.g. 1 King · 1 Twin)</span></label>
+            <input type="text" class="listing-bed-size" data-id="1618301158226895857"
+              value="" placeholder="e.g. 1 King bed" maxlength="80" />
+          </div>
+        </div>
+
+        <div class="card-section">
           <div class="card-section-label">About this listing</div>
           <textarea class="listing-about" data-id="1618301158226895857" maxlength="600"
             placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
           <div class="char-count" id="about-count-1618301158226895857">0/600</div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Policies &amp; notes</div>
+          <label>Cancellation policy</label>
+          <textarea class="listing-cancellation" data-id="1618301158226895857" maxlength="400"
+            placeholder="e.g. 100% refund if cancelled 7+ days before check-in, no refund after."></textarea>
+          <label style="margin-top:12px;">Special note <span class="hint">shown to guests on listing page</span></label>
+          <textarea class="listing-special-note" data-id="1618301158226895857" maxlength="300"
+            placeholder="Anything guests should know that isn't covered above…"></textarea>
         </div>
 
         <!-- ── Calendar sync ── -->
@@ -795,10 +814,29 @@
         </div>
 
         <div class="card-section">
+          <div class="card-section-label">Pricing</div>
+          <div>
+            <label>Bed size <span class="hint">shown in room comparison (e.g. 1 King · 1 Twin)</span></label>
+            <input type="text" class="listing-bed-size" data-id="1618073186043694871"
+              value="" placeholder="e.g. 1 King bed" maxlength="80" />
+          </div>
+        </div>
+
+        <div class="card-section">
           <div class="card-section-label">About this listing</div>
           <textarea class="listing-about" data-id="1618073186043694871" maxlength="600"
             placeholder="Describe this listing for your guests… (if left blank, your Airbnb description is used)"></textarea>
           <div class="char-count" id="about-count-1618073186043694871">0/600</div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-label">Policies &amp; notes</div>
+          <label>Cancellation policy</label>
+          <textarea class="listing-cancellation" data-id="1618073186043694871" maxlength="400"
+            placeholder="e.g. 100% refund if cancelled 7+ days before check-in, no refund after."></textarea>
+          <label style="margin-top:12px;">Special note <span class="hint">shown to guests on listing page</span></label>
+          <textarea class="listing-special-note" data-id="1618073186043694871" maxlength="300"
+            placeholder="Anything guests should know that isn't covered above…"></textarea>
         </div>
 
         <!-- ── Calendar sync ── -->
@@ -1323,6 +1361,21 @@
         var id = ta.dataset.id;
         if (!overrides[id]) overrides[id] = {};
         overrides[id].about = ta.value;
+      });
+      document.querySelectorAll('.listing-bed-size').forEach(function(input) {
+        var id = input.dataset.id;
+        if (!overrides[id]) overrides[id] = {};
+        overrides[id].bed_size = input.value.trim() || null;
+      });
+      document.querySelectorAll('.listing-cancellation').forEach(function(ta) {
+        var id = ta.dataset.id;
+        if (!overrides[id]) overrides[id] = {};
+        overrides[id].cancellation_policy = ta.value.trim() || null;
+      });
+      document.querySelectorAll('.listing-special-note').forEach(function(ta) {
+        var id = ta.dataset.id;
+        if (!overrides[id]) overrides[id] = {};
+        overrides[id].special_note = ta.value.trim() || null;
       });
       Object.keys(blockedMap).forEach(function(id) {
         if (!overrides[id]) overrides[id] = {};
@@ -2005,10 +2058,13 @@
       var id = sec.dataset.id;
       if (!id) return;
       initialOverrides[id] = {
-        nightly_rate: (sec.querySelector('.listing-rate') || {}).value || '',
-        about:        (sec.querySelector('.listing-about') || {}).value || '',
-        currency:     (sec.querySelector('.listing-currency') || {}).value || 'usd',
-        blocked:      JSON.stringify((blockedMap[id] || []).slice().sort()),
+        nightly_rate:        (sec.querySelector('.listing-rate') || {}).value || '',
+        about:               (sec.querySelector('.listing-about') || {}).value || '',
+        currency:            (sec.querySelector('.listing-currency') || {}).value || 'usd',
+        blocked:             JSON.stringify((blockedMap[id] || []).slice().sort()),
+        bed_size:            (sec.querySelector('.listing-bed-size') || {}).value || '',
+        cancellation_policy: (sec.querySelector('.listing-cancellation') || {}).value || '',
+        special_note:        (sec.querySelector('.listing-special-note') || {}).value || '',
       };
     });
 
@@ -2048,7 +2104,11 @@
         var abt  = (sec.querySelector('.listing-about') || {}).value || '';
         var cur  = (sec.querySelector('.listing-currency') || {}).value || 'usd';
         var blk  = JSON.stringify((blockedMap[id] || []).slice().sort());
-        if (rate !== init.nightly_rate || abt !== init.about || cur !== init.currency || blk !== init.blocked) {
+        var bs   = (sec.querySelector('.listing-bed-size') || {}).value || '';
+        var canc = (sec.querySelector('.listing-cancellation') || {}).value || '';
+        var sn   = (sec.querySelector('.listing-special-note') || {}).value || '';
+        if (rate !== init.nightly_rate || abt !== init.about || cur !== init.currency || blk !== init.blocked ||
+            bs !== init.bed_size || canc !== init.cancellation_policy || sn !== init.special_note) {
           dirty = true;
         }
       });
@@ -2059,7 +2119,7 @@
     var aboutHostEl = document.getElementById('about-host');
     if (aboutHostEl) aboutHostEl.addEventListener('input', updateSaveBtn);
 
-    document.querySelectorAll('.listing-section .listing-rate, .listing-section .listing-about, .listing-section .listing-currency').forEach(function(el) {
+    document.querySelectorAll('.listing-section .listing-rate, .listing-section .listing-about, .listing-section .listing-currency, .listing-section .listing-bed-size, .listing-section .listing-cancellation, .listing-section .listing-special-note').forEach(function(el) {
       el.addEventListener('change', updateSaveBtn);
       el.addEventListener('input', updateSaveBtn);
     });
