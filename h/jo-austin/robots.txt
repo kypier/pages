@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stayeastaustin.com/sitemap.xml
+
+# Content signals
+search: yes
+ai-input: yes
+ai-train: no

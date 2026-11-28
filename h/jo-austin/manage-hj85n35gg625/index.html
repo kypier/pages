@@ -319,6 +319,37 @@
     }
     .toast.show { opacity: 1; }
 
+    /* ── Build status banner ── */
+    .build-banner {
+      display: none;
+      position: sticky;
+      top: 60px;
+      z-index: 200;
+      background: #1A3A5C;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: .85rem;
+      font-weight: 500;
+      text-align: center;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    .build-banner.is-visible { display: flex; }
+    .build-banner.is-error   { background: #c0392b; }
+    .build-banner.is-done    { background: #1B5E20; }
+    .build-spinner {
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    .build-banner.is-error .build-spinner,
+    .build-banner.is-done  .build-spinner { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     /* ── Error banner ── */
     .error-banner {
       background: #FFF0F0;
@@ -616,6 +647,12 @@
   <!-- ── Toast notification ── -->
   <div class="toast" id="toast">✓ Saved — your site will update in ~2 minutes</div>
 
+  <!-- ── Build status banner ── -->
+  <div class="build-banner" id="build-banner">
+    <div class="build-spinner" id="build-spinner"></div>
+    <span id="build-banner-msg">Site updating — changes will be live in ~2 minutes</span>
+  </div>
+
   <!-- ── Top nav ── -->
   <nav class="nav">
     <img src="../assets/kypier-wordmark.jpg" alt="Kypier" style="height:32px;width:auto;object-fit:contain;">
@@ -719,7 +756,7 @@
           <div class="ical-feeds-list">
           <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f">
             <span class="ical-feed-label">Calendar</span>
-            <span class="ical-feed-status">✓ Synced just now</span>
+            <span class="ical-feed-status">✓ Synced 1h ago</span>
             
             <button class="btn-ghost ical-remove-btn" data-listing-id="1280710848136631636" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280710848136631636.ics?t&#x3D;398ca224dcf54242b4de4d14b89fee8f" style="font-size:.75rem;">Remove</button>
           </div>
@@ -854,7 +891,7 @@
           <div class="ical-feeds-list">
           <div class="ical-feed-row" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751">
             <span class="ical-feed-label">Calendar</span>
-            <span class="ical-feed-status">✓ Synced just now</span>
+            <span class="ical-feed-status">✓ Synced 1h ago</span>
             
             <button class="btn-ghost ical-remove-btn" data-listing-id="1280718313866356892" data-url="https:&#x2F;&#x2F;www.airbnb.com&#x2F;calendar&#x2F;ical&#x2F;1280718313866356892.ics?t&#x3D;075a5a432ead4952832fbd7cb3c96751" style="font-size:.75rem;">Remove</button>
           </div>
@@ -1736,6 +1773,99 @@ Add music via Instagram or CapCut before posting.</textarea>
       setTimeout(function() { t.classList.remove('show'); }, 4000);
     }
 
+    // ── Build status poller ────────────────────────────────────────
+    var BuildPoller = (function () {
+      var STATUS_URL = 'https://kypier.com/start/status?slug=' + encodeURIComponent(SLUG);
+      var banner     = document.getElementById('build-banner');
+      var bannerMsg  = document.getElementById('build-banner-msg');
+      var pollTimer  = null;
+      var building   = false;
+
+      function allSaveBtns() {
+        return Array.from(document.querySelectorAll('#save-btn, #save-branding-btn'));
+      }
+
+      function lockSaveBtns() {
+        allSaveBtns().forEach(function (b) { b.disabled = true; });
+      }
+
+      function unlockSaveBtns() {
+        // save-btn re-enables only when dirty; save-branding-btn always re-enables
+        var saveBrandingBtn = document.getElementById('save-branding-btn');
+        if (saveBrandingBtn) { saveBrandingBtn.disabled = false; saveBrandingBtn.textContent = 'Save branding'; }
+        // save-btn re-enables only when dirty — trigger a re-check
+        if (typeof updateSaveBtn === 'function') updateSaveBtn();
+      }
+
+      function setBanner(state, msg) {
+        if (!banner) return;
+        banner.classList.remove('is-visible', 'is-error', 'is-done');
+        if (state === 'building') {
+          bannerMsg.textContent = msg || 'Site updating — changes will be live in ~2 minutes';
+          banner.classList.add('is-visible');
+        } else if (state === 'done') {
+          bannerMsg.textContent = msg || '✓ Site updated — changes are now live';
+          banner.classList.add('is-visible', 'is-done');
+          setTimeout(function () { banner.classList.remove('is-visible', 'is-done'); }, 6000);
+        } else if (state === 'error') {
+          bannerMsg.textContent = msg || 'Build failed — check your settings and save again';
+          banner.classList.add('is-visible', 'is-error');
+        } else {
+          // hide
+        }
+      }
+
+      function stopPolling() {
+        if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+        building = false;
+      }
+
+      function poll() {
+        fetch(STATUS_URL)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var wf = data.workflow || {};
+            if (wf.failed) {
+              stopPolling();
+              unlockSaveBtns();
+              setBanner('error');
+            } else if (wf.status === 'completed' && !wf.failed) {
+              stopPolling();
+              unlockSaveBtns();
+              setBanner('done');
+            }
+            // still queued or in_progress — keep polling
+          })
+          .catch(function () { /* network error — keep polling */ });
+      }
+
+      function start() {
+        if (building) return; // already polling
+        building = true;
+        lockSaveBtns();
+        setBanner('building');
+        pollTimer = setInterval(poll, 6000);
+        setTimeout(poll, 2000); // first check soon
+      }
+
+      function checkOnLoad() {
+        fetch(STATUS_URL)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var wf = data.workflow || {};
+            if (wf.status === 'queued' || wf.status === 'in_progress') {
+              start();
+            }
+          })
+          .catch(function () { /* silent */ });
+      }
+
+      return { start: start, checkOnLoad: checkOnLoad };
+    })();
+
+    // Check on load whether a build is already running
+    BuildPoller.checkOnLoad();
+
     // ── Content API ───────────────────────────────────────────────
     var CONTENT_API = 'https://kypier.com/content';
 
@@ -2456,11 +2586,13 @@ Add music via Instagram or CapCut before posting.</textarea>
         // Data-only (listing-patch) or full rebuild?
         var isDataOnly = json.update_type === 'listing-patch';
 
-        showToast('✓ Saved');
-        if (note) {
-          note.textContent = isDataOnly
-            ? ''
-            : "Your site is being updated — you'll receive an email when it's live.";
+        if (isDataOnly) {
+          showToast('✓ Saved');
+          if (note) note.textContent = '';
+        } else {
+          showToast('✓ Saved — site updating…');
+          if (note) note.textContent = '';
+          BuildPoller.start();
         }
 
         // Reset dirty state — update initials to current values
@@ -2528,15 +2660,16 @@ Add music via Instagram or CapCut before posting.</textarea>
             errBan.textContent = json.error || 'Something went wrong.';
             errBan.style.display = 'block';
           } else {
-            showToast('✓ Branding saved');
-            if (status) status.textContent = "Your site is being updated.";
+            showToast('✓ Saved — site updating…');
+            if (status) status.textContent = '';
+            BuildPoller.start();
           }
         } catch(e) {
           errBan.textContent   = 'Could not connect. Please try again.';
           errBan.style.display = 'block';
+          btn.disabled    = false;
+          btn.textContent = 'Save branding';
         }
-        btn.disabled    = false;
-        btn.textContent = 'Save branding';
       });
     }
 
